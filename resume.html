@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Student Portfolio</title>
-    
-    <!-- Google Fonts: Newsreader, Libre Caslon Text, Caveat, & Libre Barcode 128 -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Barcode+128&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -41,7 +39,7 @@
     </script>
 
     <style>
-        /* Subtle Ledger/Grid & Paper Texture Background */
+        
         .bg-paper {
             background-color: #f4f4f0;
             background-image: 
@@ -52,18 +50,15 @@
             background-position: center top, center top, left top;
         }
 
-        /* Kraft Paper Texture */
         .bg-kraft-paper {
             background-color: #c8b6a6;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
         }
 
-        /* Writing Mode Utility */
         .writing-vertical-rl {
             writing-mode: vertical-rl;
         }
 
-        /* Scroll Reveal Utility Classes */
         .reveal-up {
             opacity: 0;
             transform: translateY(2.5rem);
@@ -73,8 +68,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Custom Selection Color */
+
         ::selection {
             background-color: #d9b8c4;
             color: #000;
@@ -83,29 +77,27 @@
 </head>
 <body class="bg-desk text-ink font-serif antialiased selection:bg-mauve selection:text-ink p-2 md:p-6 lg:p-12 min-h-screen">
 
-    <!-- The "Sheet of Paper" -->
     <div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[0.25rem_0.5rem_1.5rem_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[90vh]">
 
-        <!-- Left Margin Column -->
         <aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
-            <!-- Registration Mark -->
+            
             <div class="h-16 border-b-2 border-ink flex items-center justify-center">
                 <div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
                     <div class="absolute inset-0 flex items-center justify-center font-sans text-xs">+</div>
                 </div>
             </div>
-            <!-- Vertical Text Block -->
+            
             <div class="flex-1 border-b-2 border-ink relative bg-canvas/40">
                 <div class="absolute inset-0 flex items-center justify-center writing-vertical-rl rotate-180 font-sans text-xs uppercase font-bold tracking-widest text-ink/80">
                     Student Portfolio • Sophomore
                 </div>
             </div>
-            <!-- Signature Blocks -->
+            
             <div class="h-40 border-b-2 border-ink flex flex-col divide-y-2 divide-ink font-sans text-[0.625rem] uppercase font-bold">
                 <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-sand/30">Dr. By</div>
                 <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-canvas/40">Ch. By</div>
             </div>
-            <!-- Bottom Rating -->
+            
             <div class="h-48 relative bg-canvas/40">
                  <div class="absolute inset-0 flex items-center justify-center rotate-180 writing-vertical-rl font-bold tracking-[0.3em] text-lg font-sans">
                     RATING
@@ -113,28 +105,26 @@
             </div>
         </aside>
 
-        <!-- Main Document Area -->
         <main class="flex-1 relative flex flex-col overflow-x-hidden">
-            
-            <!-- Top Header Form -->
+
             <header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row">
-                <!-- Left Section -->
+                
                 <div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
                     <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest flex justify-between">
                         <span>Classification / Index</span>
-                        <span class="text-ink/40">SYS. REF: 8608</span>
+                        <span class="text-ink/40">SYS. REF: 8607</span>
                     </div>
-                    <!-- Navigation Links -->
+                    
                     <nav class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2">
                         <a href="index.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Home</a>
                         <a href="resume.html" class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default">Resume</a>
                         <a href="projects.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Projects</a>
                         <a href="interests.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Interests</a>
                     </nav>
-                    <!-- System Barcode using Font -->
+                    
                     <div class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none">RES26</div>
                 </div>
-                <!-- Right Section (Date) -->
+                
                 <div class="p-4 flex flex-col justify-center bg-sand/20">
                     <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
                     <div id="current-date" class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas">
@@ -143,22 +133,16 @@
                 </div>
             </header>
 
-            <!-- Resume Content Section -->
             <section class="flex-1 relative p-6 md:p-12 z-10 flex flex-col">
-                
-                <!-- Huge Faded Background Text -->
+
                 <div class="absolute top-12 right-6 text-[10rem] md:text-[16rem] leading-none font-bold tracking-tighter text-ink/5 select-none font-sans pointer-events-none">
                     CV
                 </div>
                 
                 <div class="relative z-10 max-w-5xl w-full mx-auto flex flex-col gap-10 reveal-up">
-                    
-                    <!-- Top: Context & Download Actions (Stacked for full width, flex-wrap added for zoom safety) -->
+
                     <div class="w-full flex flex-wrap justify-between items-start md:items-end gap-8">
                         <div class="md:pb-2 flex-1 min-w-[16rem] max-w-full">
-                            <div class="font-sans text-xs font-bold uppercase border-b-2 border-ink inline-block pb-1 mb-6">
-                                Official Record
-                            </div>
                             
                             <h1 class="text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter break-words">
                                 Curriculum<br>
@@ -167,7 +151,7 @@
                         </div>
 
                         <div class="bg-receipt p-6 w-full sm:w-auto sm:min-w-[21.25rem] max-w-full flex-shrink-0 border-2 border-ink shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform rotate-1 transition-all duration-500 hover:rotate-0 hover:-translate-y-1 hover:shadow-[0.375rem_0.75rem_1.25rem_rgba(0,0,0,0.2)]">
-                            <!-- Faux Tape -->
+                            
                             <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-white/50 border border-black/10 backdrop-blur-md rotate-2 shadow-sm"></div>
                             
                             <h3 class="font-sans text-xs uppercase font-bold mb-4 border-b border-ink/30 pb-2 flex justify-between items-end">
@@ -190,18 +174,14 @@
                             <a href="henry-resume.pdf" download class="block w-full bg-ink text-canvas font-sans text-sm font-bold uppercase text-center py-3 border-2 border-ink hover:bg-stamp hover:border-stamp transition-colors relative z-10 shadow-hard-hover">
                                 Download PDF Document
                             </a>
-                            
-                           
+
                         </div>
                     </div>
 
-                    <!-- Bottom: The Digital Document Viewer (Now 100% Width) -->
                     <div class="w-full relative group reveal-up" style="transition-delay: 0.1s;">
-                        
-                        <!-- Faux "Clipboard" Background -->
+
                         <div class="bg-kraft-paper border-2 border-ink p-4 md:p-8 shadow-[0.5rem_1rem_2rem_rgba(0,0,0,0.25)] relative transform transition-transform duration-500 group-hover:-rotate-1">
-                            
-                            <!-- Faux Binder Clip / Header -->
+
                             <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-8 bg-desk border-2 border-ink shadow-[0.125rem_0.25rem_0_rgba(0,0,0,1)] z-30 flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1">
                                 <div class="w-20 h-2 border-2 border-ink rounded-full"></div>
                             </div>
@@ -211,8 +191,6 @@
                                 <span>[ CONFIDENTIAL ]</span>
                             </div>
 
-                            <!-- IFRAME CONTAINER (Full Width, Scaled Height) -->
-                            <!-- To show your resume, simply ensure your PDF is named "henry-resume.pdf" and is in the same folder as this file. -->
                             <div class="relative w-full min-h-[37.5rem] md:min-h-[50rem] aspect-[8.5/11] border-2 border-ink bg-white overflow-hidden group-hover:shadow-inner transition-shadow duration-500">
                                 <iframe 
                                     src="henry-resume.pdf" 
@@ -220,24 +198,20 @@
                                     class="w-full h-full border-none"
                                     title="Embedded Resume PDF"
                                 >
-                                    <!-- Fallback message if browser doesn't support iframe PDFs -->
+                                    
                                     <div class="flex flex-col items-center justify-center h-full p-8 text-center font-sans">
                                         <p class="mb-4 font-bold uppercase text-stamp">Preview Unavailable</p>
                                         <p class="text-xs text-ink/60 mb-6">Your browser does not support embedded PDFs within this frame.</p>
                                         <a href="henry-resume.pdf" class="border border-ink px-4 py-2 hover:bg-ink hover:text-canvas transition-colors text-xs font-bold uppercase">Download Instead</a>
                                     </div>
                                 </iframe>
-                                
-                          
-                            
-                           
+
                         </div>
                     </div>
 
                 </div>
             </section>
 
-            <!-- Footer (Sign off) -->
             <footer id="contact" class="border-t-2 border-ink p-6 md:p-12 relative z-10 bg-lavender/20">
                 <div class="reveal-up flex flex-wrap justify-between items-start md:items-end gap-8">
                     <div class="flex-1 min-w-[16rem] max-w-full">
@@ -250,8 +224,7 @@
                         <p class="font-sans text-xs max-w-sm mb-6 font-bold leading-relaxed">
                             Open to internships, coffee chats, and advisory opportunities where technical accounting meets strategic growth.
                         </p>
-                        
-                        <!-- Action Buttons -->
+
                         <div class="flex flex-wrap gap-4">
                             <a href="mailto:htv346@eid.utexas.edu" class="inline-flex items-center gap-2 bg-ink text-canvas font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-canvas hover:text-ink transition-colors shadow-hard-hover">
                                 <span class="w-2 h-2 rounded-full bg-canvas border border-ink"></span> htv346@utexas.edu
@@ -261,15 +234,14 @@
                             </a>
                         </div>
                     </div>
-                    
-                    <!-- Formal "Stamp" Area -->
+
                     <div class="w-full sm:w-auto border-2 border-ink p-4 bg-canvas/80 text-center relative mt-8 md:mt-0 flex-shrink-0">
                         <div class="font-sans text-[0.625rem] uppercase font-bold mb-2 tracking-widest">Official Verification</div>
                         <div class="w-32 h-32 mx-auto border-4 border-stamp rounded-full flex flex-col items-center justify-center rotate-[-15deg] opacity-80 text-stamp mix-blend-multiply">
                             <span class="font-serif italic text-2xl leading-none">Valid</span>
                             <span class="font-sans text-[0.5rem] uppercase mt-1">2026-2029</span>
                         </div>
-                        <!-- Signature overlapping stamp -->
+                        
                         <div class="absolute inset-0 flex items-center justify-center font-hand text-5xl text-ink z-10 pointer-events-none rotate-[-5deg] pb-4">
                             Approved
                         </div>
@@ -279,11 +251,9 @@
         </main>
     </div>
 
-    <!-- Scripts for Interaction -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // Auto-update Date
             const dateElement = document.getElementById('current-date');
             if (dateElement) {
                 const today = new Date();
