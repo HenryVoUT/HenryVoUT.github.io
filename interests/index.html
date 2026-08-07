@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interests | Student Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Barcode+128&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Newsreader', 'serif'],
+                        sans: ['"Libre Caslon Text"', 'serif'],
+                        hand: ['Caveat', 'cursive'],
+                        barcode: ['"Libre Barcode 128"', 'cursive'],
+                    },
+                    colors: {
+                        desk: '#e0dfd5',
+                        canvas: '#f4f4f0',
+                        kraft: '#c8b6a6',
+                        receipt: '#fcfbf8',
+                        stamp: '#b33939',
+                        sage: '#b5c1ad',
+                        mauve: '#d9b8c4',
+                        lavender: '#d2c4d2',
+                        sand: '#e3d5b8',
+                        slate: '#b4c4d4',
+                        ink: '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        
+        .bg-paper {
+            background-color: #f4f4f0;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
+            background-size: 3rem 3rem, 3rem 3rem, 16rem 16rem;
+            background-position: center top, center top, left top;
+        }
+
+        .bg-kraft-paper {
+            background-color: #c8b6a6;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+        }
+
+        .writing-vertical-rl {
+            writing-mode: vertical-rl;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(2.5rem);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        ::selection {
+            background-color: #d9b8c4;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="bg-desk text-ink font-serif antialiased selection:bg-mauve selection:text-ink p-2 md:p-6 lg:p-12 min-h-screen">
+
+    <div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[0.25rem_0.5rem_1.5rem_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[90vh]">
+
+        <aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
+            
+            <div class="h-16 border-b-2 border-ink flex items-center justify-center">
+                <div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
+                    <div class="absolute inset-0 flex items-center justify-center font-sans text-xs">+</div>
+                </div>
+            </div>
+            
+            <div class="flex-1 border-b-2 border-ink relative bg-canvas/40">
+                <div class="absolute inset-0 flex items-center justify-center writing-vertical-rl rotate-180 font-sans text-xs uppercase font-bold tracking-widest text-ink/80">
+                    Student Portfolio • Freshman
+                </div>
+            </div>
+            
+            <div class="h-40 border-b-2 border-ink flex flex-col divide-y-2 divide-ink font-sans text-[0.625rem] uppercase font-bold">
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-sand/30">Dr. By</div>
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-canvas/40">Ch. By</div>
+            </div>
+            
+            <div class="h-48 relative bg-canvas/40">
+                 <div class="absolute inset-0 flex items-center justify-center rotate-180 writing-vertical-rl font-bold tracking-[0.3em] text-lg font-sans">
+                    RATING
+                 </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 relative flex flex-col overflow-x-hidden">
+
+            <header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row">
+                
+                <div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
+                    <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest flex justify-between">
+                        <span>Classification / Index</span>
+                        <span class="text-ink/40">SYS. REF: 8609</span>
+                    </div>
+                    
+                    <nav class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2">
+                        <a href="/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Home</a>
+                        <a href="/resume/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Resume</a>
+                        <a href="/projects/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Projects</a>
+                        <a href="/interests/" class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default">Interests</a>
+                    </nav>
+                    
+                    <div class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none">INT07</div>
+                </div>
+                
+                <div class="p-4 flex flex-col justify-center bg-sand/20">
+                    <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
+                    <div id="current-date" class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas">
+                        03/21/2026
+                    </div>
+                </div>
+            </header>
+
+            <section class="relative pt-12 pb-4 px-6 md:px-12 z-10 overflow-hidden border-b-2 border-ink/10">
+
+                <div class="absolute top-12 right-6 text-[8rem] md:text-[16rem] leading-none font-bold tracking-tighter text-ink/5 select-none font-sans pointer-events-none">
+                    HOBBY
+                </div>
+               
+                <div class="relative z-10 mt-6 mb-12 reveal-up">
+                   
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-4">
+                        Off-the-Clock<br>
+                        <span class="italic text-sage relative z-10">Pursuits.</span>
+                    </h1>
+                    <p class="font-sans max-w-xl text-sm leading-relaxed text-ink/80 mt-4">
+                        A collection of hobbies, creative outlets, and side projects that keep me busy when I'm not looking at spreadsheets.
+                    </p>
+                </div>
+            </section>
+
+            <section class="flex-1 relative p-6 md:p-12 z-10">
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+
+                    <div class="bg-kraft-paper border-2 border-ink p-6 md:p-8 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform rotate-1 transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up flex flex-col">
+                        
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-white/40 border border-black/10 backdrop-blur-md rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-1"></div>
+                       
+                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
+                            <span>Literary Log</span>
+                            <span>VOL 01</span>
+                        </div>
+                       
+                        <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-4">
+                            Memoirs <span class="italic text-ink/60">&</span> Books
+                        </h2>
+                        <p class="font-sans text-sm mb-6 text-ink/80">
+                            I'm a big fan of humorous memoirs.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="bg-canvas/50 border border-ink/20 p-4">
+                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-2">Currently Reading</h4>
+                                <ul class="font-sans text-sm font-bold list-disc list-inside marker:text-stamp ml-1 space-y-1">
+                                    <li>A Heartbreaking Work of Staggering Genius <span class="font-normal text-xs text-ink/60">— Dave Eggers</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-canvas/50 border border-ink/20 p-4">
+                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-2">All-Time Favorites</h4>
+                                <ul class="font-sans text-sm font-bold list-disc list-inside marker:text-sage ml-1 space-y-1">
+                                    <li>Me Talk Pretty One Day <span class="font-normal text-xs text-ink/60">— David Sedaris</span></li>
+                                    <li>When You Are Engulfed in Flames <span class="font-normal text-xs text-ink/60">— David Sedaris</span></li>
+                                    <li>The Bee Sting <span class="font-normal text-xs text-ink/60">— Paul Murray</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-receipt border-2 border-ink p-6 md:p-8 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform -rotate-2 transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up flex flex-col" style="transition-delay: 0.1s;">
+                        
+                        <div class="absolute top-4 left-4 w-6 h-1 bg-zinc-400 border border-zinc-500 shadow-[1px_1px_0px_rgba(0,0,0,0.5)] rotate-12 rounded-sm z-40"></div>
+                       
+                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-end text-ink/70">
+                            <span>Hardware / Build Log</span>
+                        </div>
+                       
+                        <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-2">
+                            Mechanical <span class="italic text-slate">Keyboards</span>
+                        </h2>
+                        <p class="font-sans text-sm mb-6 text-ink/80 mt-2">
+                            Building, tuning, and lubing custom keyboards. It's the perfect mix of design, engineering, and satisfying typing sounds.
+                        </p>
+
+                        <div class="border-l-2 border-ink/20 pl-4 space-y-4 flex-1">
+                            <div>
+                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Current Daily Driver</h4>
+                                <p class="font-sans text-sm font-bold">GMK67 <span class="font-normal text-xs text-ink/60">(White)</span></p>
+                            </div>
+                           
+                            <div>
+                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Switches</h4>
+                                <p class="font-sans text-sm font-bold">KTT Kang Whites <span class="font-normal text-xs text-ink/60">(Hand-lubed)</span></p>
+                            </div>
+
+                            <div>
+                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Keycaps</h4>
+                                <p class="font-sans text-sm font-bold">GMK Soya Milk <span class="font-normal text-xs text-ink/60">(Double-shot ABS)</span></p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4">
+                            <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-3 border-b border-ink/20 pb-1">Collection Gallery</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                
+                                <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden group/img hover:border-solid hover:border-ink transition-all">
+                                    <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed pointer-events-none">Awaiting<br>Image 01</span>
+
+                                </div>
+
+                                <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden group/img hover:border-solid hover:border-ink transition-all">
+                                    <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed pointer-events-none">Awaiting<br>Image 02</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2 bg-receipt border-2 border-ink p-6 md:p-10 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform -rotate-[0.5deg] transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up" style="transition-delay: 0.2s;">
+
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-white/50 border border-black/10 backdrop-blur-md rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1"></div>
+
+                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
+                            <span>Exhibition Log</span>
+                            <span>FILE 03</span>
+                        </div>
+
+                        <div class="flex flex-col lg:flex-row gap-8 mb-8 items-start">
+                            <div class="flex-1">
+                                <h2 class="font-serif text-3xl md:text-5xl leading-tight mb-4">
+                                    Museums <span class="italic text-mauve">& Art</span>
+                                </h2>
+                                <p class="font-sans text-sm text-ink/80 leading-relaxed max-w-2xl">
+                                    Wandering around galleries and archives is one of my favorite ways to get inspired. Here are a few pieces and exhibits that really stuck with me.
+                                </p>
+                            </div>
+
+                            <div class="w-full lg:w-1/3 bg-sand/30 border border-ink/20 p-5 font-sans">
+                                <h4 class="text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-4 border-b border-ink/20 pb-2">Planning to Visit</h4>
+                                <ul class="space-y-3 text-sm list-none pl-0">
+                                    <li class="flex items-start gap-3 border-b border-ink/10 border-dotted pb-2">
+                                        <span class="w-3 h-3 border border-ink mt-1 shrink-0"></span>
+                                        <span class="font-bold leading-tight">The Met <span class="font-normal text-[10px] uppercase text-ink/50 block tracking-widest mt-0.5">New York, NY</span></span>
+                                    </li>
+                                    <li class="flex items-start gap-3 border-b border-ink/10 border-dotted pb-2">
+                                        <span class="w-3 h-3 border border-ink mt-1 shrink-0"></span>
+                                        <span class="font-bold leading-tight">The National Art Center, Tokyo <span class="font-normal text-[10px] uppercase text-ink/50 block tracking-widest mt-0.5">Tokyo, Japan</span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="relative w-full overflow-hidden py-4 -mx-4 px-4 md:-mx-10 md:px-10" style="-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
+
+                            <div class="absolute top-0 right-0 font-sans text-[10px] font-bold uppercase tracking-widest text-ink/40 flex items-center gap-2 animate-pulse z-10 pointer-events-none">
+                                <span>Drag / Swipe</span> <span class="text-ink">→</span>
+                            </div>
+
+                            <div class="carousel-track flex w-max cursor-grab select-none pt-6 pb-6">
+
+                                <div class="flex gap-6 px-3 shrink-0 items-stretch">
+
+                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 01</span>
+                                            <img src="https://www.moma.org/media/W1siZiIsIjkyNjI3Il0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkwIC1yZXNpemUgMjAwMHgyMDAwXHUwMDNlIl1d.jpg?sha=54a7c19bcc1cd15b" alt="Artwork 1" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Untitled ("No Fun"/Dog)</h4>
+                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Yoshitomo Nara, 1992–2000</p>
+                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+                                    </div>
+
+                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-kraft-paper border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 02</span>
+                                            <img src="https://www.moma.org/media/W1siZiIsIjIxNzk3NyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=863c0e47f1050dcc" alt="Artwork 2" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Tablet</h4>
+                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Robert Mallary, 1962</p>
+                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+                                    </div>
+
+                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-sand/40 border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 03</span>
+                                            <img src="https://cdn.mediatheque.epmoo.fr/link/3c9igq/xlv1bxpq1tglnq8.jpg" alt="Artwork 3" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Le Chat blanc</h4>
+                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Pierre Bonnard, 1894</p>
+                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musée d'Orsay</p>
+                                    </div>
+
+                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-receipt border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 04</span>
+                                            <img src="https://cdn.mediatheque.epmoo.fr/link/3c9igq/amp1butw7sfckcg.jpg" alt="Artwork 4" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Les Soleils...</h4>
+                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Gustave Caillebotte, 1885</p>
+                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musée d'Orsay</p>
+                                    </div>
+
+                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed">Awaiting<br>Artwork 05</span>
+<img src="https://www.moma.org/media/W1siZiIsIjQ5ODY2NSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpg?sha=3a435f6198627846" alt="Artwork 5" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">What Color is Farming?</h4>
+                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Nathan I. Felde, 1979</p>
+                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+                                    </div>
+
+                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-kraft-paper border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed">Awaiting<br>Artwork 06</span>
+<img src="https://www.moma.org/media/W1siZiIsIjIyMDAzNCJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpg?sha=36c3012a503d8b01" alt="Artwork 5" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+
+                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Low Tide Wandering No. 96</h4>
+                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Thomas Schütte, 2001</p>
+                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+                                    </div>
+
+                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed">Awaiting<br>Artwork 09</span>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Claude_Monet%2C_1875%2C_Train_in_the_Snow%2C_oil_on_canvas%2C_59_%C3%97_78_cm%2C_Mus%C3%A9e_Marmottan_Monet.jpg/1280px-Claude_Monet%2C_1875%2C_Train_in_the_Snow%2C_oil_on_canvas%2C_59_%C3%97_78_cm%2C_Mus%C3%A9e_Marmottan_Monet.jpg" alt="Artwork 9" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Le train dans la neige</h4>
+                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Claude Monete, 1875</p>
+                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musee Marmottan Monet</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="md:col-span-2 bg-kraft-paper border-2 border-ink p-6 md:p-10 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform rotate-[0.35deg] transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up" style="transition-delay: 0.3s;">
+                        <div class="absolute -top-3 right-16 w-20 h-6 bg-white/50 border border-black/10 backdrop-blur-md -rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1"></div>
+
+                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
+                            <span>Creative Proof Archive</span>
+                            <span>FILE 04</span>
+                        </div>
+
+                        <div class="flex flex-col lg:flex-row gap-8 items-start mb-8">
+                            <div class="flex-1">
+                                <h2 class="font-serif text-3xl md:text-5xl leading-tight mb-4">
+                                    Graphic <span class="italic text-slate">Designs.</span>
+                                </h2>
+                                <p class="font-sans text-sm text-ink/80 leading-relaxed max-w-2xl">
+                                    A small contact sheet for visual experiments, layouts, and campaign graphics. Select a proof below to bring it onto the review table.
+                                </p>
+                            </div>
+
+                            <div class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 border border-ink/20 bg-canvas/50 px-4 py-3 shrink-0">
+                                04 Open Proof Slots
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_15rem] gap-6 lg:gap-8 items-stretch">
+                            <div class="bg-receipt border-2 border-ink p-4 md:p-6 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.16)] relative min-h-[28rem] flex flex-col">
+                                <div class="flex items-center justify-between gap-4 border-b border-ink/20 pb-3 mb-4 font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50">
+                                    <span id="design-proof-label">Proof 01 / 04</span>
+                                    <span>Selected for Review</span>
+                                </div>
+
+                                <div class="relative flex-1 min-h-[20rem] border-2 border-dashed border-ink/25 bg-canvas/60 overflow-hidden flex items-center justify-center">
+                                    <img id="design-preview-image" src="" alt="Selected graphic design" class="hidden absolute inset-0 w-full h-full object-contain bg-canvas p-3">
+                                    <div id="design-preview-placeholder" class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                                        <div id="design-preview-number" class="font-sans text-7xl md:text-9xl font-bold tracking-tighter text-ink/10 mb-2">01</div>
+                                        <div id="design-preview-empty" class="font-sans text-[10px] uppercase font-bold tracking-[0.2em] text-ink/45">Awaiting Graphic Design</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pt-5">
+                                    <div>
+                                        <h3 id="design-preview-title" class="font-serif text-2xl md:text-3xl leading-tight">Design 01</h3>
+                                        <p id="design-preview-meta" class="font-sans text-xs text-ink/60 mt-1">Graphic Design / Placeholder</p>
+                                    </div>
+                                    <div class="flex gap-2 shrink-0">
+                                        <button id="design-prev" type="button" class="border-2 border-ink bg-canvas text-ink font-sans text-xs font-bold uppercase px-4 py-2 hover:bg-ink hover:text-canvas transition-colors" aria-label="Previous graphic design">← Prev</button>
+                                        <button id="design-next" type="button" class="border-2 border-ink bg-ink text-canvas font-sans text-xs font-bold uppercase px-4 py-2 hover:bg-canvas hover:text-ink transition-colors" aria-label="Next graphic design">Next →</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 lg:grid-cols-1 gap-3" id="design-proof-list">
+                                <button type="button" class="design-proof border-2 border-ink bg-ink text-canvas p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="0" data-title="Design 01" data-meta="Graphic Design / Placeholder" data-image="">
+                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 01</span>
+                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">01</span>
+                                </button>
+                                <button type="button" class="design-proof border-2 border-ink bg-canvas/60 text-ink p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="1" data-title="Design 02" data-meta="Graphic Design / Placeholder" data-image="">
+                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 02</span>
+                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">02</span>
+                                </button>
+                                <button type="button" class="design-proof border-2 border-ink bg-canvas/60 text-ink p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="2" data-title="Design 03" data-meta="Graphic Design / Placeholder" data-image="">
+                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 03</span>
+                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">03</span>
+                                </button>
+                                <button type="button" class="design-proof border-2 border-ink bg-canvas/60 text-ink p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="3" data-title="Design 04" data-meta="Graphic Design / Placeholder" data-image="">
+                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 04</span>
+                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">04</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer id="contact" class="border-t-2 border-ink p-6 md:p-12 relative z-10 bg-lavender/20">
+                <div class="reveal-up flex flex-wrap justify-between items-start md:items-end gap-8">
+                    <div class="flex-1 min-w-[16rem] max-w-full">
+                        <div class="font-sans text-xs font-bold uppercase border-b-2 border-ink inline-block pb-1 mb-4">
+                            End of Document / Contact
+                        </div>
+                        <h2 class="text-4xl md:text-6xl tracking-tighter mb-4 break-words">
+                            Let's <span class="italic text-mauve">Connect.</span>
+                        </h2>
+                        <p class="font-sans text-xs max-w-sm mb-6 font-bold leading-relaxed">
+                            Open to internships, coffee chats, and advisory opportunities where technical accounting meets strategic growth.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="mailto:htv346@eid.utexas.edu" class="inline-flex items-center gap-2 bg-ink text-canvas font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-canvas hover:text-ink transition-colors shadow-hard-hover">
+                                <span class="w-2 h-2 rounded-full bg-canvas border border-ink"></span> htv346@utexas.edu
+                            </a>
+                            <a href="https://www.linkedin.com/in/henryvout/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-canvas text-ink font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-ink hover:text-canvas transition-colors shadow-hard-hover group">
+                                <span class="w-2 h-2 rounded-full bg-ink border border-canvas group-hover:bg-canvas group-hover:border-ink transition-colors"></span> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full sm:w-auto border-2 border-ink p-4 bg-canvas/80 text-center relative mt-8 md:mt-0 flex-shrink-0">
+                        <div class="font-sans text-[0.625rem] uppercase font-bold mb-2 tracking-widest">Official Verification</div>
+                        <div class="w-32 h-32 mx-auto border-4 border-stamp rounded-full flex flex-col items-center justify-center rotate-[-15deg] opacity-80 text-stamp mix-blend-multiply">
+                            <span class="font-serif italic text-2xl leading-none">Valid</span>
+                            <span class="font-sans text-[0.5rem] uppercase mt-1">2026-2029</span>
+                        </div>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center font-hand text-5xl text-ink z-10 pointer-events-none rotate-[-5deg] pb-4">
+                            Approved
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+           
+            const dateElement = document.getElementById('current-date');
+            if (dateElement) {
+                const today = new Date();
+                const formattedDate = String(today.getMonth() + 1).padStart(2, '0') + '/' +
+                                      String(today.getDate()).padStart(2, '0') + '/' +
+                                      today.getFullYear();
+                dateElement.textContent = formattedDate;
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+
+            const designProofs = Array.from(document.querySelectorAll('.design-proof'));
+            const designImage = document.getElementById('design-preview-image');
+            const designPlaceholder = document.getElementById('design-preview-placeholder');
+            const designNumber = document.getElementById('design-preview-number');
+            const designTitle = document.getElementById('design-preview-title');
+            const designMeta = document.getElementById('design-preview-meta');
+            const designLabel = document.getElementById('design-proof-label');
+            const designPrev = document.getElementById('design-prev');
+            const designNext = document.getElementById('design-next');
+            let activeDesign = 0;
+
+            function showDesign(index) {
+                if (!designProofs.length) return;
+                activeDesign = (index + designProofs.length) % designProofs.length;
+                const proof = designProofs[activeDesign];
+                const imageSrc = proof.dataset.image.trim();
+                const displayNumber = String(activeDesign + 1).padStart(2, '0');
+
+                designNumber.textContent = displayNumber;
+                designTitle.textContent = proof.dataset.title;
+                designMeta.textContent = proof.dataset.meta;
+                designLabel.textContent = `Proof ${displayNumber} / ${String(designProofs.length).padStart(2, '0')}`;
+
+                if (imageSrc) {
+                    designImage.src = imageSrc;
+                    designImage.alt = proof.dataset.title;
+                    designImage.classList.remove('hidden');
+                    designPlaceholder.classList.add('hidden');
+                } else {
+                    designImage.removeAttribute('src');
+                    designImage.classList.add('hidden');
+                    designPlaceholder.classList.remove('hidden');
+                }
+
+                designProofs.forEach((button, buttonIndex) => {
+                    const isActive = buttonIndex === activeDesign;
+                    button.classList.toggle('bg-ink', isActive);
+                    button.classList.toggle('text-canvas', isActive);
+                    button.classList.toggle('bg-canvas/60', !isActive);
+                    button.classList.toggle('text-ink', !isActive);
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+            }
+
+            designProofs.forEach((proof, index) => {
+                proof.addEventListener('click', () => showDesign(index));
+            });
+
+            if (designPrev) designPrev.addEventListener('click', () => showDesign(activeDesign - 1));
+            if (designNext) designNext.addEventListener('click', () => showDesign(activeDesign + 1));
+            showDesign(0);
+
+            const track = document.querySelector('.carousel-track');
+            if (track) {
+                const group1 = track.children[0];
+               
+                const clone = group1.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                track.appendChild(clone);
+
+                let isDown = false;
+                let startX;
+                let currentX = 0;
+                let initialX = 0;
+                let isHovered = false;
+               
+                let previousX = 0;
+                let velocity = 0;
+
+                let maxScroll = group1.getBoundingClientRect().width;
+                window.addEventListener('resize', () => {
+                    maxScroll = group1.getBoundingClientRect().width;
+                });
+
+                function loop() {
+                    if (isDown) {
+                        velocity = currentX - previousX;
+                        previousX = currentX;
+                    } else {
+                        velocity *= 0.95;
+                        if (velocity > -0.5 && velocity < 0.5) {
+                            velocity = isHovered ? 0 : -0.5;
+                        }
+                        currentX += velocity;
+                        previousX = currentX;
+                    }
+                   
+                    if (currentX <= -maxScroll) {
+                        currentX += maxScroll;
+                        previousX += maxScroll;
+                    } else if (currentX > 0) {
+                        currentX -= maxScroll;
+                        previousX -= maxScroll;
+                    }
+                   
+                    track.style.transform = `translateX(${currentX}px)`;
+                    requestAnimationFrame(loop);
+                }
+                requestAnimationFrame(loop);
+
+                track.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    track.classList.remove('cursor-grab');
+                    track.classList.add('cursor-grabbing');
+                    startX = e.pageX;
+                    initialX = currentX;
+                });
+
+                window.addEventListener('mouseup', () => {
+                    if(isDown) {
+                        isDown = false;
+                        track.classList.remove('cursor-grabbing');
+                        track.classList.add('cursor-grab');
+                    }
+                });
+
+                window.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const walk = (e.pageX - startX) * 1.5;
+                    currentX = initialX + walk;
+                });
+
+                track.addEventListener('mouseenter', () => { isHovered = true; });
+                track.addEventListener('mouseleave', () => {
+                    isHovered = false;
+                    if(isDown) {
+                        isDown = false;
+                        track.classList.remove('cursor-grabbing');
+                        track.classList.add('cursor-grab');
+                    }
+                });
+
+                track.addEventListener('touchstart', (e) => {
+                    isDown = true;
+                    startX = e.touches[0].pageX;
+                    initialX = currentX;
+                }, {passive: true});
+
+                window.addEventListener('touchend', () => {
+                    isDown = false;
+                });
+
+                window.addEventListener('touchmove', (e) => {
+                    if (!isDown) return;
+                    const walk = (e.touches[0].pageX - startX) * 1.5;
+                    currentX = initialX + walk;
+                }, {passive: true});
+            }
+        });
+    </script>
+</body>
+</html>
