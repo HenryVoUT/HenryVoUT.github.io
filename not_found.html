@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found | Student Portfolio</title>
+    
+    <!-- Google Fonts: Newsreader, Libre Caslon Text, Caveat, & Libre Barcode 128 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Barcode+128&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Newsreader', 'serif'],
+                        sans: ['"Libre Caslon Text"', 'serif'],
+                        hand: ['Caveat', 'cursive'],
+                        barcode: ['"Libre Barcode 128"', 'cursive'],
+                    },
+                    colors: {
+                        desk: '#e0dfd5',
+                        canvas: '#f4f4f0',
+                        kraft: '#c8b6a6',
+                        receipt: '#fcfbf8',
+                        stamp: '#b33939',
+                        sage: '#b5c1ad',
+                        mauve: '#d9b8c4',
+                        lavender: '#d2c4d2',
+                        sand: '#e3d5b8',
+                        slate: '#b4c4d4',
+                        ink: '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Subtle Ledger/Grid & Paper Texture Background */
+        .bg-paper {
+            background-color: #f4f4f0;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
+            background-size: 48px 48px, 48px 48px, 256px 256px;
+            background-position: center top, center top, left top;
+        }
+
+        /* Kraft Paper Texture */
+        .bg-kraft-paper {
+            background-color: #c8b6a6;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+        }
+
+        /* Writing Mode Utility */
+        .writing-vertical-rl {
+            writing-mode: vertical-rl;
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom Selection Color */
+        ::selection {
+            background-color: #b33939;
+            color: #f4f4f0;
+        }
+    </style>
+</head>
+<body class="bg-desk text-ink font-serif antialiased selection:bg-stamp selection:text-canvas p-2 md:p-6 lg:p-12 min-h-screen flex items-center justify-center">
+
+    <!-- The "Sheet of Paper" -->
+    <div class="w-full max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[4px_8px_24px_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[85vh]">
+
+        <!-- Left Margin Column (Ref: Sketching Tools Image) -->
+        <aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
+            <!-- Registration Mark -->
+            <div class="h-16 border-b-2 border-ink flex items-center justify-center">
+                <div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
+                    <div class="absolute inset-0 flex items-center justify-center font-sans text-xs">!</div>
+                </div>
+            </div>
+            <!-- Vertical Text Block -->
+            <div class="flex-1 border-b-2 border-ink relative bg-canvas/40">
+                <div class="absolute inset-0 flex items-center justify-center writing-vertical-rl rotate-180 font-sans text-xs uppercase font-bold tracking-widest text-ink/80 text-stamp">
+                    EXCEPTION • RECORD MISSING
+                </div>
+            </div>
+            <!-- Signature Blocks -->
+            <div class="h-40 border-b-2 border-ink flex flex-col divide-y-2 divide-ink font-sans text-[10px] uppercase font-bold opacity-30">
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-sand/30">N/A</div>
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-canvas/40">N/A</div>
+            </div>
+            <!-- Bottom Rating -->
+            <div class="h-48 relative bg-canvas/40">
+                 <div class="absolute inset-0 flex items-center justify-center rotate-180 writing-vertical-rl font-bold tracking-[0.3em] text-lg font-sans text-ink/20">
+                    NULL
+                 </div>
+            </div>
+        </aside>
+
+        <!-- Main Document Area -->
+        <main class="flex-1 relative flex flex-col">
+            
+            <!-- Top Header Form -->
+            <header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row">
+                <!-- Left Section -->
+                <div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
+                    <div class="font-sans text-[10px] uppercase font-bold mb-1 tracking-widest flex justify-between text-stamp">
+                        <span>Classification / Error</span>
+                        <span class="text-ink/40">SYS. REF: 404</span>
+                    </div>
+                    <!-- Navigation Links -->
+                    <nav class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2">
+                        <a href="index.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Home</a>
+                        <a href="resume.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Resume</a>
+                        <a href="projects.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Projects</a>
+                        <a href="interests.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Interests</a>
+                    </nav>
+                    <!-- System Barcode using Font -->
+                    <div class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none text-stamp">ERR404</div>
+                </div>
+                <!-- Right Section (Date) -->
+                <div class="p-4 flex flex-col justify-center bg-sand/20">
+                    <div class="font-sans text-[10px] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
+                    <div class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas text-ink/50">
+                        --/--/----
+                    </div>
+                </div>
+            </header>
+
+            <!-- 404 Content Section -->
+            <section class="flex-1 flex flex-col items-center justify-center relative p-6 md:p-12 z-10 overflow-hidden">
+                
+                <!-- Huge Faded Background Text -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] md:text-[25rem] leading-none font-bold tracking-tighter text-ink/5 select-none font-sans pointer-events-none">
+                    404
+                </div>
+                
+                <div class="relative z-10 w-full max-w-2xl reveal-up">
+                    
+                    <!-- Faux Empty Registry Fields -->
+                    <div class="absolute -top-12 right-0 hidden md:flex flex-col gap-2 font-sans text-[8px] uppercase tracking-widest text-ink/50">
+                        <div class="flex items-end gap-2"><span>Loc.</span><span class="w-16 border-b border-ink/30 border-dotted"></span></div>
+                        <div class="flex items-end gap-2"><span>Trk.</span><span class="w-16 border-b border-ink/30 border-dotted"></span></div>
+                    </div>
+
+                    <!-- The Interactive Error Card -->
+                    <div class="bg-kraft-paper border-2 border-ink p-8 md:p-12 shadow-[4px_8px_16px_rgba(0,0,0,0.2)] relative transform transition-all duration-500 ease-out hover:-translate-y-2 hover:-rotate-1 hover:shadow-[12px_20px_32px_rgba(0,0,0,0.25)] active:scale-[0.98] active:shadow-[2px_4px_8px_rgba(0,0,0,0.2)] active:-translate-y-0 cursor-pointer group rotate-1 mx-auto text-center">
+                        
+                        <!-- Faux Tape -->
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/40 border border-black/10 backdrop-blur-md -rotate-2 shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-0"></div>
+                        
+                        <!-- Faux Punch Hole -->
+                        <div class="absolute top-6 left-6 w-4 h-4 rounded-full bg-desk border-2 border-ink shadow-inner transition-transform duration-500 group-hover:scale-110"></div>
+
+                        <div class="font-sans text-xs font-bold uppercase border-b-2 border-ink inline-block pb-1 mb-8 text-stamp">
+                            Misplaced Record Notification
+                        </div>
+
+                        <h1 class="text-5xl md:text-7xl leading-[0.9] tracking-tighter mb-6 relative inline-block text-ink">
+                            Document<br>
+                            <span class="italic text-slate">Not Found.</span>
+                            
+                            <!-- Handwritten Scribble Overlay -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 font-hand text-4xl md:text-5xl text-ink/80 whitespace-nowrap z-20 pointer-events-none">
+                                Check the archives...
+                            </div>
+                        </h1>
+                        
+                        <p class="font-sans text-sm leading-relaxed font-bold border-t-2 border-ink border-dashed pt-6 mt-2 relative mx-auto max-w-sm">
+                            The requested page appears to have been misfiled, relocated, or removed from the system registry. Please consult the main index to continue.
+                            
+                            <!-- Red Evaluation Stamp (Reacts to hover) -->
+                            <span class="absolute -bottom-10 -right-8 font-sans text-stamp text-2xl font-bold border-4 border-stamp px-3 py-1 rotate-[15deg] opacity-80 tracking-widest pointer-events-none mix-blend-multiply transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:rotate-[5deg] group-hover:opacity-100 group-active:scale-95 group-active:opacity-90">
+                                VOID
+                            </span>
+                        </p>
+
+                        <!-- Call to Action -->
+                        <div class="mt-12 flex justify-center relative z-30">
+                            <a href="index.html" class="inline-flex items-center gap-2 bg-ink text-canvas font-sans text-sm font-bold uppercase px-8 py-4 border-2 border-ink hover:bg-canvas hover:text-ink transition-colors shadow-hard-hover group/btn">
+                                <span class="text-canvas group-hover/btn:text-ink transition-colors">←</span> Return to Index
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts for Interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal-up');
+            setTimeout(() => {
+                revealElements.forEach(el => el.classList.add('active'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>
