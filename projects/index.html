@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Student Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Barcode+128&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Newsreader', 'serif'],
+                        sans: ['"Libre Caslon Text"', 'serif'],
+                        hand: ['Caveat', 'cursive'],
+                        barcode: ['"Libre Barcode 128"', 'cursive'],
+                    },
+                    colors: {
+                        desk: '#e0dfd5',
+                        canvas: '#f4f4f0',
+                        kraft: '#c8b6a6',
+                        receipt: '#fcfbf8',
+                        stamp: '#b33939',
+                        sage: '#b5c1ad',
+                        mauve: '#d9b8c4',
+                        lavender: '#d2c4d2',
+                        sand: '#e3d5b8',
+                        slate: '#b4c4d4',
+                        ink: '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        
+        .bg-paper {
+            background-color: #f4f4f0;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
+            background-size: 3rem 3rem, 3rem 3rem, 16rem 16rem;
+            background-position: center top, center top, left top;
+        }
+
+        .bg-kraft-paper {
+            background-color: #c8b6a6;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+        }
+
+        .writing-vertical-rl {
+            writing-mode: vertical-rl;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(2.5rem);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stack-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            padding-top: 2rem; 
+            padding-bottom: 20rem; 
+            perspective: 1000px;
+            width: 100%;
+        }
+
+        .stack-card {
+            grid-column: 1;
+            grid-row: 1;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                        opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                        box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transform-origin: center top; 
+            will-change: transform, opacity;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .stack-card[data-pos="0"] {
+            transform: translateY(0) scale(1) rotate(0deg);
+            opacity: 1;
+            box-shadow: 0px 1.5rem 3rem rgba(0,0,0,0.15);
+        }
+        .stack-card[data-pos="0"]:hover {
+            transform: translateY(-0.5rem) scale(1.01) rotate(-0.5deg);
+            box-shadow: 0px 2rem 3.5rem rgba(0,0,0,0.2);
+        }
+
+        .stack-card[data-pos="1"] {
+            transform: translateY(5rem) scale(0.97) rotate(1.5deg);
+            opacity: 0.95;
+            box-shadow: 0px 1rem 2rem rgba(0,0,0,0.12);
+        }
+        .stack-card[data-pos="1"]:hover {
+            transform: translateY(4.5rem) scale(0.98) rotate(2deg);
+            opacity: 1;
+        }
+
+        .stack-card[data-pos="2"] {
+            transform: translateY(10rem) scale(0.94) rotate(-1.5deg);
+            opacity: 0.85;
+            box-shadow: 0px 0.75rem 1.5rem rgba(0,0,0,0.08);
+        }
+        .stack-card[data-pos="2"]:hover {
+            transform: translateY(9.5rem) scale(0.95) rotate(-2deg);
+            opacity: 0.95;
+        }
+
+        .stack-card[data-pos="3"] {
+            transform: translateY(15rem) scale(0.91) rotate(1deg);
+            opacity: 0.75;
+            box-shadow: 0px 0.5rem 1rem rgba(0,0,0,0.04);
+        }
+        .stack-card[data-pos="3"]:hover {
+            transform: translateY(14.5rem) scale(0.92) rotate(1.5deg);
+            opacity: 0.85;
+        }
+
+        .stack-card.animating-out {
+            transform: translateY(-10rem) translateX(5rem) scale(1.05) rotate(8deg) !important;
+            opacity: 0 !important;
+            pointer-events: none;
+            z-index: 50 !important;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 35s linear infinite;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        ::selection {
+            background-color: #d9b8c4;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="bg-desk text-ink font-serif antialiased selection:bg-mauve selection:text-ink p-2 md:p-6 lg:p-12 min-h-screen">
+
+    <div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[0.25rem_0.5rem_1.5rem_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[90vh]">
+
+        <aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
+            
+            <div class="h-16 border-b-2 border-ink flex items-center justify-center">
+                <div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
+                    <div class="absolute inset-0 flex items-center justify-center font-sans text-xs">+</div>
+                </div>
+            </div>
+            
+            <div class="flex-1 border-b-2 border-ink relative bg-canvas/40">
+                <div class="absolute inset-0 flex items-center justify-center writing-vertical-rl rotate-180 font-sans text-xs uppercase font-bold tracking-widest text-ink/80">
+                    Student Portfolio • Sophomore
+                </div>
+            </div>
+            
+            <div class="h-40 border-b-2 border-ink flex flex-col divide-y-2 divide-ink font-sans text-[0.625rem] uppercase font-bold">
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-sand/30">Dr. By</div>
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-canvas/40">Ch. By</div>
+            </div>
+            
+            <div class="h-48 relative bg-canvas/40">
+                 <div class="absolute inset-0 flex items-center justify-center rotate-180 writing-vertical-rl font-bold tracking-[0.3em] text-lg font-sans">
+                    RATING
+                 </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 relative flex flex-col overflow-x-hidden">
+
+            <header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row">
+                
+                <div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
+                    <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest flex justify-between">
+                        <span>Classification / Index</span>
+                        <span class="text-ink/40">SYS. REF: 8608</span>
+                    </div>
+                    
+                    <nav class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2">
+                        <a href="/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Home</a>
+                        <a href="/resume/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Resume</a>
+                        <a href="/projects/" class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default">Projects</a>
+                        <a href="/interests/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Interests</a>
+                    </nav>
+                    
+                    <div class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none">PRJ-06</div>
+                </div>
+                
+                <div class="p-4 flex flex-col justify-center bg-sand/20">
+                    <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
+                    <div id="current-date" class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas">
+                        03/21/2026
+                    </div>
+                </div>
+            </header>
+
+            <section class="relative pt-12 pb-4 px-6 md:px-12 z-10 overflow-hidden border-b-2 border-ink/10">
+                <div class="absolute top-4 right-6 text-[12rem] md:text-[16rem] leading-none font-bold tracking-tighter text-ink/5 select-none font-sans pointer-events-none">
+                    CASE
+                </div>
+                
+                <div class="relative z-10 mt-6 reveal-up">
+                    <h1 class="text-6xl md:text-8xl leading-[0.85] tracking-tighter mb-6 relative inline-block">
+                        Project<br>
+                        <span class="italic text-sage relative z-10">Dossiers.</span>
+                    </h1>
+                    
+                </div>
+            </section>
+
+            <section class="relative p-6 md:p-12 z-10 flex-1 overflow-x-hidden">
+
+                <div class="max-w-4xl mx-auto mb-4 text-right reveal-up relative z-20">
+                    <span class="inline-flex items-center gap-2 font-sans text-[0.625rem] uppercase font-bold tracking-widest text-ink/60 bg-ink/5 border border-ink/10 px-3 py-1.5 rounded-sm">
+                        
+                        Click bottom tabs to pull to front
+                    </span>
+                </div>
+
+                <div class="stack-container max-w-4xl mx-auto reveal-up">
+
+                    <div class="stack-card flex flex-col group bg-sand border-2 border-ink relative" data-pos="0" style="z-index: 40;">
+                        
+                        <div class="absolute -top-3 left-10 w-16 h-6 bg-white/50 border border-black/10 backdrop-blur-md rotate-[4deg] shadow-sm transition-transform duration-500 group-hover:-translate-y-1 z-20"></div>
+
+                        <div class="p-6 md:p-10 flex-1 flex flex-col">
+                            <div class="font-sans text-[0.625rem] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
+                                <span>Marketing Consulting</span>
+                                <span>FILE 04</span>
+                            </div>
+                            
+                            <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-4">
+                                Hive + Honey
+                            </h2>
+
+                            <div class="w-full aspect-[21/9] border-2 border-ink/20 border-dashed bg-ink/5 mb-6 flex items-center justify-center p-2 relative overflow-hidden group/img">
+                                
+                                <span class="font-sans text-[8px] uppercase font-bold text-ink/40 tracking-widest"></span>
+                             <img src="https://henryvo.neocities.org/HiveHoney.JPG" alt="Hive + Honey Project" class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125 mix-blend-multiply">
+                            </div>
+
+                            <div class="font-sans text-xs space-y-4 mb-2 border-l-2 border-ink/20 pl-4 text-ink/80 flex-1">
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Objective:</strong> 
+                                    <p class="leading-relaxed">Hive + Honey opened a new Pilates studio location in West Campus. The goal was to understand their new demographic, optimize pricing, improve website navigation and SEO, and implement Google Analytics.</p>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Action:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">Usability Testing:</span> Conducted customer surveys and task-based interviews (e.g., booking a class) to identify and resolve friction points in the website's user journey.</li>
+                                        <li><span class="font-bold text-ink/90">Market Analysis:</span> Developed a competitor map to benchmark H+H against the local West Campus market.</li>
+                                        <li><span class="font-bold text-ink/90">Financial Projections:</span> Extracted historical pricing data from Zenoti Sales-Cash and analyzed it in Excel using pivot tables. Built pricing what-if analyses and revenue projections to determine the optimal price and discount combinations.</li>
+                                        <li><span class="font-bold text-ink/90">Retention Strategy:</span> Forecasted summer revenue drops due to student outmigration and designed targeted campaigns for summer retention.</li>
+                                        <li><span class="font-bold text-ink/90">Analytics Integration & SEO:</span> Executed an SEO refresh and built a custom Google Analytics dashboard, providing a comprehensive handbook for client handoff.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Result:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">Workflow Efficiency:</span> Saved approximately 3.5 hours per week on data reporting and review through the implementation of the new Google Analytics dashboard and workflow.</li>
+                                        <li><span class="font-bold text-ink/90">Pending Metrics:</span> Full conversion and revenue impact metrics are currently being tracked following the implementation of the new pricing and retention strategies.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t-2 border-dashed border-ink px-6 py-5 flex justify-between items-center font-sans text-[0.625rem] md:text-xs font-bold uppercase tracking-widest transition-colors text-ink/80 group-hover:text-stamp group-hover:bg-stamp/10">
+                            <span>File 04</span>
+                            <span>Hive + Honey</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-card flex flex-col group bg-kraft-paper border-2 border-ink relative" data-pos="1" style="z-index: 30;">
+                        
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-white/40 border border-black/10 backdrop-blur-md rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-1 z-20"></div>
+
+                        <div class="p-6 md:p-10 flex-1 flex flex-col">
+                            <div class="font-sans text-[0.625rem] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
+                                <span>Strategy & SEO</span>
+                                <span>FILE 01</span>
+                            </div>
+                            
+                            <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-4">
+                                Brentwood Social House
+                            </h2>
+
+                            <div class="w-full aspect-[21/9] border-2 border-ink/20 border-dashed bg-ink/5 mb-6 flex items-center justify-center p-2 relative overflow-hidden group/img">
+                                <img src="https://henryvo.neocities.org/BSH.png" alt="Brentwood Social House Project" class="w-full h-full object-cover filter grayscale contrast-125 mix-blend-multiply">
+                            </div>
+
+                            <div class="font-sans text-xs space-y-4 mb-2 border-l-2 border-ink/20 pl-4 text-ink/80 flex-1">
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Objective:</strong> 
+                                    <p class="leading-relaxed">This marketing consulting project aimed to grow a local neighborhood café's digital engagement. The goal was to bridge the gap between high physical foot traffic (87.7%) and low digital discovery (11.2%) by enhancing online visibility and storytelling.</p>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Action:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">SEO Audit & Keyword Pivot:</span> Conducted a deep dive into search metrics, moving away from broad, high-difficulty terms toward high-intent, "low-hanging fruit" keywords.</li>
+                                        <li><span class="font-bold text-ink/90">Brand Identity & Kit:</span> Developed a cohesive visual brand kit.</li>
+                                        <li><span class="font-bold text-ink/90">Content Strategy & Calendar:</span> Created a structured posting schedule and content pillars, prioritizing authentic storytelling and video reels over purely informational posts to drive engagement.</li>
+                                        <li><span class="font-bold text-ink/90">Navigation Optimization:</span> Redesigned digital touchpoints, including Instagram Highlights and website copy for better user flow.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Result:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">Search Growth:</span> Expanded keywords by 16% and grew unique visitors by 25.5% through organic, $0-acquisition-cost SEO.</li>
+                                        <li><span class="font-bold text-ink/90">Niche Authority:</span> Secured #1 rankings in targeted local niches, outperforming larger regional competitors in high-intent categories.</li>
+                                        <li><span class="font-bold text-ink/90">Efficiency:</span> Implemented automated scheduling systems estimated to save 6–10 hours per week while accelerating follower growth.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t-2 border-dashed border-ink px-6 py-5 flex justify-between items-center font-sans text-[0.625rem] md:text-xs font-bold uppercase tracking-widest transition-colors text-ink/80 group-hover:text-stamp group-hover:bg-stamp/10">
+                            <span>File 01</span>
+                            <span>Brentwood Social House</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-card flex flex-col group bg-receipt border-2 border-ink relative" data-pos="2" style="z-index: 20;">
+                        
+                        <div class="absolute top-4 left-4 w-6 h-1 bg-zinc-400 border border-zinc-500 shadow-[1px_1px_0px_rgba(0,0,0,0.5)] -rotate-12 rounded-sm z-40"></div>
+
+                        <div class="p-6 md:p-10 flex-1 flex flex-col">
+                            <div class="font-sans text-[0.625rem] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-end text-ink/70 pl-8 mt-2">
+                                <span>Strategy Exploration</span>
+                                <span>FILE 02</span>
+                            </div>
+                            
+                            <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-8">
+                                Market Update: <span class="italic text-slate">CeraVe x NBA</span>
+                            </h2>
+
+                            <div class="font-sans text-xs space-y-4 mb-2 border-l-2 border-ink/20 pl-4 text-ink/80 flex-1">
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Objective:</strong> 
+                                    <p class="leading-relaxed">Analyzed CeraVe's strategic, multi-year partnership as the official skincare partner of the NBA. The goal was to explore how CeraVe leverages "medutainment" (medical education + entertainment) to expand beyond its traditional Gen Z, female-dominated audience (70.3%) and tap into the highly engaged, diverse, and male-leaning (~60%) NBA fanbase.</p>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Action:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">Audience Analysis:</span> Evaluated the demographic overlap and CeraVe's strategic pivot to reinforce its identity as an accessible, "genderless" brand.</li>
+                                        <li><span class="font-bold text-ink/90">Campaign Breakdown:</span> Analyzed social media activations, including the viral "Head of CeraVe" campaigns with athletes like Anthony Davis and Paige Bueckers, alongside parody collaborations (e.g., NBACentel).</li>
+                                        <li><span class="font-bold text-ink/90">Omnichannel Integration:</span> Reviewed on-site presence at marquee events (All-Star Weekend, Summer League) and unique digital integrations like NBA 2K.</li>
+                                        <li><span class="font-bold text-ink/90">Community Impact:</span> Assessed philanthropic extensions, such as providing dermatology screenings and product education at Jr. NBA clinics.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Analysis:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">Strategic Positioning:</span> Demonstrated how non-traditional sports partnerships allow skincare brands to capture massive new market segments without losing their core medical authority.</li>
+                                        <li><span class="font-bold text-ink/90">Authentic Advocacy:</span> Highlighted the success of utilizing athletes who are pre-existing, authentic users of the product to maintain high brand trust while scaling.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <span class="absolute top-8 right-8 font-sans text-stamp text-xl font-bold border-4 border-stamp px-2 py-1 rotate-[12deg] opacity-60 tracking-widest pointer-events-none mix-blend-multiply">
+                                REVIEWED
+                            </span>
+                        </div>
+
+                        <div class="border-t-2 border-dashed border-ink px-6 py-5 flex justify-between items-center font-sans text-[0.625rem] md:text-xs font-bold uppercase tracking-widest transition-colors text-ink/80 group-hover:text-stamp group-hover:bg-stamp/10">
+                            <span>File 02</span>
+                            <span>CeraVe x NBA</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-card flex flex-col group bg-canvas border-2 border-ink relative" data-pos="3" style="z-index: 10;">
+                        
+                        <div class="absolute -top-3 right-12 w-16 h-6 bg-white/50 border border-black/10 backdrop-blur-md -rotate-6 shadow-sm transition-transform duration-500 group-hover:-translate-y-1 z-20"></div>
+
+                        <div class="p-6 md:p-10 flex-1 flex flex-col">
+                            <div class="font-sans text-[0.625rem] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
+                                <span>Market Update</span>
+                                <span>FILE 03</span>
+                            </div>
+                            
+                            <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-8">
+                                Yahoo's <span class="italic text-sage">"YAHOHOHO!"</span> Campaign
+                            </h2>
+
+                            <div class="font-sans text-xs space-y-4 mb-2 border-l-2 border-ink/20 pl-4 text-ink/80 flex-1">
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Objective:</strong> 
+                                    <p class="leading-relaxed">Analyzed Yahoo's "YAHOHOHO!" holiday campaign to deconstruct their modern brand resurgence strategy. The goal was to evaluate how Yahoo is shedding its legacy "washed" reputation to attract modern consumers by shifting away from a broad portal to dominating specific product verticals (Mail, Finance, Sports).</p>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Action:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">Strategic Pivot Breakdown:</span> Traced Yahoo's historical timeline from its $125B 1990s peak, through its 2010s decline, to its current "Product-First" era focusing on category dominance.</li>
+                                        <li><span class="font-bold text-ink/90">Creative & Brand Analysis:</span> Evaluated the "Fit Santa" (Dylan Efron) campaign and collaborations like the "Anti Email Email Club," noting how their modern, wacky humor is strategically designed to always tie back to concrete product utility.</li>
+                                        <li><span class="font-bold text-ink/90">Growth Metrics Assessment:</span> Analyzed their shift away from traditional short-term ROI measurement toward high-level brand sentiment and awareness aimed at lowering long-term Customer Acquisition Cost (CAC).</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong class="text-ink text-sm block mb-1">Analysis:</strong>
+                                    <ul class="list-disc list-outside pl-3 space-y-1.5 leading-relaxed marker:text-ink/40">
+                                        <li><span class="font-bold text-ink/90">Balancing Humor & Utility:</span> Weighed the effectiveness of Yahoo's investment in brand marketing, questioning whether the viral, abstract humor successfully drives organic product adoption or risks overshadowing the platform's utility.</li>
+                                        <li><span class="font-bold text-ink/90">Cultural Relevance:</span> Concluded on the necessity of non-traditional, self-aware marketing for legacy tech brands attempting to reclaim relevance and convert younger viewers into loyal users.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t-2 border-dashed border-ink px-6 py-5 flex justify-between items-center font-sans text-[0.625rem] md:text-xs font-bold uppercase tracking-widest transition-colors text-ink/80 group-hover:text-stamp group-hover:bg-stamp/10">
+                            <span>File 03</span>
+                            <span>Yahoo Campaign</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="w-full flex items-center justify-center my-20 relative reveal-up">
+                    <div class="h-0.5 w-full bg-ink/20"></div>
+                    <div class="absolute bg-paper px-6 border-2 border-ink font-sans text-xs font-bold uppercase tracking-widest py-2 text-ink shadow-[0.125rem_0.25rem_0px_rgba(0,0,0,1)]">
+                        Technical Simulations & Certifications
+                    </div>
+                </div>
+
+                <div class="relative w-full overflow-hidden py-6 -mx-4 px-4 md:-mx-12 md:px-12 reveal-up" style="-webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
+                    <div class="carousel-track flex w-max cursor-grab select-none" data-auto-speed="0.45" style="touch-action: pan-y;">
+                        <div class="flex gap-6 px-3 shrink-0 items-stretch">
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMG01</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 01 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG Audit<br><span class="italic font-normal">Career Catalyst</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Determined account materiality, evaluated third-party confirmations, and reviewed the OTC process for a hypothetical audit. Communicated findings via video presentation and reviewed the final audit opinion.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-5deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMG02</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 02 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG Tax<br><span class="italic font-normal">Career Catalyst</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Conducted initial research and formulated tax recommendations. Improved Excel data modeling and cleaning skills. Applied the “IRAC” approach to deliver a comprehensive research memorandum to the client.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(8deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMG03</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 03 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">A Day with KPMG<br><span class="italic font-normal">Tax Job Simulation</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Built an Excel revenue leadsheet and identified revenue control design concerns. Leveraged Power BI for trend analysis to investigate anomalies, conveying data-driven recommendations to management through storytelling.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-12deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">ANTH01</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 04 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Anthropic<br><span class="italic font-normal">AI Fluency: Frameworks</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Mastered the four competencies of AI collaboration: Delegation, Description, Discernment, and Diligence. Developed foundational knowledge in LLM frameworks, prompt engineering, and ethical AI strategy implementation.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(6deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">GA401</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 05 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Google Analytics<br><span class="italic font-normal">Skillshop</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed Google Analytics Skillshop training to strengthen familiarity with analytics measurement, reporting, and performance interpretation workflows.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Completed</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-7deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMGAD</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 06 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG U.S. Career Catalyst<br><span class="italic font-normal">Advisory Job Simulation</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed an advisory simulation using Excel pivot tables, hypothesis-driven and creative thinking, and AI-assisted case research to develop recommendations for a fictional healthcare provider.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Completed: June 5, 2026</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(9deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">DELOIT</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 07 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Deloitte Australia<br><span class="italic font-normal">Data Analytics Job Simulation</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed a data analytics and forensic technology simulation. Analyzed data, created a Tableau dashboard, and used Excel to classify information and draw business conclusions.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Completed: June 5, 2026</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-10deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">CANVA8</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 08 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Canva<br><span class="italic font-normal">Design &amp; Marketing Certifications</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed Canva Graphic Design Essentials and Canva Marketing certification programs, building practical familiarity with visual design and marketing creative workflows.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Completed</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(5deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 px-3 shrink-0 items-stretch" aria-hidden="true">
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMG01</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 01 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG Audit<br><span class="italic font-normal">Career Catalyst</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Determined account materiality, evaluated third-party confirmations, and reviewed the OTC process for a hypothetical audit. Communicated findings via video presentation and reviewed the final audit opinion.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-5deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMG02</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 02 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG Tax<br><span class="italic font-normal">Career Catalyst</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Conducted initial research and formulated tax recommendations. Improved Excel data modeling and cleaning skills. Applied the “IRAC” approach to deliver a comprehensive research memorandum to the client.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(8deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMG03</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 03 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">A Day with KPMG<br><span class="italic font-normal">Tax Job Simulation</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Built an Excel revenue leadsheet and identified revenue control design concerns. Leveraged Power BI for trend analysis to investigate anomalies, conveying data-driven recommendations to management through storytelling.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-12deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">ANTH01</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 04 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Anthropic<br><span class="italic font-normal">AI Fluency: Frameworks</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Mastered the four competencies of AI collaboration: Delegation, Description, Discernment, and Diligence. Developed foundational knowledge in LLM frameworks, prompt engineering, and ethical AI strategy implementation.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Verified</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(6deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">GA401</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 05 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Google Analytics<br><span class="italic font-normal">Skillshop</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed Google Analytics Skillshop training to strengthen familiarity with analytics measurement, reporting, and performance interpretation workflows.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Completed</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-7deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMGAD</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 06 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG U.S. Career Catalyst<br><span class="italic font-normal">Advisory Job Simulation</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed an advisory simulation using Excel pivot tables, hypothesis-driven and creative thinking, and AI-assisted case research to develop recommendations for a fictional healthcare provider.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Completed: June 5, 2026</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(9deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">DELOIT</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 07 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Deloitte Australia<br><span class="italic font-normal">Data Analytics Job Simulation</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed a data analytics and forensic technology simulation. Analyzed data, created a Tableau dashboard, and used Excel to classify information and draw business conclusions.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Completed: June 5, 2026</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-10deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">CANVA8</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 08 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Canva<br><span class="italic font-normal">Design &amp; Marketing Certifications</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Completed Canva Graphic Design Essentials and Canva Marketing certification programs, building practical familiarity with visual design and marketing creative workflows.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Completed</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(5deg);">
+                                    COMPLETED
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full flex items-center justify-center my-20 relative reveal-up">
+                    <div class="h-0.5 w-full bg-ink/20"></div>
+                    <div class="absolute bg-paper px-6 border-2 border-ink font-sans text-xs font-bold uppercase tracking-widest py-2 text-ink shadow-[0.125rem_0.25rem_0px_rgba(0,0,0,1)]">
+                        One-Day, Externship & Virtual Programs
+                    </div>
+                </div>
+
+                <div class="relative w-full overflow-hidden py-6 -mx-4 px-4 md:-mx-12 md:px-12 reveal-up" style="-webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
+                    <div class="carousel-track flex w-max cursor-grab select-none" data-auto-speed="0.35" style="touch-action: pan-y;">
+                        <div class="flex gap-6 px-3 shrink-0 items-stretch">
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">EYEXP</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 01 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Expedition EY</h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in Expedition EY as part of my professional-development and firm-exploration programming.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-5deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMGTX</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 02 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG Texas<br><span class="italic font-normal">Talent+ Program</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in the KPMG Texas Talent+ Program.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(7deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMGCASE</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 03 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG<br><span class="italic font-normal">Ace the Case</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in KPMG Ace the Case.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-8deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">MLREXT</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 04 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">ML&amp;R<br><span class="italic font-normal">Externship</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in the ML&amp;R Externship.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(6deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">GTEMP</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 05 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Grant Thornton<br><span class="italic font-normal">Empower</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in Grant Thornton Empower.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-6deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 px-3 shrink-0 items-stretch" aria-hidden="true">
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">EYEXP</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 01 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Expedition EY</h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in Expedition EY as part of my professional-development and firm-exploration programming.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-5deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMGTX</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 02 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG Texas<br><span class="italic font-normal">Talent+ Program</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in the KPMG Texas Talent+ Program.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(7deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">KPMGCASE</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 03 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">KPMG<br><span class="italic font-normal">Ace the Case</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in KPMG Ace the Case.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-8deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">MLREXT</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 04 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">ML&amp;R<br><span class="italic font-normal">Externship</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in the ML&amp;R Externship.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(6deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                            <div class="bg-receipt border border-ink p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative w-[18.75rem] sm:w-[21.875rem] shrink-0 flex flex-col">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="font-barcode text-3xl opacity-50 pointer-events-none">GTEMP</div>
+                                    <div class="font-sans text-[0.625rem] font-bold uppercase text-ink/50 tracking-widest border border-ink/20 px-1.5 py-0.5 rounded-sm">[ NO. 05 ]</div>
+                                </div>
+                                <h3 class="font-serif text-xl font-bold mb-2 leading-tight">Grant Thornton<br><span class="italic font-normal">Empower</span></h3>
+                                <p class="font-sans text-xs text-ink/70 mb-8 border-t border-ink/10 pt-3 flex-1 leading-relaxed">
+                                    Participated in Grant Thornton Empower.
+                                </p>
+                                <div class="font-sans text-[0.5rem] uppercase tracking-widest font-bold text-ink/40 mt-auto">Status: Attended</div>
+                                <span class="absolute bottom-4 right-4 font-sans text-stamp text-sm font-bold border-2 border-stamp px-1 opacity-70 mix-blend-multiply pointer-events-none" style="transform: rotate(-6deg);">
+                                    ATTENDED
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <footer id="contact" class="border-t-2 border-ink p-6 md:p-12 relative z-10 bg-lavender/20">
+                <div class="reveal-up flex flex-wrap justify-between items-start md:items-end gap-8">
+                    <div class="flex-1 min-w-[16rem] max-w-full">
+                        <div class="font-sans text-xs font-bold uppercase border-b-2 border-ink inline-block pb-1 mb-4">
+                            End of Document / Contact
+                        </div>
+                        <h2 class="text-4xl md:text-6xl tracking-tighter mb-4 break-words">
+                            Let's <span class="italic text-mauve">Connect.</span>
+                        </h2>
+                        <p class="font-sans text-xs max-w-sm mb-6 font-bold leading-relaxed">
+                            Open to internships, coffee chats, and advisory opportunities where technical accounting meets strategic growth.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="mailto:htv346@eid.utexas.edu" class="inline-flex items-center gap-2 bg-ink text-canvas font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-canvas hover:text-ink transition-colors shadow-hard-hover">
+                                <span class="w-2 h-2 rounded-full bg-canvas border border-ink"></span> htv346@utexas.edu
+                            </a>
+                            <a href="https://www.linkedin.com/in/henryvout/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-canvas text-ink font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-ink hover:text-canvas transition-colors shadow-hard-hover group">
+                                <span class="w-2 h-2 rounded-full bg-ink border border-canvas group-hover:bg-canvas group-hover:border-ink transition-colors"></span> Access LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full sm:w-auto border-2 border-ink p-4 bg-canvas/80 text-center relative mt-8 md:mt-0 flex-shrink-0">
+                        <div class="font-sans text-[0.625rem] uppercase font-bold mb-2 tracking-widest">Official Verification</div>
+                        <div class="w-32 h-32 mx-auto border-4 border-stamp rounded-full flex flex-col items-center justify-center rotate-[-15deg] opacity-80 text-stamp mix-blend-multiply">
+                            <span class="font-serif italic text-2xl leading-none">Valid</span>
+                            <span class="font-sans text-[0.5rem] uppercase mt-1">2026-2029</span>
+                        </div>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center font-hand text-5xl text-ink z-10 pointer-events-none rotate-[-5deg] pb-4">
+                            Approved
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const dateElement = document.getElementById('current-date');
+            if (dateElement) {
+                const today = new Date();
+                const formattedDate = String(today.getMonth() + 1).padStart(2, '0') + '/' + 
+                                      String(today.getDate()).padStart(2, '0') + '/' + 
+                                      today.getFullYear();
+                dateElement.textContent = formattedDate;
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+
+            const stackContainer = document.querySelector('.stack-container');
+            const stackCards = Array.from(document.querySelectorAll('.stack-card'));
+            if (stackCards.length > 0 && stackContainer) {
+                let isStackAnimating = false;
+                
+                stackCards.forEach((card, idx) => {
+                    card.setAttribute('data-pos', idx);
+                    card.style.zIndex = 50 - (idx * 10);
+                    
+                    card.addEventListener('click', (e) => {
+                        e.stopPropagation(); 
+                        if (isStackAnimating) return;
+                        const currentPos = parseInt(card.getAttribute('data-pos'));
+                        bringToFront(currentPos);
+                    });
+                });
+
+                stackContainer.addEventListener('click', (e) => {
+                    if (isStackAnimating) return;
+                    bringToFront(0); 
+                });
+
+                function bringToFront(clickedIndex) {
+                    isStackAnimating = true;
+                    const topCard = stackCards.find(c => parseInt(c.getAttribute('data-pos')) === 0);
+                    
+                    topCard.classList.add('animating-out');
+                    
+                    setTimeout(() => {
+                        let currentOrder = [];
+                        for(let i = 0; i < stackCards.length; i++) {
+                            currentOrder.push(stackCards.find(c => parseInt(c.getAttribute('data-pos')) === i));
+                        }
+                        
+                        if (clickedIndex === 0) {
+                            currentOrder.push(currentOrder.shift());
+                        } else {
+                            let top = currentOrder.shift();
+                            let clicked = currentOrder.splice(clickedIndex - 1, 1)[0];
+                            currentOrder.unshift(clicked);
+                            currentOrder.push(top);
+                        }
+                        
+                        currentOrder.forEach((c, idx) => {
+                            c.setAttribute('data-pos', idx);
+                            c.style.zIndex = 50 - (idx * 10);
+                        });
+                        
+                        topCard.classList.remove('animating-out');
+                        
+                        setTimeout(() => {
+                            isStackAnimating = false;
+                        }, 400); 
+                        
+                    }, 350); 
+                }
+            }
+
+            document.querySelectorAll('.carousel-track').forEach((track) => {
+                const group1 = track.children[0];
+                if (!group1) return;
+
+                let currentX = 0;
+                let velocity = 0;
+                let isDragging = false;
+                let isHovered = false;
+                let activePointerId = null;
+                let lastPointerX = 0;
+                let lastPointerTime = 0;
+                let maxScroll = 1;
+
+                const autoSpeed = -Math.abs(parseFloat(track.dataset.autoSpeed || '0.45'));
+                const maxVelocity = 6;
+
+                const measure = () => {
+                    maxScroll = Math.max(group1.getBoundingClientRect().width, 1);
+                };
+
+                const wrapPosition = () => {
+                    while (currentX <= -maxScroll) currentX += maxScroll;
+                    while (currentX > 0) currentX -= maxScroll;
+                };
+
+                const setDraggingStyle = (dragging) => {
+                    track.classList.toggle('cursor-grabbing', dragging);
+                    track.classList.toggle('cursor-grab', !dragging);
+                };
+
+                const endDrag = (event) => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    setDraggingStyle(false);
+
+                    if (event && activePointerId !== null && track.hasPointerCapture(activePointerId)) {
+                        track.releasePointerCapture(activePointerId);
+                    }
+                    activePointerId = null;
+                };
+
+                const loop = () => {
+                    if (!isDragging) {
+                        velocity *= 0.92;
+
+                        if (Math.abs(velocity) < 0.12) {
+                            velocity = isHovered ? 0 : autoSpeed;
+                        }
+
+                        velocity = Math.max(-maxVelocity, Math.min(maxVelocity, velocity));
+                        currentX += velocity;
+                    }
+
+                    wrapPosition();
+                    track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+                    requestAnimationFrame(loop);
+                };
+
+                measure();
+                window.addEventListener('resize', measure);
+                requestAnimationFrame(loop);
+
+                track.addEventListener('pointerdown', (event) => {
+                    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+                    isDragging = true;
+                    activePointerId = event.pointerId;
+                    lastPointerX = event.clientX;
+                    lastPointerTime = performance.now();
+                    velocity = 0;
+                    setDraggingStyle(true);
+                    track.setPointerCapture(event.pointerId);
+                });
+
+                track.addEventListener('pointermove', (event) => {
+                    if (!isDragging || event.pointerId !== activePointerId) return;
+
+                    const now = performance.now();
+                    const dx = event.clientX - lastPointerX;
+                    const dt = Math.max(now - lastPointerTime, 8);
+
+                    currentX += dx;
+
+                    const frameVelocity = dx / (dt / 16.6667);
+                    const clampedFrameVelocity = Math.max(-maxVelocity, Math.min(maxVelocity, frameVelocity));
+                    velocity = (velocity * 0.65) + (clampedFrameVelocity * 0.35);
+
+                    lastPointerX = event.clientX;
+                    lastPointerTime = now;
+
+                    wrapPosition();
+                });
+
+                track.addEventListener('pointerup', endDrag);
+                track.addEventListener('pointercancel', endDrag);
+                track.addEventListener('lostpointercapture', () => {
+                    if (isDragging) {
+                        isDragging = false;
+                        activePointerId = null;
+                        setDraggingStyle(false);
+                    }
+                });
+
+                track.addEventListener('mouseenter', () => {
+                    isHovered = true;
+                });
+
+                track.addEventListener('mouseleave', () => {
+                    isHovered = false;
+                });
+
+                track.addEventListener('dragstart', (event) => {
+                    event.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
