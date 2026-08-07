@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting & Advisory | Student Portfolio</title>
+    
+    <!-- Google Fonts: Newsreader, Libre Caslon Text, Caveat, & Libre Barcode 128 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Barcode+128&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Newsreader', 'serif'],
+                        sans: ['"Libre Caslon Text"', 'serif'],
+                        hand: ['Caveat', 'cursive'],
+                        barcode: ['"Libre Barcode 128"', 'cursive'],
+                    },
+                    colors: {
+                        desk: '#e0dfd5',
+                        canvas: '#f4f4f0',
+                        kraft: '#c8b6a6',
+                        receipt: '#fcfbf8',
+                        stamp: '#b33939',
+                        sage: '#b5c1ad',
+                        mauve: '#d9b8c4',
+                        lavender: '#d2c4d2',
+                        sand: '#e3d5b8',
+                        slate: '#b4c4d4',
+                        ink: '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Subtle Ledger/Grid & Paper Texture Background */
+        .bg-paper {
+            background-color: #f4f4f0;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
+            background-size: 48px 48px, 48px 48px, 256px 256px;
+            background-position: center top, center top, left top;
+        }
+
+        /* Kraft Paper Texture */
+        .bg-kraft-paper {
+            background-color: #c8b6a6;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+        }
+
+        /* Writing Mode Utility */
+        .writing-vertical-rl {
+            writing-mode: vertical-rl;
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom Selection Color */
+        ::selection {
+            background-color: #d9b8c4;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="bg-desk text-ink font-serif antialiased selection:bg-mauve selection:text-ink p-2 md:p-6 lg:p-12 min-h-screen">
+
+    <!-- The "Sheet of Paper" -->
+    <div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[4px_8px_24px_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row">
+
+        <!-- Left Margin Column (Ref: Sketching Tools Image) -->
+        <aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
+            <!-- Registration Mark -->
+            <div class="h-16 border-b-2 border-ink flex items-center justify-center">
+                <div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
+                    <div class="absolute inset-0 flex items-center justify-center font-sans text-xs">+</div>
+                </div>
+            </div>
+            <!-- Vertical Text Block -->
+            <div class="flex-1 border-b-2 border-ink relative bg-canvas/40">
+                <div class="absolute inset-0 flex items-center justify-center writing-vertical-rl rotate-180 font-sans text-xs uppercase font-bold tracking-widest text-ink/80">
+                    Student Portfolio • Sophomore
+                </div>
+            </div>
+            <!-- Signature Blocks -->
+            <div class="h-40 border-b-2 border-ink flex flex-col divide-y-2 divide-ink font-sans text-[10px] uppercase font-bold">
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-sand/30">Dr. By</div>
+                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-canvas/40">Ch. By</div>
+            </div>
+            <!-- Bottom Rating -->
+            <div class="h-48 relative bg-canvas/40">
+                 <div class="absolute inset-0 flex items-center justify-center rotate-180 writing-vertical-rl font-bold tracking-[0.3em] text-lg font-sans">
+                    RATING
+                 </div>
+            </div>
+        </aside>
+
+        <!-- Main Document Area -->
+        <main class="flex-1 relative flex flex-col">
+            
+            <!-- Top Header Form (Ref: Classification Form Image) -->
+            <header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row">
+                <!-- Left Section -->
+                <div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
+                    <div class="font-sans text-[10px] uppercase font-bold mb-1 tracking-widest flex justify-between">
+                        <span>Classification / Index</span>
+                        <span class="text-ink/40">SYS. REF: 8608</span>
+                    </div>
+                    <!-- Navigation Links -->
+                    <nav class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2">
+                        <a href="index.html" class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default">Home</a>
+                        <a href="resume.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Resume</a>
+                        <a href="projects.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Projects</a>
+                        <a href="interests.html" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Interests</a>
+                    </nav>
+                    <!-- System Barcode using Font -->
+                    <div class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none">SYS8608</div>
+                </div>
+                <!-- Right Section (Date) -->
+                <div class="p-4 flex flex-col justify-center bg-sand/20">
+                    <div class="font-sans text-[10px] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
+                    <div id="current-date" class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas">
+                        03/21/2026
+                    </div>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <section class="relative pt-12 pb-24 px-6 md:px-12 z-10 overflow-hidden">
+                <div class="absolute top-4 left-6 text-[14rem] md:text-[20rem] leading-none font-bold tracking-tighter text-ink/5 select-none font-sans">
+                    01
+                </div>
+                
+                <div class="relative z-10 mt-12 reveal-up flex flex-col lg:flex-row gap-12 items-start">
+                    
+                    <!-- Left: Text Content -->
+                    <div class="flex-1 relative">
+                        <!-- Faux Empty Registry Fields -->
+                        <div class="absolute top-0 right-0 hidden xl:flex flex-col gap-2 font-sans text-[8px] uppercase tracking-widest text-ink/50">
+                            <div class="flex items-end gap-2"><span>Ref.</span><span class="w-16 border-b border-ink/30 border-dotted"></span></div>
+                            <div class="flex items-end gap-2"><span>Vol.</span><span class="w-16 border-b border-ink/30 border-dotted"></span></div>
+                        </div>
+
+                        <h1 class="text-6xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter mb-8 relative inline-block">
+                            Account<br>
+                            <span class="italic text-slate relative z-10">and</span><br>
+                            Advisory
+                            <!-- Handwritten Scribble Overlay -->
+                            <div class="absolute top-1/2 left-1/4 md:left-1/3 -translate-y-1/2 -rotate-12 font-hand text-5xl md:text-6xl text-ink/80 whitespace-nowrap z-20 pointer-events-none">
+                                Marketing x Tech.
+                            </div>
+                        </h1>
+                        
+                        <!-- Intro Paragraph with CTA -->
+                        <div class="font-sans max-w-xl text-sm leading-relaxed mt-8 bg-canvas p-5 border border-ink/20 shadow-[2px_4px_8px_rgba(0,0,0,0.05)] relative">
+                            <p class="mb-4">
+                                Hello, welcome to my digital space! I'm Henry Vo, and I'm passionate about finding the intersection between numbers and strategic decision-making. My journey into marketing consulting and accounting has shown me that I love the problem-solving process and the financial data behind a business's story. Feel free to explore my projects and interests or contact me!
+                            </p>
+                            
+                            <!-- Call to Action Block -->
+                            <div class="pt-4 border-t border-ink/20 border-dashed">
+                                <span class="font-bold text-[10px] uppercase tracking-widest flex items-center gap-2 mb-3 text-ink/60">
+                                    Cross-References
+                                </span>
+                                <div class="flex flex-wrap gap-6">
+                                    <a href="projects.html" class="inline-flex items-center gap-1 border-b border-ink/30 pb-0.5 font-bold hover:text-stamp hover:border-stamp transition-colors text-xs group/link">
+                                        <span class="text-ink/40 group-hover/link:text-stamp transition-colors">↳</span> Explore Projects
+                                    </a>
+                                    <a href="#contact" class="inline-flex items-center gap-1 border-b border-ink/30 pb-0.5 font-bold hover:text-stamp hover:border-stamp transition-colors text-xs group/link">
+                                        <span class="text-ink/40 group-hover/link:text-stamp transition-colors">↳</span> Open Communications
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Profile Picture Placeholder -->
+                    <div class="w-full sm:w-72 shrink-0 relative group cursor-pointer lg:mt-8 reveal-up" style="transition-delay: 0.2s;">
+                        <!-- Aesthetic Polaroid/Passport Frame -->
+                        <div class="bg-receipt p-3 pb-8 border-2 border-ink shadow-[4px_8px_16px_rgba(0,0,0,0.15)] transform rotate-3 transition-all duration-500 ease-out group-hover:rotate-0 group-hover:-translate-y-2 group-hover:shadow-[8px_16px_24px_rgba(0,0,0,0.2)] active:scale-95">
+                            
+                            <!-- Faux Tape -->
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-white/50 border border-black/10 backdrop-blur-md -rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1"></div>
+                            
+                            <!-- Image Container -->
+                            <div class="border-2 border-ink overflow-hidden bg-ink/5 aspect-[3/4] relative">
+                                <!-- Replace the src URL below with your actual photo later -->
+                               <img src="https://henryvo.neocities.org/headshot.JPG" alt="Student Portrait" class="w-full h-full object-cover filter contrast-[1.05] brightness-95 transition-transform duration-700 group-hover:scale-105">
+                                
+                                <!-- Inner Image Overlays (Barcodes & Crosshairs) -->
+                                <div class="absolute bottom-2 right-2 font-barcode text-4xl opacity-50 mix-blend-multiply group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">ID001</div>
+                                <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-ink/50 pointer-events-none"></div>
+                                <div class="absolute top-2 right-2 w-3 h-3 border-t border-r border-ink/50 pointer-events-none"></div>
+                                <div class="absolute bottom-2 left-2 w-3 h-3 border-b border-l border-ink/50 pointer-events-none"></div>
+                            </div>
+                            
+                            <!-- Photo caption -->
+                            <div class="font-sans text-[10px] uppercase font-bold text-ink/70 mt-4 tracking-widest flex justify-between items-center px-1">
+                                <span>Fig 1.</span>
+                                <span>Applicant ID</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Mission Section - Kraft Paper Card Overlay -->
+            <section id="about" class="py-16 px-4 md:px-12 relative z-20">
+                <div class="reveal-up">
+                    <!-- The Kraft Card (Interactive) -->
+                    <div class="bg-kraft-paper border-2 border-ink p-6 md:p-10 shadow-[4px_8px_16px_rgba(0,0,0,0.2)] max-w-3xl mx-auto relative transform transition-all duration-500 ease-out hover:-translate-y-3 hover:-rotate-2 hover:shadow-[16px_24px_40px_rgba(0,0,0,0.25)] active:scale-[0.98] active:shadow-[2px_4px_8px_rgba(0,0,0,0.2)] active:-translate-y-0 cursor-pointer group">
+                        
+                        <!-- Faux Tape -->
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/40 border border-black/10 backdrop-blur-md rotate-3 shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-1"></div>
+                        
+                        <!-- Faux Punch Hole -->
+                        <div class="absolute top-6 left-6 w-4 h-4 rounded-full bg-desk border-2 border-ink shadow-inner transition-transform duration-500 group-hover:scale-110"></div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-y-2 border-ink font-sans text-xs uppercase mb-8 bg-canvas/40 backdrop-blur-sm transition-colors duration-500 group-hover:bg-canvas/60">
+                            <div class="border-b-2 md:border-b-0 md:border-r-2 border-ink p-4">
+                                <span class="block font-bold mb-2">Location</span>
+                                <span class="text-sm">McCombs School of Business<br>UT Austin<br>GPA: 3.93</span>
+                            </div>
+                            <div class="p-4 bg-ink/5 group-hover:bg-ink/10 transition-colors duration-500">
+                                <span class="block font-bold mb-2">Timeline</span>
+                                <span class="text-sm font-bold">Present — 2029<br>Available for Internships</span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="text-3xl md:text-4xl italic leading-tight mb-4 transition-transform duration-500 group-hover:translate-x-1">
+                            "Looking at front-end strategy and back-end reality."
+                        </h2>
+                        <p class="font-sans text-sm leading-relaxed font-bold border-t-2 border-ink border-dashed pt-4 mt-4 relative">
+                            My background in marketing consulting taught me how to generate demand. My accounting technical foundation teaches me how to measure, protect, and report on that value.
+                            
+                            <!-- Red Evaluation Stamp (Reacts to hover) -->
+                            <span class="absolute -bottom-8 -right-4 font-sans text-stamp text-xl font-bold border-4 border-stamp px-2 py-1 rotate-[-10deg] opacity-80 tracking-widest pointer-events-none mix-blend-multiply transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:rotate-[-5deg] group-hover:opacity-100 group-active:scale-95 group-active:opacity-90">
+                                EVALUATED
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resume / CV Attachment -->
+            <section class="relative z-30 -mt-16 mb-16 mr-4 md:mr-16 ml-auto w-[90%] md:w-80 reveal-up">
+                <div class="bg-receipt border-2 border-ink p-5 shadow-[2px_6px_12px_rgba(0,0,0,0.15)] transform rotate-3 transition-all duration-500 ease-out hover:rotate-0 hover:-translate-y-2 hover:shadow-[6px_12px_20px_rgba(0,0,0,0.18)] relative group">
+                    
+                    <!-- Faux Tape (Replaced the Staple) -->
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-white/50 border border-black/10 backdrop-blur-md -rotate-3 shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-0"></div>
+                    
+                    <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-4 flex justify-between items-center text-ink/70">
+                        <span>Resume</span>
+                        <span class="font-barcode text-4xl opacity-60 leading-none h-6 flex items-center pt-2">CV2026</span>
+                    </div>
+                    
+                    <h3 class="font-serif italic text-2xl mb-1">Curriculum Vitae</h3>
+                    <p class="font-sans text-xs font-bold mb-4">Format: PDF</p>
+                    
+                    <div class="space-y-1 mb-6 font-sans text-[10px] uppercase text-ink/60">
+                        <div class="flex justify-between border-b border-ink/10 border-dotted pb-1"><span>Pages</span><span>01</span></div>
+                        <div class="flex justify-between border-b border-ink/10 border-dotted pb-1"><span>Size</span><span>100 KB</span></div>
+                    </div>
+
+                    <a href="#" class="block w-full bg-ink text-canvas font-sans text-xs font-bold uppercase text-center py-2 hover:bg-stamp hover:text-receipt transition-colors relative z-10">
+                        [ View Resumé ]
+                    </a>
+                </div>
+            </section>
+
+            <!-- Skills Section - Grid Layout -->
+            <section id="skills" class="border-t-2 border-ink bg-canvas/60 relative z-10 flex flex-col">
+                <!-- Section Header Tape -->
+                <div class="border-b-2 border-ink flex justify-between items-center p-3 font-sans text-xs uppercase font-bold bg-sage/20">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 border border-ink rounded-full flex items-center justify-center"><span class="w-1 h-1 bg-ink rounded-full"></span></span>
+                        <span>Inventory / Skills</span>
+                    </div>
+                    <div class="flex gap-4 text-[10px] text-ink/50 tracking-widest">
+                        <span>[ PAGE 01 ]</span>
+                        <span>[ SEC 03 ]</span>
+                    </div>
+                </div>
+
+                <!-- Heavy Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 divide-y-2 md:divide-y-0 md:divide-x-2 divide-ink">
+                    
+                    <!-- Skill 1 -->
+                    <div class="p-6 reveal-up relative hover:bg-slate/10 transition-colors">
+                        <div class="font-sans text-[10px] font-bold uppercase mb-8 pb-2 border-b border-ink/30 flex justify-between">
+                            <span>Item 01</span>
+                            <span class="bg-ink text-canvas px-1">Analytical</span>
+                        </div>
+                        <h3 class="text-5xl font-bold tracking-tighter mb-4 font-sans">Fin.</h3>
+                        <div class="font-serif italic text-xl mb-4">Financial Modeling</div>
+                        <ul class="font-sans text-xs space-y-2">
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>Excel (Pivot Tables)</span> <span>01</span></li>
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>Revenue Projections</span> <span>02</span></li>
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>What-If Data Analysis</span> <span>03</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill 2 -->
+                    <div class="p-6 reveal-up relative hover:bg-sage/10 transition-colors" style="transition-delay: 0.1s;">
+                        <div class="font-sans text-[10px] font-bold uppercase mb-8 pb-2 border-b border-ink/30 flex justify-between">
+                            <span>Item 02</span>
+                            <span class="bg-ink text-canvas px-1">Digital</span>
+                        </div>
+                        <h3 class="text-5xl font-bold tracking-tighter mb-4 font-sans">Mkt.</h3>
+                        <div class="font-serif italic text-xl mb-4">Marketing Strategy</div>
+                        <ul class="font-sans text-xs space-y-2">
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>GA4 Implementation</span> <span>01</span></li>
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>Technical SEO</span> <span>02</span></li>
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>Conversion Opt.</span> <span>03</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill 3 -->
+                    <div class="p-6 reveal-up relative hover:bg-sand/20 transition-colors" style="transition-delay: 0.2s;">
+                        <div class="font-sans text-[10px] font-bold uppercase mb-8 pb-2 border-b border-ink/30 flex justify-between">
+                            <span>Item 03</span>
+                            <span class="bg-ink text-canvas px-1">Strategy</span>
+                        </div>
+                        <h3 class="text-5xl font-bold tracking-tighter mb-4 font-sans">Adv.</h3>
+                        <div class="font-serif italic text-xl mb-4">Advisory</div>
+                        <ul class="font-sans text-xs space-y-2">
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>Consulting Frmwrk</span> <span>01</span></li>
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>Process Imprv.</span> <span>02</span></li>
+                            <li class="flex justify-between border-b border-ink/10 pb-1"><span>Client-Facing Work</span> <span>03</span></li>
+                        </ul>
+                        <!-- Vertical Text Snippet -->
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 writing-vertical-rl font-sans text-[8px] uppercase tracking-[0.3em] font-bold text-ink/40">
+                            HVO 2026
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer (Sign off) -->
+            <footer id="contact" class="border-t-2 border-ink p-6 md:p-12 relative z-10 bg-lavender/20">
+                <div class="reveal-up flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                    <div>
+                        <div class="font-sans text-xs font-bold uppercase border-b-2 border-ink inline-block pb-1 mb-4">
+                            End of Document / Contact
+                        </div>
+                        <h2 class="text-4xl md:text-6xl tracking-tighter mb-4">
+                            Let's <span class="italic text-mauve">Connect.</span>
+                        </h2>
+                        <p class="font-sans text-xs max-w-sm mb-6 font-bold leading-relaxed">
+                            Open to internships, coffee chats, and advisory opportunities where technical accounting meets strategic growth.
+                        </p>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-4">
+                            <a href="mailto:htv346@eid.utexas.edu" class="inline-flex items-center gap-2 bg-ink text-canvas font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-canvas hover:text-ink transition-colors shadow-hard-hover">
+                                <span class="w-2 h-2 rounded-full bg-canvas border border-ink"></span> htv346@utexas.edu
+                            </a>
+                            <a href="https://linkedin.com/in/HenryVoUT" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-canvas text-ink font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-ink hover:text-canvas transition-colors shadow-hard-hover group">
+                                <span class="w-2 h-2 rounded-full bg-ink border border-canvas group-hover:bg-canvas group-hover:border-ink transition-colors"></span> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Formal "Stamp" Area -->
+                    <div class="w-full md:w-auto border-2 border-ink p-4 bg-canvas/80 text-center relative mt-8 md:mt-0">
+                        <div class="font-sans text-[10px] uppercase font-bold mb-2 tracking-widest">Official Verification</div>
+                        <div class="w-32 h-32 mx-auto border-4 border-stamp rounded-full flex flex-col items-center justify-center rotate-[-15deg] opacity-80 text-stamp mix-blend-multiply">
+                            <span class="font-serif italic text-2xl leading-none">Valid</span>
+                            <span class="font-sans text-[8px] uppercase mt-1">2026-2029</span>
+                        </div>
+                        <!-- Signature overlapping stamp -->
+                        <div class="absolute inset-0 flex items-center justify-center font-hand text-5xl text-ink z-10 pointer-events-none rotate-[-5deg] pb-4">
+                            Approved
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Scripts for Interaction -->
+    <script>
+        // Lazy Reveal Animation using Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Auto-update Date
+            const dateElement = document.getElementById('current-date');
+            if (dateElement) {
+                const today = new Date();
+                const formattedDate = String(today.getMonth() + 1).padStart(2, '0') + '/' + 
+                                      String(today.getDate()).padStart(2, '0') + '/' + 
+                                      today.getFullYear();
+                dateElement.textContent = formattedDate;
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once revealed
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up');
+            revealElements.forEach(el => observer.observe(el));
+
+            // Hide Navbar on Scroll Down, Show on Scroll Up
+            let lastScrollTop = 0;
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scroll Down
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scroll Up
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }, false);
+        });
+    </script>
+</body>
+</html>
