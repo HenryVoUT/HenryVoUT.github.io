@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#332a26" name="theme-color"/>
+<meta content="noindex, follow" name="robots"/>
+<meta content="Explore Henry Vo's website, projects, resume, and ways to keep in touch." name="description"/>
+<title>Henry Vo | Welcome</title>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23643942'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='35' fill='%23f3ebdd'%3Eh%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<link rel="preload" href="textures/desk.webp" as="image"/>
+<link rel="preload" href="textures/paper.webp" as="image"/>
+<link rel="preload" href="textures/business-card.webp" as="image"/>
+<style>
+:root {
+  color-scheme: light;
+  --desk: #332a26;
+  --paper: #eee7d9;
+  --ink: #49332e;
+  --burgundy: #673a43;
+  --muted-ink: #766356;
+  --paper-image: url('textures/paper.webp');
+  --desk-image: url('textures/desk.webp');
+  --card-image: url('textures/business-card.webp');
+  --card-blend: multiply;
+  --card-ink: #f1e7d6;
+  --card-print-blend: normal;
+  --card-shadow: 0 .1px .3px #f4e9d554;
+  --paper-size: cover;
+  --serif: "EB Garamond", "Baskerville", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ink-spread: .3px;
+  --desk-tilt: 24deg;
+  --camera-distance: 1500px;
+  --light-strength: 1;
+}
+* { box-sizing: border-box; }
+html { width: 100%; height: 100%; overflow: hidden; background: var(--desk); }
+body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--desk); color: var(--ink); font: 400 20px/1.45 var(--serif); font-kerning: normal; font-variant-ligatures: common-ligatures; text-rendering: optimizeLegibility; overscroll-behavior: none; }
+.desk-backdrop { position: absolute; inset: -100%; z-index: 0; pointer-events: none; background-color: var(--desk); background-image: var(--desk-image); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.desk-backdrop::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(125deg, #ffedce04, transparent 45%, #0f09060b); }
+button { font: inherit; color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button { cursor: pointer; border-radius: 0; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+[hidden] { display: none !important; }
+::selection { background: #743f4a; color: #fff4df; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 5px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.filter-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+.skip-link { position: fixed; left: 20px; top: -100px; z-index: 30; padding: 10px 20px; color: var(--ink); background: var(--paper); }
+.skip-link:focus { top: 20px; }
+.page { position: fixed; inset: 0; width: 100%; height: 100vh; height: 100dvh; display: grid; grid-template-rows: minmax(0, 1fr); padding: max(24px, env(safe-area-inset-top)) max(34px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(34px, env(safe-area-inset-left)); }
+.scene-window { position: relative; min-width: 0; min-height: 0; }
+.desk { position: absolute; top: 50%; left: 50%; width: 900px; height: 690px; transform: translate(-50%, -50%) translate(var(--scene-shift-x, 0px), var(--scene-shift-y, 0px)) scale(var(--scene-scale, .7)); transform-origin: center; }
+.desk-plane { position: relative; isolation: isolate; width: 100%; height: 100%; transform-origin: 50% 50%; transform: perspective(var(--camera-distance)) rotateX(var(--desk-tilt)); }
+.desk-object { position: absolute; display: block; transform-origin: 50% 50%; }
+.letter { left: 28px; top: 24px; width: 500px; aspect-ratio: 250 / 301; transform: rotate(-1.5deg); z-index: 1; }
+.business-card { left: 506px; top: 370px; width: 304px; transform: rotate(3deg); z-index: 2; color: var(--card-ink); text-decoration: none; }
+.paper { position: relative; isolation: isolate; display: block; background-color: var(--paper); background-image: var(--paper-image); background-position: center; background-size: var(--paper-size); background-repeat: no-repeat; border: 0; box-shadow: .25px .6px .5px #140c0ab0, .8px 1.6px 1.3px #140c0a73, 1.5px 3px 4px -1.3px #160e0b63; }
+.sheet-surface, .card-surface { z-index: 1; }
+.sheet-surface { width: 100%; height: 100%; }
+.letter::before { content: ""; position: absolute; z-index: 0; left: 3%; right: 1%; height: 22%; bottom: -2.8px; border-radius: 12% 22% 35% 18%; background: #0d070665; filter: blur(3px); transform: rotate(.3deg); pointer-events: none; }
+.business-card::before { content: ""; position: absolute; z-index: 0; inset: 4px -1px -2px 1px; background: #0d070670; filter: blur(2px); pointer-events: none; }
+.sheet-surface::after, .card-surface::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3; border-top: .65px solid #fff8ec52; border-left: .45px solid #fff8ec24; border-right: .55px solid #2c1c171f; border-bottom: .8px solid #2c1c173d; background: linear-gradient(112deg, #fffef703, transparent 36%, #21180903); }
+.letter-content { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 43px 49px 35px; mix-blend-mode: multiply; }
+.intro-block, .links-block { flex-shrink: 0; }
+.printed { text-shadow: .04px .1px var(--ink-spread) #512b294d; }
+.ink-display { filter: url("#printed-ink"); }
+h1 { font-size: 94px; font-weight: 400; letter-spacing: -.053em; line-height: 1.02; margin: 0 0 16px; color: var(--burgundy); }
+.greeting { margin: 0 0 22px; font-size: 27px; font-style: italic; line-height: 1.2; letter-spacing: -.016em; }
+.links { margin-top: 22px; }
+.main-link { font-weight: 500; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 12px 0 11px; border-top: 1px solid #71554b57; border-bottom: 1px solid #71554b57; text-decoration: none; font-size: 27px; line-height: 1.25; color: var(--burgundy); }
+.link-arrow { display: inline-block; font-size: .83em; font-style: normal; line-height: 1; transition: transform .2s ease; }
+.small-links { display: flex; flex-wrap: wrap; gap: 0 24px; margin-top: 4px; }
+.small-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 19px; text-decoration: none; }
+.small-links a:hover { text-decoration: underline; }
+.contact-row { margin-top: 16px; display: flex; align-items: center; gap: 20px; }
+.contact-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 25px; font-style: italic; text-decoration: none; }
+.contact-link:hover { text-decoration: underline; }
+.affiliation { margin: auto 0 0; padding-top: 26px; flex-shrink: 0; font-size: 16px; line-height: 1.35; color: var(--muted-ink); }
+.affiliation span { display: block; }
+.card-surface { width: 100%; padding: 24px 28px 24px; background-color: var(--burgundy); background-image: var(--card-image); background-blend-mode: var(--card-blend); box-shadow: .4px .75px .4px #140c0aa1, 1px 2px 1.5px #140c0a80, 2px 4px 4px -1.7px #160e0b80; }
+.card-print { display: block; position: relative; text-shadow: var(--card-shadow); mix-blend-mode: var(--card-print-blend); }
+.card-name { display: block; margin: 0; font-size: 40px; letter-spacing: -.035em; line-height: 1.1; }
+.card-note { display: block; margin: 7px 0 28px; font-size: 17px; line-height: 1.3; font-style: italic; }
+.card-link { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 21px; }
+.business-card:focus-visible { outline-color: #efe3cc; outline-offset: 8px; }
+.business-card:hover .card-link { text-decoration: underline; text-underline-offset: 5px; }
+.business-card:active .card-surface { transform: translate(.2px, .3px); }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .letter { width: 360px; aspect-ratio: 180 / 257; transform: rotate(-1.25deg); }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .letter-content { padding: 27px 29px 30px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) h1 { font-size: 73px; margin-bottom: 11px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .greeting { font-size: 25px; margin-bottom: 20px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .links { margin-top: 22px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .main-link { font-weight: 500; font-size: 27px; padding: 10px 0; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .small-links { gap: 0 24px; margin-top: 3px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .small-links a { font-size: 20px; min-height: 44px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .contact-row { margin-top: 8px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .contact-link { font-size: 25px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .affiliation { margin-top: auto; padding-top: 16px; font-size: 16px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .business-card { width: 270px; transform: rotate(2.5deg); }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .card-surface { padding: 18px 25px 18px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .card-name { font-size: 36px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .card-note { font-size: 17px; margin: 5px 0 16px; }
+.desk:is([data-layout="portrait"], [data-layout="shallow"]) .card-link { font-size: 22px; }
+@media (max-width: 700px) {
+.page { padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); }
+}
+@media (max-height: 450px) {
+.page { padding-top: max(8px, env(safe-area-inset-top)); padding-bottom: max(4px, env(safe-area-inset-bottom));  }
+}
+dialog {
+  width: 450px; max-width: calc(100% - 36px); max-height: calc(100svh - 48px);
+  padding: 35px 36px 31px; border: 0; color: var(--ink); overflow: auto;
+}
+dialog::backdrop { background: #211a17b5; }
+.dialog-print { mix-blend-mode: multiply; }
+.dialog-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+dialog h2 { margin: 0; font-size: 40px; font-weight: 400; font-style: italic; line-height: 1.1; letter-spacing: -.025em; color: var(--burgundy); }
+.dialog-close { min-width: 44px; min-height: 44px; border: 0; background: transparent; font-size: 17px; padding: 8px 0 8px 10px; text-decoration: underline; }
+.dialog-copy { margin: 23px 0 19px; font-size: 20px; }
+.email-address { display: block; width: fit-content; max-width: 100%; font-size: 22px; overflow-wrap: anywhere; padding: 7px 0; margin-bottom: 22px; }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.dialog-actions a, .dialog-actions button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 15px; background: transparent; border: 1px solid #74594d80; font-size: 18px; text-decoration: none; }
+.dialog-actions a:hover, .dialog-actions button:hover { background: #7351480f; }
+.save-contact { display: inline-flex; align-items: center; min-height: 44px; margin-top: 14px; font-size: 17px; }
+dialog:not([open]) { display: none; }
+dialog { overscroll-behavior: contain; max-height: calc(100dvh - 32px); }
+dialog { box-shadow: 0 12px 55px #120b0950; }
+@media (max-width: 700px) {
+dialog { padding: 25px 26px; }
+dialog h2 { font-size: 35px; }
+}
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+@media (forced-colors: active) {
+.desk-backdrop, .desk-illumination { display: none; }
+.paper { border: 1px solid CanvasText; background-image: none; }
+.sheet-surface::after, .card-surface::after, .desk-object::before { display: none; }
+.letter-content, .dialog-print, .card-print { mix-blend-mode: normal; }
+.ink-display { filter: none; }
+.printed { text-shadow: none; }
+}
+@media print {
+body, html { height: auto; overflow: visible; background: white; }
+.desk-backdrop, .desk-illumination, dialog { display: none; }
+.page { display: block; height: auto; padding: 0; }
+.scene-window { position: static; }
+.desk { position: static; display: block; width: auto !important; height: auto !important; transform: none; }
+.desk-plane { position: static; width: auto; height: auto; transform: none; }
+.desk-object { position: static; transform: none !important; width: 100% !important; margin: 25px auto; }
+.desk-object::before, .sheet-surface::after, .card-surface::after { display: none; }
+.paper { background: white; box-shadow: none; color: black; }
+.letter-content, .dialog-print, .card-print { mix-blend-mode: normal; }
+.ink-display { filter: none; }
+}
+.desk-illumination {
+  position: absolute;
+  inset: -100%;
+  pointer-events: none;
+  user-select: none;
+  opacity: var(--light-strength);
+}
+.desk-shade {
+  z-index: 4;
+  mix-blend-mode: multiply;
+  background: radial-gradient(
+    ellipse var(--light-radius-x, 750px) var(--light-radius-y, 650px)
+    at var(--light-x, 50%) var(--light-y, 46%),
+    rgba(17, 13, 12, 0) 0%,
+    rgba(17, 13, 12, .012) 20%,
+    rgba(17, 13, 12, .065) 38%,
+    rgba(17, 13, 12, .18) 58%,
+    rgba(17, 13, 12, .36) 80%,
+    rgba(17, 13, 12, .54) 105%,
+    rgba(17, 13, 12, .69) 140%
+  );
+}
+.desk-light {
+  z-index: 5;
+  mix-blend-mode: soft-light;
+  background: radial-gradient(
+    ellipse var(--light-radius-x, 750px) var(--light-radius-y, 650px)
+    at var(--light-x, 50%) var(--light-y, 46%),
+    rgba(255, 241, 218, .78) 0%,
+    rgba(255, 241, 218, .66) 18%,
+    rgba(255, 241, 218, .39) 37%,
+    rgba(255, 241, 218, .16) 56%,
+    rgba(255, 241, 218, .04) 75%,
+    rgba(255, 241, 218, 0) 96%
+  );
+}
+.main-link:hover { border-color: var(--burgundy); }
+.main-link:hover .link-arrow { transform: translate(2px, -2px); }
+@media (max-height: 230px) {
+  .page { padding: 5px; }
+}
+
+</style>
+<noscript><style>
+html, body { height: auto; overflow: auto; }
+.page { position: relative; height: auto; display: block; padding: 32px 18px; }
+.scene-window { position: static; }
+.desk, .desk-plane { position: static; width: auto !important; height: auto !important; transform: none; }
+.desk-object { position: relative; left: auto !important; top: auto !important; width: min(500px,100%); margin: 24px auto; transform: none; }
+.letter-content { padding: 32px; }
+h1 { font-size: 66px; }
+.business-card { width: min(304px,90%); }
+.desk-illumination { display: none; }
+</style></noscript>
+</head>
+<body>
+<svg aria-hidden="true" class="filter-defs" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter color-interpolation-filters="sRGB" height="125%" id="printed-ink" width="108%" x="-4%" y="-10%">
+<feTurbulence baseFrequency=".72" numOctaves="3" result="ink-edge" seed="12" type="fractalNoise"></feTurbulence>
+<feDisplacementMap in="SourceGraphic" in2="ink-edge" result="ink-shape" scale=".42" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+<feGaussianBlur in="ink-shape" result="ink-spread" stdDeviation=".14"></feGaussianBlur>
+<feMerge><feMergeNode in="ink-spread"></feMergeNode><feMergeNode in="ink-shape"></feMergeNode></feMerge>
+</filter>
+</defs>
+</svg>
+<a class="skip-link" href="#portfolioLink">Skip to my website</a>
+<div class="page" id="page">
+<div class="scene-window" id="sceneWindow"><main aria-label="Keep in touch with Henry" class="desk" data-layout="wide" id="desk"><div class="desk-plane" id="deskPlane"><div aria-hidden="true" class="desk-backdrop" id="deskBackdrop"></div>
+<article aria-labelledby="name" class="desk-object letter">
+<div class="paper sheet-surface"><div class="letter-content printed"><div class="intro-block"><h1 id="name"><span class="ink-display">Henry Vo</span></h1><p class="greeting">Glad our paths crossed.</p></div><div class="links-block"><div class="links">
+<a class="main-link" data-site-path="/" href="https://henryvout.github.io/" id="portfolioLink"><span>Visit my website</span><span aria-hidden="true" class="link-arrow">↗</span></a>
+<nav aria-label="Inside my website" class="small-links">
+<a data-site-path="/projects/" href="https://henryvout.github.io/projects/">Projects</a>
+<a data-site-path="/resume/" href="https://henryvout.github.io/resume/">Résumé</a>
+<a data-site-path="/interests/" href="https://henryvout.github.io/interests/">Interests</a>
+</nav>
+</div><div class="contact-row"><a class="contact-link" href="mailto:htv346@eid.utexas.edu" id="contactLink">Say hello <span aria-hidden="true" class="link-arrow">→</span></a></div></div>
+<p class="affiliation"><span>McCombs School of Business</span><span>The University of Texas at Austin</span></p>
+</div></div>
+</article>
+<a aria-label="Connect with Henry Vo on LinkedIn (opens a new tab)" class="desk-object business-card" href="https://www.linkedin.com/in/henryvout/" rel="noopener noreferrer" target="_blank">
+<span class="paper card-surface"><span class="card-print">
+<span class="card-name ink-display">Henry Vo</span>
+<span class="card-note">A good place to keep in touch.</span>
+<span class="card-link">LinkedIn <span aria-hidden="true" class="link-arrow">↗</span></span>
+</span></span>
+</a>
+<div class="desk-illumination desk-shade" aria-hidden="true"></div>
+<div class="desk-illumination desk-light" aria-hidden="true"></div>
+</div></main></div>
+</div>
+<dialog aria-labelledby="contactTitle" class="paper" id="contactDialog">
+<div class="dialog-print printed">
+<div class="dialog-top"><h2 id="contactTitle">Keep in touch.</h2><button autofocus="" class="dialog-close" id="closeContact" type="button">Close</button></div>
+<p class="dialog-copy">Have a question, an idea, or just a hello?</p>
+<a class="email-address" href="mailto:htv346@eid.utexas.edu" id="emailAddress">htv346@eid.utexas.edu</a>
+<div class="dialog-actions"><a href="mailto:htv346@eid.utexas.edu">Write an email</a><button id="copyEmail" type="button">Copy address</button></div>
+<a class="save-contact" download="henry-vo.vcf" href="mailto:htv346@eid.utexas.edu" id="saveContact">Save my contact card ↓</a>
+</div>
+</dialog>
+<script>
+(() => {
+  'use strict';
+  const DEFAULT_SITE = 'https://henryvout.github.io';
+  const EMAIL = 'htv346@eid.utexas.edu';
+  const LINKEDIN = 'https://www.linkedin.com/in/henryvout/';
+  const local = location.protocol === 'file:' || location.origin === 'null' || ['localhost', '127.0.0.1', ''].includes(location.hostname);
+  const site = local ? DEFAULT_SITE : location.origin;
+  document.querySelectorAll('[data-site-path]').forEach(link => {
+    link.href = site + link.dataset.sitePath;
+  });
+  const dialog = document.getElementById('contactDialog');
+  const contactLink = document.getElementById('contactLink');
+  const copyButton = document.getElementById('copyEmail');
+  let copyTimer;
+  contactLink.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || typeof dialog.showModal !== 'function') return;
+    event.preventDefault();
+    if (dialog.open) return;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('closeContact').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const box = dialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.style.overflow = '';
+    contactLink.focus({ preventScroll: true });
+  });
+  copyButton.addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(EMAIL);
+      copyButton.textContent = 'Copied';
+      clearTimeout(copyTimer);
+      copyTimer = setTimeout(() => { copyButton.textContent = 'Copy address'; }, 2400);
+    } catch (error) {
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById('emailAddress'));
+      const selection = window.getSelection();
+      if (selection) { selection.removeAllRanges(); selection.addRange(range); }
+      copyButton.textContent = 'Select and copy above';
+    }
+  });
+  const vcard = ['BEGIN:VCARD', 'VERSION:3.0', 'N:Vo;Henry;;;', 'FN:Henry Vo', 'EMAIL;TYPE=INTERNET:' + EMAIL, 'URL:' + site + '/', 'NOTE:LinkedIn ' + LINKEDIN, 'END:VCARD', ''].join('\r\n');
+  document.getElementById('saveContact').href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
+
+  const sceneWindow = document.getElementById('sceneWindow');
+  const desk = document.getElementById('desk');
+  const deskPlane = document.getElementById('deskPlane');
+  const deskBackdrop = document.getElementById('deskBackdrop');
+  const letter = desk.querySelector('.letter');
+  const business = desk.querySelector('.business-card');
+  let fitting = 0;
+  function rotatedBounds(x, y, width, height, degrees) {
+    const angle = Math.abs(degrees) * Math.PI / 180;
+    const boxWidth = width * Math.cos(angle) + height * Math.sin(angle);
+    const boxHeight = height * Math.cos(angle) + width * Math.sin(angle);
+    return { left: x + (width - boxWidth) / 2, top: y + (height - boxHeight) / 2, right: x + (width + boxWidth) / 2, bottom: y + (height + boxHeight) / 2 };
+  }
+  function projectPoint(x, y, matrix) {
+    const point = matrix.transformPoint({ x, y, z: 0, w: 1 });
+    return { x: point.x / point.w, y: point.y / point.w };
+  }
+  function coverDesk(matrix, scale, shiftX, shiftY, naturalWidth, naturalHeight) {
+    const frame = sceneWindow.getBoundingClientRect();
+    const centerX = frame.left + frame.width / 2 + shiftX;
+    const centerY = frame.top + frame.height / 2 + shiftY;
+    const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth);
+    const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    const bleed = 48;
+    const screenCorners = [
+      [-bleed, -bleed], [viewportWidth + bleed, -bleed],
+      [viewportWidth + bleed, viewportHeight + bleed], [-bleed, viewportHeight + bleed]
+    ];
+    const points = screenCorners.map(([screenX, screenY]) => {
+      const u = (screenX - centerX) / scale;
+      const v = (screenY - centerY) / scale;
+      const a = matrix.m11 - u * matrix.m14;
+      const b = matrix.m21 - u * matrix.m24;
+      const c = matrix.m12 - v * matrix.m14;
+      const d = matrix.m22 - v * matrix.m24;
+      const e = u * matrix.m44 - matrix.m41;
+      const f = v * matrix.m44 - matrix.m42;
+      const determinant = a * d - b * c;
+      return {
+        x: (e * d - b * f) / determinant + naturalWidth / 2,
+        y: (a * f - e * c) / determinant + naturalHeight / 2
+      };
+    });
+    if (points.some(point => !Number.isFinite(point.x) || !Number.isFinite(point.y))) return;
+    const left = Math.floor(Math.min(...points.map(point => point.x))) - 2;
+    const top = Math.floor(Math.min(...points.map(point => point.y))) - 2;
+    const right = Math.ceil(Math.max(...points.map(point => point.x))) + 2;
+    const bottom = Math.ceil(Math.max(...points.map(point => point.y))) + 2;
+    const lightX = naturalWidth * .46;
+    const lightY = naturalHeight * .40;
+    const radiusX = Math.max(naturalWidth * .80, naturalHeight * .66);
+    const radiusY = Math.max(naturalHeight * .85, naturalWidth * .66);
+    deskPlane.style.setProperty('--light-x', (lightX - left).toFixed(2) + 'px');
+    deskPlane.style.setProperty('--light-y', (lightY - top).toFixed(2) + 'px');
+    deskPlane.style.setProperty('--light-radius-x', radiusX.toFixed(2) + 'px');
+    deskPlane.style.setProperty('--light-radius-y', radiusY.toFixed(2) + 'px');
+    [deskBackdrop, ...deskPlane.querySelectorAll('.desk-illumination')].forEach(surface => {
+      surface.style.inset = 'auto';
+      surface.style.left = left + 'px';
+      surface.style.top = top + 'px';
+      surface.style.width = (right - left) + 'px';
+      surface.style.height = (bottom - top) + 'px';
+    });
+  }
+  function fitDesk() {
+    fitting = 0;
+    if (window.visualViewport && window.visualViewport.scale > 1.03) return;
+    const width = sceneWindow.clientWidth;
+    const height = sceneWindow.clientHeight;
+    if (width < 1 || height < 1) return;
+    const portrait = width / height < .9;
+    const layout = portrait ? 'portrait' : (height < 445 ? 'shallow' : 'wide');
+    desk.dataset.layout = layout;
+    const compact = layout !== 'wide';
+    const lw = letter.offsetWidth;
+    const lh = letter.offsetHeight;
+    const cw = business.offsetWidth;
+    const ch = business.offsetHeight;
+    const cardX = portrait ? lw - cw + 1 : lw - 17;
+    const cardY = portrait ? lh - 6 : (layout === 'shallow' ? Math.max(38, lh - ch + 24) : lh * .59);
+    const lbox = rotatedBounds(0, 0, lw, lh, compact ? -1.25 : -1.5);
+    const cbox = rotatedBounds(cardX, cardY, cw, ch, compact ? 2.5 : 3);
+    const margin = portrait ? 13 : 24;
+    const minX = Math.min(lbox.left, cbox.left) - margin;
+    const minY = Math.min(lbox.top, cbox.top) - margin;
+    const maxX = Math.max(lbox.right, cbox.right) + margin;
+    const maxY = Math.max(lbox.bottom, cbox.bottom) + margin;
+    const naturalWidth = maxX - minX;
+    const naturalHeight = maxY - minY;
+    letter.style.left = (-minX) + 'px';
+    letter.style.top = (-minY) + 'px';
+    business.style.left = (cardX - minX) + 'px';
+    business.style.top = (cardY - minY) + 'px';
+    desk.style.width = naturalWidth + 'px';
+    desk.style.height = naturalHeight + 'px';
+    const matrix = new DOMMatrix(getComputedStyle(deskPlane).transform);
+    const corners = [
+      [-naturalWidth / 2, -naturalHeight / 2], [naturalWidth / 2, -naturalHeight / 2],
+      [naturalWidth / 2, naturalHeight / 2], [-naturalWidth / 2, naturalHeight / 2]
+    ].map(([x, y]) => projectPoint(x, y, matrix));
+    const projectedLeft = Math.min(...corners.map(point => point.x));
+    const projectedRight = Math.max(...corners.map(point => point.x));
+    const projectedTop = Math.min(...corners.map(point => point.y));
+    const projectedBottom = Math.max(...corners.map(point => point.y));
+    const projectedWidth = projectedRight - projectedLeft;
+    const projectedHeight = projectedBottom - projectedTop;
+    const scale = Math.min(width / projectedWidth, height / projectedHeight, 1.18);
+    const shiftX = -scale * (projectedLeft + projectedRight) / 2;
+    const shiftY = -scale * (projectedTop + projectedBottom) / 2;
+    desk.style.setProperty('--scene-scale', scale.toFixed(7));
+    desk.style.setProperty('--scene-shift-x', shiftX.toFixed(4) + 'px');
+    desk.style.setProperty('--scene-shift-y', shiftY.toFixed(4) + 'px');
+    desk.dataset.fit = scale.toFixed(3);
+    coverDesk(matrix, scale, shiftX, shiftY, naturalWidth, naturalHeight);
+  }
+  function queueFit() {
+    if (!fitting) fitting = requestAnimationFrame(fitDesk);
+  }
+  if ('ResizeObserver' in window) {
+    const sceneObserver = new ResizeObserver(queueFit);
+    sceneObserver.observe(sceneWindow);
+    sceneObserver.observe(letter);
+    sceneObserver.observe(business);
+  }
+  window.addEventListener('resize', queueFit, { passive: true });
+  window.addEventListener('orientationchange', queueFit, { passive: true });
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', queueFit, { passive: true });
+  if (document.fonts) {
+    document.fonts.ready.then(queueFit);
+    document.fonts.addEventListener('loadingdone', queueFit);
+  }
+
+  fitDesk();
+})();
+</script>
+</body>
+</html>
