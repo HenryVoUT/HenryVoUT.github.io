@@ -151,10 +151,30 @@
             background-color: #d9b8c4;
             color: #000;
         }
+    
+        .site-shell, .site-main, .site-header > div { min-width: 0; }
+        .site-main { width: 100%; }
+        .site-header { overflow: hidden; }
+        .header-meta { display: flex; justify-content: flex-end; }
+        .site-nav-bar { display: flex; align-items: flex-end; flex-wrap: wrap; gap: .75rem; }
+        .site-nav { margin-top: .5rem; min-width: 0; }
+        .site-nav a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
+        .header-barcode { position: static !important; margin: 0 0 0 auto; font-size: 2rem !important; line-height: 1; }
+        .site-date { flex-shrink: 0; }
+        @media (max-width: 639px) {
+            .site-date { flex-direction: row; justify-content: space-between; align-items: center; gap: .75rem; padding: .75rem 1rem; }
+            .site-date > div:first-child { margin: 0; }
+            .site-date #current-date { font-size: .95rem; letter-spacing: .1em; }
+        }
+        @media (max-width: 439px) {
+            .site-nav-bar { display: block; }
+            .site-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+            .header-barcode { display: none; }
+        }
     </style>
 </head>
 <body class="bg-desk text-ink font-serif antialiased selection:bg-mauve selection:text-ink p-2 md:p-6 lg:p-12 min-h-screen">
-<div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[0.25rem_0.5rem_1.5rem_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[90vh]">
+<div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[0.25rem_0.5rem_1.5rem_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[90vh] site-shell">
 <aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
 <div class="h-16 border-b-2 border-ink flex items-center justify-center">
 <div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
@@ -176,19 +196,23 @@
                  </div>
 </div>
 </aside>
-<main class="flex-1 relative flex flex-col overflow-x-hidden">
-<header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row">
+<main class="flex-1 relative flex flex-col overflow-x-hidden site-main">
+<header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row site-header">
 <div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
-
-<nav class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2">
+<div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest flex justify-end header-meta">
+<span class="text-ink/40">SYS. REF: 8608</span>
+</div>
+<div class="site-nav-bar">
+<nav aria-label="Main navigation" class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2 site-nav">
 <a class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all" href="/">Home</a>
 <a class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all" href="/resume/">Resume</a>
-<a class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default" href="/projects/">Projects</a>
+<a aria-current="page" class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default" href="/projects/">Projects</a>
 <a class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all" href="/interests/">Interests</a>
 </nav>
-<div class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none">PRJ-06</div>
+<div aria-hidden="true" class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none header-barcode">PRJ-06</div>
 </div>
-<div class="p-4 flex flex-col justify-center bg-sand/20">
+</div>
+<div class="p-4 flex flex-col justify-center bg-sand/20 site-date">
 <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
 <div class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas" id="current-date">
                         03/21/2026
