@@ -1,59 +1,1627 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+
+<html class="scroll-smooth" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interests | Student Portfolio</title>
+<meta charset="utf-8"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interests | Student Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;family=Libre+Barcode+128&amp;family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Barcode+128&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['Newsreader', 'serif'],
-                        sans: ['"Libre Caslon Text"', 'serif'],
-                        hand: ['Caveat', 'cursive'],
-                        barcode: ['"Libre Barcode 128"', 'cursive'],
-                    },
-                    colors: {
-                        desk: '#e0dfd5',
-                        canvas: '#f4f4f0',
-                        kraft: '#c8b6a6',
-                        receipt: '#fcfbf8',
-                        stamp: '#b33939',
-                        sage: '#b5c1ad',
-                        mauve: '#d9b8c4',
-                        lavender: '#d2c4d2',
-                        sand: '#e3d5b8',
-                        slate: '#b4c4d4',
-                        ink: '#000000',
-                    }
-                }
-            }
-        }
-    </script>
+<style id="portfolio-utilities">
+/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
+@layer properties;
+:root, :host {
+  --font-sans: 'Libre Caslon Text', serif;
+  --font-serif: 'Newsreader', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --color-zinc-400: oklch(70.5% 0.015 286.067);
+  --color-zinc-500: oklch(55.2% 0.016 285.938);
+  --color-black: #000;
+  --color-white: #fff;
+  --spacing: 0.25rem;
+  --container-sm: 24rem;
+  --container-xl: 36rem;
+  --container-2xl: 42rem;
+  --container-5xl: 64rem;
+  --container-6xl: 72rem;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: calc(1 / 0.75);
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --tracking-tighter: -0.05em;
+  --tracking-widest: 0.1em;
+  --leading-tight: 1.25;
+  --leading-relaxed: 1.625;
+  --radius-sm: 0.25rem;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --blur-md: 12px;
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --default-font-family: 'Libre Caslon Text', serif;
+  --default-mono-font-family: var(--font-mono);
+  --font-barcode: 'Libre Barcode 128', cursive;
+  --color-desk: #e0dfd5;
+  --color-canvas: #f4f4f0;
+  --color-receipt: #fcfbf8;
+  --color-stamp: #b33939;
+  --color-sage: #b5c1ad;
+  --color-mauve: #d9b8c4;
+  --color-lavender: #d2c4d2;
+  --color-sand: #e3d5b8;
+  --color-slate: #b4c4d4;
+  --color-ink: #000000;
+}
+*, ::after, ::before, ::backdrop, ::file-selector-button {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+html, :host {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+  font-feature-settings: var(--default-font-feature-settings, normal);
+  font-variation-settings: var(--default-font-variation-settings, normal);
+  -webkit-tap-highlight-color: transparent;
+}
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+a {
+  color: inherit;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+}
+b, strong {
+  font-weight: bolder;
+}
+code, kbd, samp, pre {
+  font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+  font-feature-settings: var(--default-mono-font-feature-settings, normal);
+  font-variation-settings: var(--default-mono-font-variation-settings, normal);
+  font-size: 1em;
+}
+small {
+  font-size: 80%;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+:-moz-focusring {
+  outline: auto;
+}
+progress {
+  vertical-align: baseline;
+}
+summary {
+  display: list-item;
+}
+ol, ul, menu {
+  list-style: none;
+}
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+button, input, select, optgroup, textarea, ::file-selector-button {
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  border-radius: 0;
+  background-color: transparent;
+  opacity: 1;
+}
+:where(select:is([multiple], [size])) optgroup {
+  font-weight: bolder;
+}
+:where(select:is([multiple], [size])) optgroup option {
+  padding-inline-start: 20px;
+}
+::file-selector-button {
+  margin-inline-end: 4px;
+}
+::placeholder {
+  opacity: 1;
+}
+@supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+  ::placeholder {
+    color: currentcolor;
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, currentcolor 50%, transparent);
+    }
+  }
+}
+textarea {
+  resize: vertical;
+}
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-date-and-time-value {
+  min-height: 1lh;
+  text-align: inherit;
+}
+::-webkit-datetime-edit {
+  display: inline-flex;
+}
+::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+  padding-block: 0;
+}
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+  appearance: button;
+}
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+  height: auto;
+}
+[hidden]:where(:not([hidden='until-found'])) {
+  display: none !important;
+}
+.pointer-events-none {
+  pointer-events: none;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.inset-0 {
+  inset: calc(var(--spacing) * 0);
+}
+.-top-3 {
+  top: calc(var(--spacing) * -3);
+}
+.top-0 {
+  top: calc(var(--spacing) * 0);
+}
+.top-4 {
+  top: calc(var(--spacing) * 4);
+}
+.top-12 {
+  top: calc(var(--spacing) * 12);
+}
+.right-0 {
+  right: calc(var(--spacing) * 0);
+}
+.right-4 {
+  right: calc(var(--spacing) * 4);
+}
+.right-6 {
+  right: calc(var(--spacing) * 6);
+}
+.right-16 {
+  right: calc(var(--spacing) * 16);
+}
+.bottom-2 {
+  bottom: calc(var(--spacing) * 2);
+}
+.left-1\/2 {
+  left: calc(1/2 * 100%);
+}
+.left-4 {
+  left: calc(var(--spacing) * 4);
+}
+.z-10 {
+  z-index: 10;
+}
+.z-20 {
+  z-index: 20;
+}
+.z-40 {
+  z-index: 40;
+}
+.-mx-4 {
+  margin-inline: calc(var(--spacing) * -4);
+}
+.mx-auto {
+  margin-inline: auto;
+}
+.mt-0\.5 {
+  margin-top: calc(var(--spacing) * 0.5);
+}
+.mt-1 {
+  margin-top: calc(var(--spacing) * 1);
+}
+.mt-2 {
+  margin-top: calc(var(--spacing) * 2);
+}
+.mt-4 {
+  margin-top: calc(var(--spacing) * 4);
+}
+.mt-6 {
+  margin-top: calc(var(--spacing) * 6);
+}
+.mt-auto {
+  margin-top: auto;
+}
+.mb-1 {
+  margin-bottom: calc(var(--spacing) * 1);
+}
+.mb-2 {
+  margin-bottom: calc(var(--spacing) * 2);
+}
+.mb-3 {
+  margin-bottom: calc(var(--spacing) * 3);
+}
+.mb-4 {
+  margin-bottom: calc(var(--spacing) * 4);
+}
+.mb-6 {
+  margin-bottom: calc(var(--spacing) * 6);
+}
+.mb-8 {
+  margin-bottom: calc(var(--spacing) * 8);
+}
+.mb-12 {
+  margin-bottom: calc(var(--spacing) * 12);
+}
+.ml-1 {
+  margin-left: calc(var(--spacing) * 1);
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.hidden {
+  display: none;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.aspect-\[4\/3\] {
+  aspect-ratio: 4/3;
+}
+.h-1 {
+  height: calc(var(--spacing) * 1);
+}
+.h-2 {
+  height: calc(var(--spacing) * 2);
+}
+.h-3 {
+  height: calc(var(--spacing) * 3);
+}
+.h-6 {
+  height: calc(var(--spacing) * 6);
+}
+.h-16 {
+  height: calc(var(--spacing) * 16);
+}
+.h-40 {
+  height: calc(var(--spacing) * 40);
+}
+.h-48 {
+  height: calc(var(--spacing) * 48);
+}
+.h-full {
+  height: 100%;
+}
+.min-h-\[20rem\] {
+  min-height: 20rem;
+}
+.min-h-\[28rem\] {
+  min-height: 28rem;
+}
+.min-h-\[90vh\] {
+  min-height: 90vh;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+.w-2 {
+  width: calc(var(--spacing) * 2);
+}
+.w-3 {
+  width: calc(var(--spacing) * 3);
+}
+.w-6 {
+  width: calc(var(--spacing) * 6);
+}
+.w-16 {
+  width: calc(var(--spacing) * 16);
+}
+.w-20 {
+  width: calc(var(--spacing) * 20);
+}
+.w-\[280px\] {
+  width: 280px;
+}
+.w-full {
+  width: 100%;
+}
+.w-max {
+  width: max-content;
+}
+.max-w-2xl {
+  max-width: var(--container-2xl);
+}
+.max-w-5xl {
+  max-width: var(--container-5xl);
+}
+.max-w-6xl {
+  max-width: var(--container-6xl);
+}
+.max-w-sm {
+  max-width: var(--container-sm);
+}
+.max-w-xl {
+  max-width: var(--container-xl);
+}
+.flex-1 {
+  flex: 1;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+.-translate-x-1\/2 {
+  --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
+.-rotate-2 {
+  rotate: calc(2deg * -1);
+}
+.-rotate-\[0\.5deg\] {
+  rotate: calc(0.5deg * -1);
+}
+.rotate-1 {
+  rotate: 1deg;
+}
+.rotate-2 {
+  rotate: 2deg;
+}
+.rotate-12 {
+  rotate: 12deg;
+}
+.rotate-180 {
+  rotate: 180deg;
+}
+.rotate-\[0\.35deg\] {
+  rotate: 0.35deg;
+}
+.transform {
+  transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+}
+.animate-pulse {
+  animation: var(--animate-pulse);
+}
+.cursor-default {
+  cursor: default;
+}
+.cursor-grab {
+  cursor: grab;
+}
+.cursor-grabbing {
+  cursor: grabbing;
+}
+.list-inside {
+  list-style-position: inside;
+}
+.list-disc {
+  list-style-type: disc;
+}
+.list-none {
+  list-style-type: none;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.items-stretch {
+  align-items: stretch;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.gap-2 {
+  gap: calc(var(--spacing) * 2);
+}
+.gap-3 {
+  gap: calc(var(--spacing) * 3);
+}
+.gap-4 {
+  gap: calc(var(--spacing) * 4);
+}
+.gap-6 {
+  gap: calc(var(--spacing) * 6);
+}
+.gap-8 {
+  gap: calc(var(--spacing) * 8);
+}
+.gap-10 {
+  gap: calc(var(--spacing) * 10);
+}
+.space-y-1 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.space-y-3 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.space-y-4 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.divide-y-2 {
+  :where(& > :not(:last-child)) {
+    --tw-divide-y-reverse: 0;
+    border-bottom-style: var(--tw-border-style);
+    border-top-style: var(--tw-border-style);
+    border-top-width: calc(2px * var(--tw-divide-y-reverse));
+    border-bottom-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  }
+}
+.divide-ink {
+  :where(& > :not(:last-child)) {
+    border-color: var(--color-ink);
+  }
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+.rounded-full {
+  border-radius: calc(infinity * 1px);
+}
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+.border {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+}
+.border-2 {
+  border-style: var(--tw-border-style);
+  border-width: 2px;
+}
+.border-t {
+  border-top-style: var(--tw-border-style);
+  border-top-width: 1px;
+}
+.border-t-2 {
+  border-top-style: var(--tw-border-style);
+  border-top-width: 2px;
+}
+.border-r-2 {
+  border-right-style: var(--tw-border-style);
+  border-right-width: 2px;
+}
+.border-b {
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+}
+.border-b-2 {
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 2px;
+}
+.border-l-2 {
+  border-left-style: var(--tw-border-style);
+  border-left-width: 2px;
+}
+.border-dashed {
+  --tw-border-style: dashed;
+  border-style: dashed;
+}
+.border-dotted {
+  --tw-border-style: dotted;
+  border-style: dotted;
+}
+.border-black\/10 {
+  border-color: color-mix(in srgb, #000 10%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-black) 10%, transparent);
+  }
+}
+.border-canvas {
+  border-color: var(--color-canvas);
+}
+.border-current\/30 {
+  border-color: currentcolor;
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, currentcolor 30%, transparent);
+  }
+}
+.border-ink {
+  border-color: var(--color-ink);
+}
+.border-ink\/10 {
+  border-color: color-mix(in srgb, #000000 10%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-ink) 10%, transparent);
+  }
+}
+.border-ink\/20 {
+  border-color: color-mix(in srgb, #000000 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-ink) 20%, transparent);
+  }
+}
+.border-ink\/25 {
+  border-color: color-mix(in srgb, #000000 25%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-ink) 25%, transparent);
+  }
+}
+.border-ink\/30 {
+  border-color: color-mix(in srgb, #000000 30%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-ink) 30%, transparent);
+  }
+}
+.border-zinc-500 {
+  border-color: var(--color-zinc-500);
+}
+.bg-canvas {
+  background-color: var(--color-canvas);
+}
+.bg-canvas\/40 {
+  background-color: color-mix(in srgb, #f4f4f0 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-canvas) 40%, transparent);
+  }
+}
+.bg-canvas\/50 {
+  background-color: color-mix(in srgb, #f4f4f0 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-canvas) 50%, transparent);
+  }
+}
+.bg-canvas\/60 {
+  background-color: color-mix(in srgb, #f4f4f0 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-canvas) 60%, transparent);
+  }
+}
+.bg-desk {
+  background-color: var(--color-desk);
+}
+.bg-ink {
+  background-color: var(--color-ink);
+}
+.bg-ink\/5 {
+  background-color: color-mix(in srgb, #000000 5%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-ink) 5%, transparent);
+  }
+}
+.bg-lavender\/20 {
+  background-color: color-mix(in srgb, #d2c4d2 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-lavender) 20%, transparent);
+  }
+}
+.bg-receipt {
+  background-color: var(--color-receipt);
+}
+.bg-sand\/20 {
+  background-color: color-mix(in srgb, #e3d5b8 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-sand) 20%, transparent);
+  }
+}
+.bg-sand\/30 {
+  background-color: color-mix(in srgb, #e3d5b8 30%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-sand) 30%, transparent);
+  }
+}
+.bg-sand\/40 {
+  background-color: color-mix(in srgb, #e3d5b8 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-sand) 40%, transparent);
+  }
+}
+.bg-white\/40 {
+  background-color: color-mix(in srgb, #fff 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-white) 40%, transparent);
+  }
+}
+.bg-white\/50 {
+  background-color: color-mix(in srgb, #fff 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-white) 50%, transparent);
+  }
+}
+.bg-zinc-400 {
+  background-color: var(--color-zinc-400);
+}
+.object-contain {
+  object-fit: contain;
+}
+.object-cover {
+  object-fit: cover;
+}
+.p-2 {
+  padding: calc(var(--spacing) * 2);
+}
+.p-3 {
+  padding: calc(var(--spacing) * 3);
+}
+.p-4 {
+  padding: calc(var(--spacing) * 4);
+}
+.p-5 {
+  padding: calc(var(--spacing) * 5);
+}
+.p-6 {
+  padding: calc(var(--spacing) * 6);
+}
+.p-8 {
+  padding: calc(var(--spacing) * 8);
+}
+.px-2 {
+  padding-inline: calc(var(--spacing) * 2);
+}
+.px-3 {
+  padding-inline: calc(var(--spacing) * 3);
+}
+.px-4 {
+  padding-inline: calc(var(--spacing) * 4);
+}
+.px-6 {
+  padding-inline: calc(var(--spacing) * 6);
+}
+.py-1 {
+  padding-block: calc(var(--spacing) * 1);
+}
+.py-2 {
+  padding-block: calc(var(--spacing) * 2);
+}
+.py-3 {
+  padding-block: calc(var(--spacing) * 3);
+}
+.py-4 {
+  padding-block: calc(var(--spacing) * 4);
+}
+.pt-3 {
+  padding-top: calc(var(--spacing) * 3);
+}
+.pt-4 {
+  padding-top: calc(var(--spacing) * 4);
+}
+.pt-5 {
+  padding-top: calc(var(--spacing) * 5);
+}
+.pt-6 {
+  padding-top: calc(var(--spacing) * 6);
+}
+.pt-12 {
+  padding-top: calc(var(--spacing) * 12);
+}
+.pb-1 {
+  padding-bottom: calc(var(--spacing) * 1);
+}
+.pb-2 {
+  padding-bottom: calc(var(--spacing) * 2);
+}
+.pb-3 {
+  padding-bottom: calc(var(--spacing) * 3);
+}
+.pb-4 {
+  padding-bottom: calc(var(--spacing) * 4);
+}
+.pb-6 {
+  padding-bottom: calc(var(--spacing) * 6);
+}
+.pl-0 {
+  padding-left: calc(var(--spacing) * 0);
+}
+.pl-4 {
+  padding-left: calc(var(--spacing) * 4);
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.font-barcode {
+  font-family: var(--font-barcode);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
+.text-2xl {
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
+}
+.text-3xl {
+  font-size: var(--text-3xl);
+  line-height: var(--tw-leading, var(--text-3xl--line-height));
+}
+.text-4xl {
+  font-size: var(--text-4xl);
+  line-height: var(--tw-leading, var(--text-4xl--line-height));
+}
+.text-5xl {
+  font-size: var(--text-5xl);
+  line-height: var(--tw-leading, var(--text-5xl--line-height));
+}
+.text-6xl {
+  font-size: var(--text-6xl);
+  line-height: var(--tw-leading, var(--text-6xl--line-height));
+}
+.text-7xl {
+  font-size: var(--text-7xl);
+  line-height: var(--tw-leading, var(--text-7xl--line-height));
+}
+.text-lg {
+  font-size: var(--text-lg);
+  line-height: var(--tw-leading, var(--text-lg--line-height));
+}
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+}
+.text-xl {
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+}
+.text-xs {
+  font-size: var(--text-xs);
+  line-height: var(--tw-leading, var(--text-xs--line-height));
+}
+.text-\[0\.625rem\] {
+  font-size: 0.625rem;
+}
+.text-\[8px\] {
+  font-size: 8px;
+}
+.text-\[8rem\] {
+  font-size: 8rem;
+}
+.text-\[9px\] {
+  font-size: 9px;
+}
+.text-\[10px\] {
+  font-size: 10px;
+}
+.leading-\[0\.9\] {
+  --tw-leading: 0.9;
+  line-height: 0.9;
+}
+.leading-none {
+  --tw-leading: 1;
+  line-height: 1;
+}
+.leading-relaxed {
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+}
+.leading-tight {
+  --tw-leading: var(--leading-tight);
+  line-height: var(--leading-tight);
+}
+.font-bold {
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
+.font-normal {
+  --tw-font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-normal);
+}
+.tracking-\[0\.2em\] {
+  --tw-tracking: 0.2em;
+  letter-spacing: 0.2em;
+}
+.tracking-\[0\.3em\] {
+  --tw-tracking: 0.3em;
+  letter-spacing: 0.3em;
+}
+.tracking-tighter {
+  --tw-tracking: var(--tracking-tighter);
+  letter-spacing: var(--tracking-tighter);
+}
+.tracking-widest {
+  --tw-tracking: var(--tracking-widest);
+  letter-spacing: var(--tracking-widest);
+}
+.text-canvas {
+  color: var(--color-canvas);
+}
+.text-ink {
+  color: var(--color-ink);
+}
+.text-ink\/5 {
+  color: color-mix(in srgb, #000000 5%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 5%, transparent);
+  }
+}
+.text-ink\/10 {
+  color: color-mix(in srgb, #000000 10%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 10%, transparent);
+  }
+}
+.text-ink\/40 {
+  color: color-mix(in srgb, #000000 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 40%, transparent);
+  }
+}
+.text-ink\/45 {
+  color: color-mix(in srgb, #000000 45%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 45%, transparent);
+  }
+}
+.text-ink\/50 {
+  color: color-mix(in srgb, #000000 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 50%, transparent);
+  }
+}
+.text-ink\/60 {
+  color: color-mix(in srgb, #000000 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 60%, transparent);
+  }
+}
+.text-ink\/70 {
+  color: color-mix(in srgb, #000000 70%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 70%, transparent);
+  }
+}
+.text-ink\/80 {
+  color: color-mix(in srgb, #000000 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-ink) 80%, transparent);
+  }
+}
+.text-mauve {
+  color: var(--color-mauve);
+}
+.text-sage {
+  color: var(--color-sage);
+}
+.text-slate {
+  color: var(--color-slate);
+}
+.text-stamp {
+  color: var(--color-stamp);
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.italic {
+  font-style: italic;
+}
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.opacity-40 {
+  opacity: 40%;
+}
+.opacity-60 {
+  opacity: 60%;
+}
+.opacity-80 {
+  opacity: 80%;
+}
+.mix-blend-multiply {
+  mix-blend-mode: multiply;
+}
+.shadow-\[0\.25rem_0\.5rem_1\.5rem_rgba\(0\,0\,0\,0\.15\)\] {
+  --tw-shadow: 0.25rem 0.5rem 1.5rem var(--tw-shadow-color, rgba(0,0,0,0.15));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.shadow-\[0\.25rem_0\.5rem_1rem_rgba\(0\,0\,0\,0\.15\)\] {
+  --tw-shadow: 0.25rem 0.5rem 1rem var(--tw-shadow-color, rgba(0,0,0,0.15));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.shadow-\[0\.25rem_0\.5rem_1rem_rgba\(0\,0\,0\,0\.16\)\] {
+  --tw-shadow: 0.25rem 0.5rem 1rem var(--tw-shadow-color, rgba(0,0,0,0.16));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.shadow-\[1px_1px_0px_rgba\(0\,0\,0\,0\.5\)\] {
+  --tw-shadow: 1px 1px 0px var(--tw-shadow-color, rgba(0,0,0,0.5));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.backdrop-blur-md {
+  --tw-backdrop-blur: blur(var(--blur-md));
+  -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+.transition-colors {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+.transition-transform {
+  transition-property: transform, translate, scale, rotate;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+.duration-300 {
+  --tw-duration: 300ms;
+  transition-duration: 300ms;
+}
+.duration-500 {
+  --tw-duration: 500ms;
+  transition-duration: 500ms;
+}
+.select-none {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.group-hover\:-translate-y-1 {
+  &:is(:where(.group):hover *) {
+    @media (hover: hover) {
+      --tw-translate-y: calc(var(--spacing) * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+}
+.group-hover\:-rotate-1 {
+  &:is(:where(.group):hover *) {
+    @media (hover: hover) {
+      rotate: calc(1deg * -1);
+    }
+  }
+}
+.group-hover\:border-ink {
+  &:is(:where(.group):hover *) {
+    @media (hover: hover) {
+      border-color: var(--color-ink);
+    }
+  }
+}
+.group-hover\:bg-canvas {
+  &:is(:where(.group):hover *) {
+    @media (hover: hover) {
+      background-color: var(--color-canvas);
+    }
+  }
+}
+.marker\:text-sage {
+  & *::marker {
+    color: var(--color-sage);
+  }
+  &::marker {
+    color: var(--color-sage);
+  }
+  & *::-webkit-details-marker {
+    color: var(--color-sage);
+  }
+  &::-webkit-details-marker {
+    color: var(--color-sage);
+  }
+}
+.marker\:text-stamp {
+  & *::marker {
+    color: var(--color-stamp);
+  }
+  &::marker {
+    color: var(--color-stamp);
+  }
+  & *::-webkit-details-marker {
+    color: var(--color-stamp);
+  }
+  &::-webkit-details-marker {
+    color: var(--color-stamp);
+  }
+}
+.selection\:bg-mauve {
+  & *::selection {
+    background-color: var(--color-mauve);
+  }
+  &::selection {
+    background-color: var(--color-mauve);
+  }
+}
+.selection\:text-ink {
+  & *::selection {
+    color: var(--color-ink);
+  }
+  &::selection {
+    color: var(--color-ink);
+  }
+}
+.hover\:-translate-y-1 {
+  &:hover {
+    @media (hover: hover) {
+      --tw-translate-y: calc(var(--spacing) * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+}
+.hover\:-translate-y-2 {
+  &:hover {
+    @media (hover: hover) {
+      --tw-translate-y: calc(var(--spacing) * -2);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+}
+.hover\:rotate-0 {
+  &:hover {
+    @media (hover: hover) {
+      rotate: 0deg;
+    }
+  }
+}
+.hover\:border-solid {
+  &:hover {
+    @media (hover: hover) {
+      --tw-border-style: solid;
+      border-style: solid;
+    }
+  }
+}
+.hover\:border-ink {
+  &:hover {
+    @media (hover: hover) {
+      border-color: var(--color-ink);
+    }
+  }
+}
+.hover\:bg-canvas {
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-canvas);
+    }
+  }
+}
+.hover\:bg-ink {
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-ink);
+    }
+  }
+}
+.hover\:bg-ink\/5 {
+  &:hover {
+    @media (hover: hover) {
+      background-color: color-mix(in srgb, #000000 5%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-ink) 5%, transparent);
+      }
+    }
+  }
+}
+.hover\:text-canvas {
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-canvas);
+    }
+  }
+}
+.hover\:text-ink {
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-ink);
+    }
+  }
+}
+.hover\:shadow-\[0\.2rem_0\.35rem_0_rgba\(0\,0\,0\,1\)\] {
+  &:hover {
+    @media (hover: hover) {
+      --tw-shadow: 0.2rem 0.35rem 0 var(--tw-shadow-color, rgba(0,0,0,1));
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+}
+.hover\:shadow-\[0\.5rem_1rem_1\.5rem_rgba\(0\,0\,0\,0\.2\)\] {
+  &:hover {
+    @media (hover: hover) {
+      --tw-shadow: 0.5rem 1rem 1.5rem var(--tw-shadow-color, rgba(0,0,0,0.2));
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+}
+.sm\:w-\[320px\] {
+  @media (width >= 40rem) {
+    width: 320px;
+  }
+}
+.sm\:flex-row {
+  @media (width >= 40rem) {
+    flex-direction: row;
+  }
+}
+.sm\:items-end {
+  @media (width >= 40rem) {
+    align-items: flex-end;
+  }
+}
+.sm\:border-r-2 {
+  @media (width >= 40rem) {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 2px;
+  }
+}
+.sm\:border-b-0 {
+  @media (width >= 40rem) {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 0px;
+  }
+}
+.md\:col-span-2 {
+  @media (width >= 48rem) {
+    grid-column: span 2 / span 2;
+  }
+}
+.md\:-mx-10 {
+  @media (width >= 48rem) {
+    margin-inline: calc(var(--spacing) * -10);
+  }
+}
+.md\:flex {
+  @media (width >= 48rem) {
+    display: flex;
+  }
+}
+.md\:grid-cols-2 {
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.md\:flex-row {
+  @media (width >= 48rem) {
+    flex-direction: row;
+  }
+}
+.md\:items-end {
+  @media (width >= 48rem) {
+    align-items: flex-end;
+  }
+}
+.md\:p-6 {
+  @media (width >= 48rem) {
+    padding: calc(var(--spacing) * 6);
+  }
+}
+.md\:p-8 {
+  @media (width >= 48rem) {
+    padding: calc(var(--spacing) * 8);
+  }
+}
+.md\:p-10 {
+  @media (width >= 48rem) {
+    padding: calc(var(--spacing) * 10);
+  }
+}
+.md\:p-12 {
+  @media (width >= 48rem) {
+    padding: calc(var(--spacing) * 12);
+  }
+}
+.md\:px-10 {
+  @media (width >= 48rem) {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+}
+.md\:px-12 {
+  @media (width >= 48rem) {
+    padding-inline: calc(var(--spacing) * 12);
+  }
+}
+.md\:text-3xl {
+  @media (width >= 48rem) {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+}
+.md\:text-4xl {
+  @media (width >= 48rem) {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+}
+.md\:text-5xl {
+  @media (width >= 48rem) {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+}
+.md\:text-6xl {
+  @media (width >= 48rem) {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
+}
+.md\:text-7xl {
+  @media (width >= 48rem) {
+    font-size: var(--text-7xl);
+    line-height: var(--tw-leading, var(--text-7xl--line-height));
+  }
+}
+.md\:text-9xl {
+  @media (width >= 48rem) {
+    font-size: var(--text-9xl);
+    line-height: var(--tw-leading, var(--text-9xl--line-height));
+  }
+}
+.md\:text-\[16rem\] {
+  @media (width >= 48rem) {
+    font-size: 16rem;
+  }
+}
+.lg\:w-1\/3 {
+  @media (width >= 64rem) {
+    width: calc(1/3 * 100%);
+  }
+}
+.lg\:grid-cols-1 {
+  @media (width >= 64rem) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+.lg\:grid-cols-\[minmax\(0\,1fr\)_15rem\] {
+  @media (width >= 64rem) {
+    grid-template-columns: minmax(0,1fr) 15rem;
+  }
+}
+.lg\:flex-row {
+  @media (width >= 64rem) {
+    flex-direction: row;
+  }
+}
+.lg\:gap-8 {
+  @media (width >= 64rem) {
+    gap: calc(var(--spacing) * 8);
+  }
+}
+.lg\:gap-16 {
+  @media (width >= 64rem) {
+    gap: calc(var(--spacing) * 16);
+  }
+}
+.lg\:p-12 {
+  @media (width >= 64rem) {
+    padding: calc(var(--spacing) * 12);
+  }
+}
+.lg\:text-8xl {
+  @media (width >= 64rem) {
+    font-size: var(--text-8xl);
+    line-height: var(--tw-leading, var(--text-8xl--line-height));
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-divide-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-space-y-reverse: 0;
+      --tw-divide-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-duration: initial;
+    }
+  }
+}
 
-    <style>
+</style>
+<style>
         
-        .bg-paper {
-            background-color: #f4f4f0;
-            background-image:
-                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.2'/%3E%3C/svg%3E");
-            background-size: 3rem 3rem, 3rem 3rem, 16rem 16rem;
-            background-position: center top, center top, left top;
-        }
+        
 
-        .bg-kraft-paper {
-            background-color: #c8b6a6;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
-        }
+        
 
         .writing-vertical-rl {
             writing-mode: vertical-rl;
@@ -82,405 +1650,336 @@
             color: #000;
         }
     </style>
-</head>
+<style id="site-refinements">
+:root { --portfolio-paper: url('/assets/textures/paper.webp'); }
+.bg-paper {
+    background-color: #f4f0e8;
+    background-image: linear-gradient(rgba(39, 35, 30, .065) 1px, transparent 1px), linear-gradient(90deg, rgba(39, 35, 30, .065) 1px, transparent 1px), var(--portfolio-paper);
+    background-size: 48px 48px, 48px 48px, cover;
+    background-position: center top, center top, center top;
+    background-repeat: repeat, repeat, no-repeat;
+}
+.bg-kraft-paper {
+    background-color: #c8b6a6;
+    background-image: var(--portfolio-paper);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+}
+html { scroll-padding-top: 1.5rem; }
+body { min-width: 280px; }
+.site-shell, .site-main, .site-header > div { min-width: 0; }
+.site-main { width: 100%; }
+.site-header { overflow: hidden; }
+.header-meta { display: flex; justify-content: flex-end; }
+.site-nav-bar { display: flex; align-items: flex-end; flex-wrap: wrap; gap: .75rem; }
+.site-nav { margin-top: .5rem; min-width: 0; }
+.site-nav a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
+.header-barcode { position: static !important; margin: 0 0 0 auto; font-size: 2rem !important; line-height: 1; }
+.site-date { flex-shrink: 0; }
+a:focus-visible, button:focus-visible { outline: 2px solid #625f4a; outline-offset: 4px; }
+img { max-width: 100%; }
+.site-main h1 { max-width: 100%; overflow-wrap: break-word; }
+.reveal-up { opacity: 1; transform: none; }
+.js-reveal .reveal-up:not(.active) { opacity: 0; transform: translateY(1.5rem); }
+.hero-columns { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 3rem; }
+.hero-copy { min-width: 0; container-type: inline-size; }
+.home-title { font-size: clamp(3rem, 18cqi, 7rem); line-height: .92; }
+.hero-portrait { width: min(100%, 17rem); justify-self: center; }
+.hero-portrait img { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 4; }
+.resume-attachment { width: min(20rem, calc(100% - 3rem)); }
+.resume-card-link { display: flex; min-height: 44px; align-items: center; justify-content: center; }
+.resume-download { display: flex; align-items: center; justify-content: center; min-height: 44px; margin-top: .4rem; font-size: .8rem; text-decoration: underline; text-underline-offset: 3px; }
+.skill-label { justify-content: flex-start; }
+.skill-label:empty { display: none; }
+#skills ul li { gap: .75rem; }
+#skills ul li > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.contact-copy, .contact-actions { min-width: 0; max-width: 100%; }
+.contact-actions > a { min-height: 44px; max-width: 100%; }
+.contact-actions > a > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.site-footer { overflow-wrap: break-word; }
+.site-footer h2 .text-mauve { color: #936377; }
+.pdf-frame { position: relative; min-width: 0; min-height: 0 !important; height: clamp(30rem, 75vh, 60rem); aspect-ratio: auto !important; }
+.pdf-frame iframe { display: block; width: 100%; height: 100%; }
+.pdf-direct-link { display: inline-flex; align-items: center; min-height: 44px; font-size: .85rem; text-decoration: underline; text-underline-offset: 3px; }
+.carousel-window { max-width: 100%; }
+.carousel-track { touch-action: pan-y pinch-zoom; user-select: none; -webkit-user-select: none; }
+.carousel-track img { -webkit-user-drag: none; }
+@media (min-width: 1024px) { .hero-columns { grid-template-columns: minmax(0, 1fr) 17rem; } }
+@media (max-width: 767px) {
+    .site-main > section { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .hero-section { padding-top: 2rem; padding-bottom: 2rem; }
+    .hero-columns { margin-top: 1.5rem; gap: 2.5rem; }
+    .hero-intro { margin-top: 1.5rem; padding: 1rem; }
+    .hero-portrait { margin: 0 auto; }
+    #about { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+    .resume-attachment { margin-top: 0 !important; margin-right: 1.5rem !important; margin-bottom: 2.5rem; padding: 0 !important; }
+    .site-footer { padding: 1.5rem 1.25rem; }
+    .contact-actions { flex-direction: column; align-items: stretch; gap: .75rem; }
+    .contact-actions > a { padding: .75rem 1rem; font-size: .75rem; }
+    #skills > div:first-child { flex-wrap: wrap; gap: .75rem; }
+    .site-main h1:not(.home-title) { font-size: clamp(2.65rem, 11.5vw, 4rem); line-height: 1; }
+    .stack-card h2 { font-size: clamp(1.6rem, 7.5vw, 2rem); overflow-wrap: break-word; }
+    .stack-card { min-width: 0; }
+    .section-divider { text-align: center; max-width: 100%; width: max-content; }
+    .proof-layout { min-width: 0; }
+}
+@media (max-width: 639px) {
+    .site-date { flex-direction: row; justify-content: space-between; align-items: center; gap: .75rem; padding: .75rem 1rem; }
+    .site-date > div:first-child { margin: 0; }
+    .site-date #current-date { font-size: .95rem; letter-spacing: .1em; }
+}
+@media (max-width: 439px) {
+    .site-nav-bar { display: block; }
+    .site-nav { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .5rem; }
+    .header-barcode { display: none; }
+    .site-main .resume-top { gap: 1.5rem; }
+    .resume-top > div { min-width: 0 !important; width: 100%; }
+    .resume-top .resume-details { min-width: 0 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    .js-reveal .reveal-up:not(.active) { opacity: 1; transform: none; }
+}
+</style></head>
 <body class="bg-desk text-ink font-serif antialiased selection:bg-mauve selection:text-ink p-2 md:p-6 lg:p-12 min-h-screen">
-
-    <div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[0.25rem_0.5rem_1.5rem_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[90vh]">
-
-        <aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
-            
-            <div class="h-16 border-b-2 border-ink flex items-center justify-center">
-                <div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
-                    <div class="absolute inset-0 flex items-center justify-center font-sans text-xs">+</div>
-                </div>
-            </div>
-            
-            <div class="flex-1 border-b-2 border-ink relative bg-canvas/40">
-                <div class="absolute inset-0 flex items-center justify-center writing-vertical-rl rotate-180 font-sans text-xs uppercase font-bold tracking-widest text-ink/80">
+<div class="max-w-6xl mx-auto bg-paper border-2 border-ink shadow-[0.25rem_0.5rem_1.5rem_rgba(0,0,0,0.15)] relative flex flex-col md:flex-row min-h-[90vh] site-shell">
+<aside class="hidden md:flex flex-col w-16 border-r-2 border-ink z-20 shrink-0">
+<div class="h-16 border-b-2 border-ink flex items-center justify-center">
+<div class="w-6 h-6 border-2 border-ink rounded-full relative bg-canvas/40">
+<div class="absolute inset-0 flex items-center justify-center font-sans text-xs">+</div>
+</div>
+</div>
+<div class="flex-1 border-b-2 border-ink relative bg-canvas/40">
+<div class="absolute inset-0 flex items-center justify-center writing-vertical-rl rotate-180 font-sans text-xs uppercase font-bold tracking-widest text-ink/80">
                     Student Portfolio • Freshman
                 </div>
-            </div>
-            
-            <div class="h-40 border-b-2 border-ink flex flex-col divide-y-2 divide-ink font-sans text-[0.625rem] uppercase font-bold">
-                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-sand/30">Dr. By</div>
-                <div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-canvas/40">Ch. By</div>
-            </div>
-            
-            <div class="h-48 relative bg-canvas/40">
-                 <div class="absolute inset-0 flex items-center justify-center rotate-180 writing-vertical-rl font-bold tracking-[0.3em] text-lg font-sans">
+</div>
+<div class="h-40 border-b-2 border-ink flex flex-col divide-y-2 divide-ink font-sans text-[0.625rem] uppercase font-bold">
+<div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-sand/30">Dr. By</div>
+<div class="flex-1 flex items-center justify-center rotate-180 writing-vertical-rl bg-canvas/40">Ch. By</div>
+</div>
+<div class="h-48 relative bg-canvas/40">
+<div class="absolute inset-0 flex items-center justify-center rotate-180 writing-vertical-rl font-bold tracking-[0.3em] text-lg font-sans">
                     RATING
                  </div>
-            </div>
-        </aside>
+</div>
+</aside>
+<main class="flex-1 relative flex flex-col overflow-x-hidden site-main">
+<header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row site-header">
+<div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
+<div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest flex justify-between header-meta">
 
-        <main class="flex-1 relative flex flex-col overflow-x-hidden">
+<span class="text-ink/40">SYS. REF: 8609</span>
+</div>
+<div class="site-nav-bar"><nav aria-label="Main navigation" class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2 site-nav">
+<a class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all" href="/">Home</a>
+<a class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all" href="/resume/">Resume</a>
+<a class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all" href="/projects/">Projects</a>
+<a aria-current="page" class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default" href="/interests/">Interests</a>
+</nav><div aria-hidden="true" class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none header-barcode">INT07</div></div>
 
-            <header class="border-b-2 border-ink bg-canvas/40 z-20 flex flex-col sm:flex-row">
-                
-                <div class="flex-1 p-4 border-b-2 sm:border-b-0 sm:border-r-2 border-ink relative">
-                    <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest flex justify-between">
-                        <span>Classification / Index</span>
-                        <span class="text-ink/40">SYS. REF: 8609</span>
-                    </div>
-                    
-                    <nav class="flex flex-wrap gap-2 font-sans text-xs font-bold uppercase mt-2">
-                        <a href="/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Home</a>
-                        <a href="/resume/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Resume</a>
-                        <a href="/projects/" class="border border-ink/30 text-ink/60 hover:text-ink hover:border-ink hover:bg-ink/5 px-3 py-1 transition-all">Projects</a>
-                        <a href="/interests/" class="border border-ink bg-ink text-canvas px-3 py-1 cursor-default">Interests</a>
-                    </nav>
-                    
-                    <div class="absolute right-4 bottom-2 font-barcode text-5xl opacity-80 mix-blend-multiply pointer-events-none">INT07</div>
-                </div>
-                
-                <div class="p-4 flex flex-col justify-center bg-sand/20">
-                    <div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
-                    <div id="current-date" class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas">
+</div>
+<div class="p-4 flex flex-col justify-center bg-sand/20 site-date">
+<div class="font-sans text-[0.625rem] uppercase font-bold mb-1 tracking-widest text-right">Date</div>
+<div class="font-sans text-xl tracking-[0.2em] border border-ink px-2 py-1 bg-canvas" id="current-date">
                         03/21/2026
                     </div>
-                </div>
-            </header>
-
-            <section class="relative pt-12 pb-4 px-6 md:px-12 z-10 overflow-hidden border-b-2 border-ink/10">
-
-                <div class="absolute top-12 right-6 text-[8rem] md:text-[16rem] leading-none font-bold tracking-tighter text-ink/5 select-none font-sans pointer-events-none">
+</div>
+</header>
+<section class="relative pt-12 pb-4 px-6 md:px-12 z-10 overflow-hidden border-b-2 border-ink/10">
+<div class="absolute top-12 right-6 text-[8rem] md:text-[16rem] leading-none font-bold tracking-tighter text-ink/5 select-none font-sans pointer-events-none">
                     HOBBY
                 </div>
-               
-                <div class="relative z-10 mt-6 mb-12 reveal-up">
-                   
-                    <h1 class="text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-4">
-                        Off-the-Clock<br>
-                        <span class="italic text-sage relative z-10">Pursuits.</span>
-                    </h1>
-                    <p class="font-sans max-w-xl text-sm leading-relaxed text-ink/80 mt-4">
-                        A collection of hobbies, creative outlets, and side projects that keep me busy when I'm not looking at spreadsheets.
+<div class="relative z-10 mt-6 mb-12 reveal-up">
+<h1 class="text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter mb-4">
+                        Off-the-Clock<br/>
+<span class="text-sage relative z-10">Pursuits</span>
+</h1>
+<p class="font-sans max-w-xl text-sm leading-relaxed text-ink/80 mt-4">
+                        A collection of hobbies, creative outlets, and side projects that keep me busy.
                     </p>
-                </div>
-            </section>
+</div>
+</section>
+<section class="flex-1 relative p-6 md:p-12 z-10">
+<div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+<div class="bg-kraft-paper border-2 border-ink p-6 md:p-8 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform rotate-1 transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up flex flex-col">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-white/40 border border-black/10 backdrop-blur-md rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-1"></div>
 
-            <section class="flex-1 relative p-6 md:p-12 z-10">
-                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-
-                    <div class="bg-kraft-paper border-2 border-ink p-6 md:p-8 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform rotate-1 transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up flex flex-col">
-                        
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-white/40 border border-black/10 backdrop-blur-md rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-1"></div>
-                       
-                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
-                            <span>Literary Log</span>
-                            <span>VOL 01</span>
-                        </div>
-                       
-                        <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-4">
-                            Memoirs <span class="italic text-ink/60">&</span> Books
+<h2 class="font-serif text-3xl md:text-4xl leading-tight mb-4">
+                            Memoirs <span class="italic text-ink/60">&amp;</span> Books
                         </h2>
-                        <p class="font-sans text-sm mb-6 text-ink/80">
+<p class="font-sans text-sm mb-6 text-ink/80">
                             I'm a big fan of humorous memoirs.
                         </p>
+<div class="space-y-4">
+<div class="bg-canvas/50 border border-ink/20 p-4">
+<h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-2">Currently Reading</h4>
+<ul class="font-sans text-sm font-bold list-disc list-inside marker:text-stamp ml-1 space-y-1">
+<li>A Heartbreaking Work of Staggering Genius <span class="font-normal text-xs text-ink/60">— Dave Eggers</span></li>
+</ul>
+</div>
+<div class="bg-canvas/50 border border-ink/20 p-4">
+<h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-2">All-Time Favorites</h4>
+<ul class="font-sans text-sm font-bold list-disc list-inside marker:text-sage ml-1 space-y-1">
+<li>Me Talk Pretty One Day <span class="font-normal text-xs text-ink/60">— David Sedaris</span></li>
+<li>When You Are Engulfed in Flames <span class="font-normal text-xs text-ink/60">— David Sedaris</span></li>
+<li>The Bee Sting <span class="font-normal text-xs text-ink/60">— Paul Murray</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-receipt border-2 border-ink p-6 md:p-8 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform -rotate-2 transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up flex flex-col" style="transition-delay: 0.1s;">
+<div class="absolute top-4 left-4 w-6 h-1 bg-zinc-400 border border-zinc-500 shadow-[1px_1px_0px_rgba(0,0,0,0.5)] rotate-12 rounded-sm z-40"></div>
 
-                        <div class="space-y-4">
-                            <div class="bg-canvas/50 border border-ink/20 p-4">
-                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-2">Currently Reading</h4>
-                                <ul class="font-sans text-sm font-bold list-disc list-inside marker:text-stamp ml-1 space-y-1">
-                                    <li>A Heartbreaking Work of Staggering Genius <span class="font-normal text-xs text-ink/60">— Dave Eggers</span></li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-canvas/50 border border-ink/20 p-4">
-                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-2">All-Time Favorites</h4>
-                                <ul class="font-sans text-sm font-bold list-disc list-inside marker:text-sage ml-1 space-y-1">
-                                    <li>Me Talk Pretty One Day <span class="font-normal text-xs text-ink/60">— David Sedaris</span></li>
-                                    <li>When You Are Engulfed in Flames <span class="font-normal text-xs text-ink/60">— David Sedaris</span></li>
-                                    <li>The Bee Sting <span class="font-normal text-xs text-ink/60">— Paul Murray</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-receipt border-2 border-ink p-6 md:p-8 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform -rotate-2 transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up flex flex-col" style="transition-delay: 0.1s;">
-                        
-                        <div class="absolute top-4 left-4 w-6 h-1 bg-zinc-400 border border-zinc-500 shadow-[1px_1px_0px_rgba(0,0,0,0.5)] rotate-12 rounded-sm z-40"></div>
-                       
-                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-end text-ink/70">
-                            <span>Hardware / Build Log</span>
-                        </div>
-                       
-                        <h2 class="font-serif text-3xl md:text-4xl leading-tight mb-2">
+<h2 class="font-serif text-3xl md:text-4xl leading-tight mb-2">
                             Mechanical <span class="italic text-slate">Keyboards</span>
-                        </h2>
-                        <p class="font-sans text-sm mb-6 text-ink/80 mt-2">
-                            Building custom keyboards in a mix of design, engineering, and satisfying typing.
+</h2>
+<p class="font-sans text-sm mb-6 text-ink/80 mt-2">
+                            Building, tuning, and lubing custom keyboards. It's the perfect mix of design, engineering, and satisfying typing sounds.
                         </p>
+<div class="border-l-2 border-ink/20 pl-4 space-y-4 flex-1">
+<div>
+<h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Current Daily Driver</h4>
+<p class="font-sans text-sm font-bold">GMK67 <span class="font-normal text-xs text-ink/60">(White)</span></p>
+</div>
+<div>
+<h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Switches</h4>
+<p class="font-sans text-sm font-bold">KTT Kang Whites <span class="font-normal text-xs text-ink/60">(Hand-lubed)</span></p>
+</div>
+<div>
+<h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Keycaps</h4>
+<p class="font-sans text-sm font-bold">GMK Soya Milk <span class="font-normal text-xs text-ink/60">(Double-shot ABS)</span></p>
+</div>
+</div>
+<div class="mt-6 pt-4">
+<h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-3 border-b border-ink/20 pb-1">Collection Gallery</h4>
+<div class="w-full aspect-[4/3] border border-ink/20 bg-ink/5 relative overflow-hidden">
+<img src="/assets/keyboards/keyboard-01.jpg" alt="Henry Vo mechanical keyboard" class="absolute inset-0 w-full h-full object-cover"/>
+</div>
+</div>
+</div>
+<div class="md:col-span-2 bg-receipt border-2 border-ink p-6 md:p-10 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform -rotate-[0.5deg] transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up" style="transition-delay: 0.2s;">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-white/50 border border-black/10 backdrop-blur-md rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1"></div>
 
-                        <div class="border-l-2 border-ink/20 pl-4 space-y-4 flex-1">
-                            <div>
-                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Current Daily Driver</h4>
-                                <p class="font-sans text-sm font-bold">GMK67 <span class="font-normal text-xs text-ink/60">(White)</span></p>
-                            </div>
-                           
-                            <div>
-                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Switches</h4>
-                                <p class="font-sans text-sm font-bold">KTT Kang Whites <span class="font-normal text-xs text-ink/60">(Hand-lubed)</span></p>
-                            </div>
-
-                            <div>
-                                <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-1">Keycaps</h4>
-                                <p class="font-sans text-sm font-bold">GMK Soya Milk <span class="font-normal text-xs text-ink/60">(Double-shot ABS)</span></p>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 pt-4">
-                            <h4 class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-3 border-b border-ink/20 pb-1">Collection Gallery</h4>
-                            <div class="grid grid-cols-2 gap-4">
-                                
-                                <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden group/img hover:border-solid hover:border-ink transition-all">
-                                    <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed pointer-events-none">Awaiting<br>Image 01</span>
-
-                                </div>
-
-                                <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden group/img hover:border-solid hover:border-ink transition-all">
-                                    <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed pointer-events-none">Awaiting<br>Image 02</span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="md:col-span-2 bg-receipt border-2 border-ink p-6 md:p-10 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform -rotate-[0.5deg] transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up" style="transition-delay: 0.2s;">
-
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-white/50 border border-black/10 backdrop-blur-md rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1"></div>
-
-                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
-                            <span>Exhibition Log</span>
-                            <span>FILE 03</span>
-                        </div>
-
-                        <div class="flex flex-col lg:flex-row gap-8 mb-8 items-start">
-                            <div class="flex-1">
-                                <h2 class="font-serif text-3xl md:text-5xl leading-tight mb-4">
-                                    Museums <span class="italic text-mauve">& Art</span>
-                                </h2>
-                                <p class="font-sans text-sm text-ink/80 leading-relaxed max-w-2xl">
+<div class="flex flex-col lg:flex-row gap-8 mb-8 items-start">
+<div class="flex-1">
+<h2 class="font-serif text-3xl md:text-5xl leading-tight mb-4">
+                                    Museums <span class="italic text-mauve">&amp; Art</span>
+</h2>
+<p class="font-sans text-sm text-ink/80 leading-relaxed max-w-2xl">
                                     Wandering around galleries and archives is one of my favorite ways to get inspired. Here are a few pieces and exhibits that really stuck with me.
                                 </p>
-                            </div>
+</div>
+<div class="w-full lg:w-1/3 bg-sand/30 border border-ink/20 p-5 font-sans">
+<h4 class="text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-4 border-b border-ink/20 pb-2">Planning to Visit</h4>
+<ul class="space-y-3 text-sm list-none pl-0">
+<li class="flex items-start gap-3 border-b border-ink/10 border-dotted pb-2">
+<span class="w-3 h-3 border border-ink mt-1 shrink-0"></span>
+<span class="font-bold leading-tight">The Met <span class="font-normal text-[10px] uppercase text-ink/50 block tracking-widest mt-0.5">New York, NY</span></span>
+</li>
+<li class="flex items-start gap-3 border-b border-ink/10 border-dotted pb-2">
+<span class="w-3 h-3 border border-ink mt-1 shrink-0"></span>
+<span class="font-bold leading-tight">The National Art Center, Tokyo <span class="font-normal text-[10px] uppercase text-ink/50 block tracking-widest mt-0.5">Tokyo, Japan</span></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="relative w-full overflow-hidden py-4 -mx-4 px-4 md:-mx-10 md:px-10" style="-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
+<div class="absolute top-0 right-0 font-sans text-[10px] font-bold uppercase tracking-widest text-ink/40 flex items-center gap-2 animate-pulse z-10 pointer-events-none">
+<span>Drag / Swipe</span> <span class="text-ink">→</span>
+</div>
+<div class="carousel-track flex w-max cursor-grab select-none pt-6 pb-6">
+<div class="flex gap-6 px-3 shrink-0 items-stretch">
+<div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+<span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br/>Artwork 01</span>
+<img alt="Artwork 1" class="absolute inset-0 w-full h-full object-cover" src="https://www.moma.org/media/W1siZiIsIjkyNjI3Il0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkwIC1yZXNpemUgMjAwMHgyMDAwXHUwMDNlIl1d.jpg?sha=54a7c19bcc1cd15b"/>
+</div>
+<h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Untitled ("No Fun"/Dog)</h4>
+<p class="font-sans text-xs text-ink/70 mb-4 flex-1">Yoshitomo Nara, 1992–2000</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+</div>
+<div class="w-[280px] sm:w-[320px] shrink-0 bg-kraft-paper border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+<span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br/>Artwork 02</span>
+<img alt="Artwork 2" class="absolute inset-0 w-full h-full object-cover" src="https://www.moma.org/media/W1siZiIsIjIxNzk3NyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=863c0e47f1050dcc"/>
+</div>
+<h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Tablet</h4>
+<p class="font-sans text-xs text-ink/70 mb-4 flex-1">Robert Mallary, 1962</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+</div>
+<div class="w-[280px] sm:w-[320px] shrink-0 bg-sand/40 border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+<span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br/>Artwork 03</span>
+<img alt="Artwork 3" class="absolute inset-0 w-full h-full object-cover" src="https://cdn.mediatheque.epmoo.fr/link/3c9igq/xlv1bxpq1tglnq8.jpg"/>
+</div>
+<h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Le Chat blanc</h4>
+<p class="font-sans text-xs text-ink/70 mb-4 flex-1">Pierre Bonnard, 1894</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musée d'Orsay</p>
+</div>
+<div class="w-[280px] sm:w-[320px] shrink-0 bg-receipt border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+<span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br/>Artwork 04</span>
+<img alt="Artwork 4" class="absolute inset-0 w-full h-full object-cover" src="https://cdn.mediatheque.epmoo.fr/link/3c9igq/amp1butw7sfckcg.jpg"/>
+</div>
+<h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Les Soleils...</h4>
+<p class="font-sans text-xs text-ink/70 mb-4 flex-1">Gustave Caillebotte, 1885</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musée d'Orsay</p>
+</div>
+<div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+<img alt="Artwork 5" class="absolute inset-0 w-full h-full object-cover" src="https://www.moma.org/media/W1siZiIsIjQ5ODY2NSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpg?sha=3a435f6198627846"/>
+</div>
+<h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">What Color is Farming?</h4>
+<p class="font-sans text-xs text-ink/70 mb-4 flex-1">Nathan I. Felde, 1979</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+</div>
+<div class="w-[280px] sm:w-[320px] shrink-0 bg-kraft-paper border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+<img alt="Artwork 5" class="absolute inset-0 w-full h-full object-cover" src="https://www.moma.org/media/W1siZiIsIjIyMDAzNCJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpg?sha=36c3012a503d8b01"/>
+</div>
+<h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Low Tide Wandering No. 96</h4>
+<p class="font-sans text-xs text-ink/70 mb-4 flex-1">Thomas Schütte, 2001</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
+</div>
+<div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
+<img alt="Artwork 9" class="absolute inset-0 w-full h-full object-cover" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Claude_Monet%2C_1875%2C_Train_in_the_Snow%2C_oil_on_canvas%2C_59_%C3%97_78_cm%2C_Mus%C3%A9e_Marmottan_Monet.jpg/1280px-Claude_Monet%2C_1875%2C_Train_in_the_Snow%2C_oil_on_canvas%2C_59_%C3%97_78_cm%2C_Mus%C3%A9e_Marmottan_Monet.jpg"/>
+</div>
+<h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Le train dans la neige</h4>
+<p class="font-sans text-xs text-ink/70 mb-4 flex-1">Claude Monete, 1875</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musee Marmottan Monet</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-                            <div class="w-full lg:w-1/3 bg-sand/30 border border-ink/20 p-5 font-sans">
-                                <h4 class="text-[10px] uppercase font-bold tracking-widest text-ink/50 mb-4 border-b border-ink/20 pb-2">Planning to Visit</h4>
-                                <ul class="space-y-3 text-sm list-none pl-0">
-                                    <li class="flex items-start gap-3 border-b border-ink/10 border-dotted pb-2">
-                                        <span class="w-3 h-3 border border-ink mt-1 shrink-0"></span>
-                                        <span class="font-bold leading-tight">The Met <span class="font-normal text-[10px] uppercase text-ink/50 block tracking-widest mt-0.5">New York, NY</span></span>
-                                    </li>
-                                    <li class="flex items-start gap-3 border-b border-ink/10 border-dotted pb-2">
-                                        <span class="w-3 h-3 border border-ink mt-1 shrink-0"></span>
-                                        <span class="font-bold leading-tight">The National Art Center, Tokyo <span class="font-normal text-[10px] uppercase text-ink/50 block tracking-widest mt-0.5">Tokyo, Japan</span></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="relative w-full overflow-hidden py-4 -mx-4 px-4 md:-mx-10 md:px-10" style="-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
-
-                            <div class="absolute top-0 right-0 font-sans text-[10px] font-bold uppercase tracking-widest text-ink/40 flex items-center gap-2 animate-pulse z-10 pointer-events-none">
-                                <span>Drag / Swipe</span> <span class="text-ink">→</span>
-                            </div>
-
-                            <div class="carousel-track flex w-max cursor-grab select-none pt-6 pb-6">
-
-                                <div class="flex gap-6 px-3 shrink-0 items-stretch">
-
-                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
-                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 01</span>
-                                            <img src="https://www.moma.org/media/W1siZiIsIjkyNjI3Il0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDkwIC1yZXNpemUgMjAwMHgyMDAwXHUwMDNlIl1d.jpg?sha=54a7c19bcc1cd15b" alt="Artwork 1" class="absolute inset-0 w-full h-full object-cover">
-                                        </div>
-                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Untitled ("No Fun"/Dog)</h4>
-                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Yoshitomo Nara, 1992–2000</p>
-                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
-                                    </div>
-
-                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-kraft-paper border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
-                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 02</span>
-                                            <img src="https://www.moma.org/media/W1siZiIsIjIxNzk3NyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=863c0e47f1050dcc" alt="Artwork 2" class="absolute inset-0 w-full h-full object-cover">
-                                        </div>
-                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Tablet</h4>
-                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Robert Mallary, 1962</p>
-                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
-                                    </div>
-
-                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-sand/40 border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
-                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 03</span>
-                                            <img src="https://cdn.mediatheque.epmoo.fr/link/3c9igq/xlv1bxpq1tglnq8.jpg" alt="Artwork 3" class="absolute inset-0 w-full h-full object-cover">
-                                        </div>
-                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Le Chat blanc</h4>
-                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Pierre Bonnard, 1894</p>
-                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musée d'Orsay</p>
-                                    </div>
-
-                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-receipt border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
-                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed"><br>Artwork 04</span>
-                                            <img src="https://cdn.mediatheque.epmoo.fr/link/3c9igq/amp1butw7sfckcg.jpg" alt="Artwork 4" class="absolute inset-0 w-full h-full object-cover">
-                                        </div>
-                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Les Soleils...</h4>
-                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Gustave Caillebotte, 1885</p>
-                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musée d'Orsay</p>
-                                    </div>
-
-                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
-                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed">Awaiting<br>Artwork 05</span>
-<img src="https://www.moma.org/media/W1siZiIsIjQ5ODY2NSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpg?sha=3a435f6198627846" alt="Artwork 5" class="absolute inset-0 w-full h-full object-cover">
-                                        </div>
-                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">What Color is Farming?</h4>
-                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Nathan I. Felde, 1979</p>
-                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
-                                    </div>
-
-                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-kraft-paper border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
-                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed">Awaiting<br>Artwork 06</span>
-<img src="https://www.moma.org/media/W1siZiIsIjIyMDAzNCJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpg?sha=36c3012a503d8b01" alt="Artwork 5" class="absolute inset-0 w-full h-full object-cover">
-                                        </div>
-
-                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Low Tide Wandering No. 96</h4>
-                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Thomas Schütte, 2001</p>
-                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">MoMA</p>
-                                    </div>
-
-                                    <div class="w-[280px] sm:w-[320px] shrink-0 bg-canvas border-2 border-ink p-5 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                                        <div class="w-full aspect-[4/3] border-2 border-ink/20 border-dashed bg-ink/5 flex items-center justify-center p-2 relative overflow-hidden mb-4 hover:border-solid hover:border-ink transition-all">
-                                            <span class="font-sans text-[8px] text-center uppercase font-bold text-ink/40 tracking-widest leading-relaxed">Awaiting<br>Artwork 09</span>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Claude_Monet%2C_1875%2C_Train_in_the_Snow%2C_oil_on_canvas%2C_59_%C3%97_78_cm%2C_Mus%C3%A9e_Marmottan_Monet.jpg/1280px-Claude_Monet%2C_1875%2C_Train_in_the_Snow%2C_oil_on_canvas%2C_59_%C3%97_78_cm%2C_Mus%C3%A9e_Marmottan_Monet.jpg" alt="Artwork 9" class="absolute inset-0 w-full h-full object-cover">
-                                        </div>
-                                        <h4 class="font-bold font-serif text-2xl text-ink leading-tight mb-1">Le train dans la neige</h4>
-                                        <p class="font-sans text-xs text-ink/70 mb-4 flex-1">Claude Monete, 1875</p>
-                                        <p class="font-sans text-[10px] uppercase tracking-widest text-stamp font-bold border-t border-ink/20 pt-3 mt-auto">Musee Marmottan Monet</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="md:col-span-2 bg-kraft-paper border-2 border-ink p-6 md:p-10 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.15)] relative transform rotate-[0.35deg] transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-[0.5rem_1rem_1.5rem_rgba(0,0,0,0.2)] group reveal-up" style="transition-delay: 0.3s;">
-                        <div class="absolute -top-3 right-16 w-20 h-6 bg-white/50 border border-black/10 backdrop-blur-md -rotate-2 shadow-sm transition-transform duration-500 group-hover:-translate-y-1"></div>
-
-                        <div class="font-sans text-[10px] uppercase font-bold border-b border-ink/30 pb-2 mb-6 flex justify-between text-ink/70">
-                            <span>Creative Proof Archive</span>
-                            <span>FILE 04</span>
-                        </div>
-
-                        <div class="flex flex-col lg:flex-row gap-8 items-start mb-8">
-                            <div class="flex-1">
-                                <h2 class="font-serif text-3xl md:text-5xl leading-tight mb-4">
-                                    Graphic <span class="italic text-slate">Designs.</span>
-                                </h2>
-                                <p class="font-sans text-sm text-ink/80 leading-relaxed max-w-2xl">
-                                    A small sheet for visual experiments, layouts, and campaign graphics. Select a proof below to bring it onto the review table.
-                                </p>
-                            </div>
-
-                            <div class="font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50 border border-ink/20 bg-canvas/50 px-4 py-3 shrink-0">
-                                04 Open Proof Slots
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_15rem] gap-6 lg:gap-8 items-stretch">
-                            <div class="bg-receipt border-2 border-ink p-4 md:p-6 shadow-[0.25rem_0.5rem_1rem_rgba(0,0,0,0.16)] relative min-h-[28rem] flex flex-col">
-                                <div class="flex items-center justify-between gap-4 border-b border-ink/20 pb-3 mb-4 font-sans text-[10px] uppercase font-bold tracking-widest text-ink/50">
-                                    <span id="design-proof-label">Proof 01 / 04</span>
-                                    <span>Selected for Review</span>
-                                </div>
-
-                                <div class="relative flex-1 min-h-[20rem] border-2 border-dashed border-ink/25 bg-canvas/60 overflow-hidden flex items-center justify-center">
-                                    <img id="design-preview-image" src="" alt="Selected graphic design" class="hidden absolute inset-0 w-full h-full object-contain bg-canvas p-3">
-                                    <div id="design-preview-placeholder" class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                                        <div id="design-preview-number" class="font-sans text-7xl md:text-9xl font-bold tracking-tighter text-ink/10 mb-2">01</div>
-                                        <div id="design-preview-empty" class="font-sans text-[10px] uppercase font-bold tracking-[0.2em] text-ink/45">Awaiting Graphic Design</div>
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pt-5">
-                                    <div>
-                                        <h3 id="design-preview-title" class="font-serif text-2xl md:text-3xl leading-tight">Design 01</h3>
-                                        <p id="design-preview-meta" class="font-sans text-xs text-ink/60 mt-1">Graphic Design / Placeholder</p>
-                                    </div>
-                                    <div class="flex gap-2 shrink-0">
-                                        <button id="design-prev" type="button" class="border-2 border-ink bg-canvas text-ink font-sans text-xs font-bold uppercase px-4 py-2 hover:bg-ink hover:text-canvas transition-colors" aria-label="Previous graphic design">← Prev</button>
-                                        <button id="design-next" type="button" class="border-2 border-ink bg-ink text-canvas font-sans text-xs font-bold uppercase px-4 py-2 hover:bg-canvas hover:text-ink transition-colors" aria-label="Next graphic design">Next →</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-2 lg:grid-cols-1 gap-3" id="design-proof-list">
-                                <button type="button" class="design-proof border-2 border-ink bg-ink text-canvas p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="0" data-title="Design 01" data-meta="Graphic Design / Placeholder" data-image="">
-                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 01</span>
-                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">01</span>
-                                </button>
-                                <button type="button" class="design-proof border-2 border-ink bg-canvas/60 text-ink p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="1" data-title="Design 02" data-meta="Graphic Design / Placeholder" data-image="">
-                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 02</span>
-                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">02</span>
-                                </button>
-                                <button type="button" class="design-proof border-2 border-ink bg-canvas/60 text-ink p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="2" data-title="Design 03" data-meta="Graphic Design / Placeholder" data-image="">
-                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 03</span>
-                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">03</span>
-                                </button>
-                                <button type="button" class="design-proof border-2 border-ink bg-canvas/60 text-ink p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0.2rem_0.35rem_0_rgba(0,0,0,1)]" data-design-index="3" data-title="Design 04" data-meta="Graphic Design / Placeholder" data-image="">
-                                    <span class="block font-sans text-[9px] uppercase font-bold tracking-widest opacity-60 mb-2">Proof 04</span>
-                                    <span class="block aspect-[4/3] border border-current/30 border-dashed flex items-center justify-center font-sans text-3xl font-bold opacity-40">04</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <footer id="contact" class="border-t-2 border-ink p-6 md:p-12 relative z-10 bg-lavender/20">
-                <div class="reveal-up flex flex-wrap justify-between items-start md:items-end gap-8">
-                    <div class="flex-1 min-w-[16rem] max-w-full">
-                        <div class="font-sans text-xs font-bold uppercase border-b-2 border-ink inline-block pb-1 mb-4">
-                            End of Document / Contact
-                        </div>
-                        <h2 class="text-4xl md:text-6xl tracking-tighter mb-4 break-words">
+</div>
+</section>
+<footer class="border-t-2 border-ink p-6 md:p-12 relative z-10 bg-lavender/20 site-footer" id="contact">
+<div class="reveal-up flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+<div class="contact-copy">
+<h2 class="text-4xl md:text-6xl tracking-tighter mb-4">
                             Let's <span class="italic text-mauve">Connect.</span>
-                        </h2>
-                        <p class="font-sans text-xs max-w-sm mb-6 font-bold leading-relaxed">
+</h2>
+<p class="font-sans text-xs max-w-sm mb-6 font-bold leading-relaxed">
                             Open to internships, coffee chats, and advisory opportunities where technical accounting meets strategic growth.
                         </p>
-
-                        <div class="flex flex-wrap gap-4">
-                            <a href="mailto:htv346@eid.utexas.edu" class="inline-flex items-center gap-2 bg-ink text-canvas font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-canvas hover:text-ink transition-colors shadow-hard-hover">
-                                <span class="w-2 h-2 rounded-full bg-canvas border border-ink"></span> htv346@utexas.edu
-                            </a>
-                            <a href="https://www.linkedin.com/in/henryvout/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-canvas text-ink font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-ink hover:text-canvas transition-colors shadow-hard-hover group">
-                                <span class="w-2 h-2 rounded-full bg-ink border border-canvas group-hover:bg-canvas group-hover:border-ink transition-colors"></span> LinkedIn
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="w-full sm:w-auto border-2 border-ink p-4 bg-canvas/80 text-center relative mt-8 md:mt-0 flex-shrink-0">
-                        <div class="font-sans text-[0.625rem] uppercase font-bold mb-2 tracking-widest">Official Verification</div>
-                        <div class="w-32 h-32 mx-auto border-4 border-stamp rounded-full flex flex-col items-center justify-center rotate-[-15deg] opacity-80 text-stamp mix-blend-multiply">
-                            <span class="font-serif italic text-2xl leading-none">Valid</span>
-                            <span class="font-sans text-[0.5rem] uppercase mt-1">2026-2029</span>
-                        </div>
-                        
-                        <div class="absolute inset-0 flex items-center justify-center font-hand text-5xl text-ink z-10 pointer-events-none rotate-[-5deg] pb-4">
-                            Approved
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </main>
-    </div>
-
-    <script>
+<div class="flex flex-wrap gap-4 contact-actions">
+<a class="inline-flex items-center gap-2 bg-ink text-canvas font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-canvas hover:text-ink transition-colors shadow-hard-hover" href="mailto:htv346@eid.utexas.edu">
+<span class="w-2 h-2 rounded-full bg-canvas border border-ink"></span><span>htv346@utexas.edu</span></a>
+<a class="inline-flex items-center gap-2 bg-canvas text-ink font-sans text-sm font-bold uppercase px-6 py-3 border-2 border-ink hover:bg-ink hover:text-canvas transition-colors shadow-hard-hover group" href="https://linkedin.com/in/HenryVoUT" rel="noopener noreferrer" target="_blank">
+<span class="w-2 h-2 rounded-full bg-ink border border-canvas group-hover:bg-canvas group-hover:border-ink transition-colors"></span><span>LinkedIn</span></a>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
            
             const dateElement = document.getElementById('current-date');
@@ -491,175 +1990,112 @@
                                       today.getFullYear();
                 dateElement.textContent = formattedDate;
             }
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
+            const revealElements = document.querySelectorAll('.reveal-up');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if ('IntersectionObserver' in window && !reducedMotion.matches) {
+                document.documentElement.classList.add('js-reveal');
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.02 });
+                revealElements.forEach(element => observer.observe(element));
+                reducedMotion.addEventListener('change', event => {
+                    if (event.matches) {
+                        observer.disconnect();
+                        revealElements.forEach(element => element.classList.add('active'));
                     }
                 });
-            }, observerOptions);
-
-            const revealElements = document.querySelectorAll('.reveal-up');
-            revealElements.forEach(el => observer.observe(el));
-
-            const designProofs = Array.from(document.querySelectorAll('.design-proof'));
-            const designImage = document.getElementById('design-preview-image');
-            const designPlaceholder = document.getElementById('design-preview-placeholder');
-            const designNumber = document.getElementById('design-preview-number');
-            const designTitle = document.getElementById('design-preview-title');
-            const designMeta = document.getElementById('design-preview-meta');
-            const designLabel = document.getElementById('design-proof-label');
-            const designPrev = document.getElementById('design-prev');
-            const designNext = document.getElementById('design-next');
-            let activeDesign = 0;
-
-            function showDesign(index) {
-                if (!designProofs.length) return;
-                activeDesign = (index + designProofs.length) % designProofs.length;
-                const proof = designProofs[activeDesign];
-                const imageSrc = proof.dataset.image.trim();
-                const displayNumber = String(activeDesign + 1).padStart(2, '0');
-
-                designNumber.textContent = displayNumber;
-                designTitle.textContent = proof.dataset.title;
-                designMeta.textContent = proof.dataset.meta;
-                designLabel.textContent = `Proof ${displayNumber} / ${String(designProofs.length).padStart(2, '0')}`;
-
-                if (imageSrc) {
-                    designImage.src = imageSrc;
-                    designImage.alt = proof.dataset.title;
-                    designImage.classList.remove('hidden');
-                    designPlaceholder.classList.add('hidden');
-                } else {
-                    designImage.removeAttribute('src');
-                    designImage.classList.add('hidden');
-                    designPlaceholder.classList.remove('hidden');
-                }
-
-                designProofs.forEach((button, buttonIndex) => {
-                    const isActive = buttonIndex === activeDesign;
-                    button.classList.toggle('bg-ink', isActive);
-                    button.classList.toggle('text-canvas', isActive);
-                    button.classList.toggle('bg-canvas/60', !isActive);
-                    button.classList.toggle('text-ink', !isActive);
-                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-                });
+            } else {
+                revealElements.forEach(element => element.classList.add('active'));
             }
 
-            designProofs.forEach((proof, index) => {
-                proof.addEventListener('click', () => showDesign(index));
+
+
+
+            document.querySelectorAll('.carousel-track').forEach(track => {
+                const group = track.children[0];
+                if (!group) return;
+                if (track.children.length === 1) {
+                    const clone = group.cloneNode(true);
+                    clone.setAttribute('aria-hidden', 'true');
+                    clone.setAttribute('inert', '');
+                    track.appendChild(clone);
+                }
+                const viewport = track.parentElement;
+                viewport.classList.add('carousel-window');
+                let width = 1, x = 0, velocity = 0, pointer = null, lastX = 0, lastTime = 0;
+                let hovering = false, focused = false, visible = true, previousFrame = 0;
+                const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+                const speed = Math.abs(parseFloat(track.dataset.autoSpeed || '0.45')) * 60;
+                function measure() { width = Math.max(group.getBoundingClientRect().width, 1); }
+                function wrap() { x = -(((-x % width) + width) % width); }
+                function draw() { wrap(); track.style.transform = `translate3d(${x}px,0,0)`; }
+                function finish() {
+                    const id = pointer;
+                    pointer = null;
+                    track.classList.remove('cursor-grabbing');
+                    track.classList.add('cursor-grab');
+                    if (id !== null && viewport.hasPointerCapture(id)) viewport.releasePointerCapture(id);
+                    if (reduced.matches) velocity = 0;
+                }
+                measure();
+                if ('ResizeObserver' in window) new ResizeObserver(measure).observe(group);
+                else window.addEventListener('resize', measure);
+                if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
+                    visible = entries[0].isIntersecting;
+                }).observe(viewport);
+                function frame(time) {
+                    const dt = Math.min((time - (previousFrame || time)) / 1000, .035);
+                    previousFrame = time;
+                    if (visible && !document.hidden && pointer === null && !reduced.matches) {
+                        velocity *= Math.exp(-8 * dt);
+                        if (Math.abs(velocity) < 3) velocity = 0;
+                        x += (velocity || (hovering || focused ? 0 : -speed)) * dt;
+                        draw();
+                    }
+                    requestAnimationFrame(frame);
+                }
+                requestAnimationFrame(frame);
+                viewport.addEventListener('pointerdown', event => {
+                    if (!event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
+                    if (event.target.closest('a,button,input')) return;
+                    pointer = event.pointerId; lastX = event.clientX; lastTime = performance.now(); velocity = 0;
+                    viewport.setPointerCapture(pointer);
+                    track.classList.replace('cursor-grab', 'cursor-grabbing');
+                });
+                viewport.addEventListener('pointermove', event => {
+                    if (event.pointerId !== pointer) return;
+                    const time = performance.now();
+                    const dt = Math.max((time-lastTime)/1000, .008);
+                    const dx = event.clientX-lastX;
+                    x += dx;
+                    velocity = .65 * velocity + .35 * Math.max(-360, Math.min(360, dx/dt));
+                    lastX = event.clientX; lastTime = time; draw();
+                });
+                ['pointerup','pointercancel','lostpointercapture'].forEach(type => viewport.addEventListener(type, finish));
+                viewport.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hovering = true; });
+                viewport.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') hovering = false; });
+                viewport.addEventListener('focusin', () => { focused = true; });
+                viewport.addEventListener('focusout', event => { focused = viewport.contains(event.relatedTarget); });
+                viewport.addEventListener('dragstart', event => event.preventDefault());
+                viewport.setAttribute('tabindex', '0');
+                viewport.setAttribute('role', 'region');
+                viewport.setAttribute('aria-label', 'Scrollable gallery. Use the left and right arrow keys to browse.');
+                viewport.addEventListener('keydown', event => {
+                    if (!['ArrowLeft','ArrowRight'].includes(event.key)) return;
+                    event.preventDefault(); velocity = 0;
+                    const distance = Math.min(viewport.clientWidth * .75, 350);
+                    x += event.key === 'ArrowLeft' ? distance : -distance; draw();
+                });
+                window.addEventListener('blur', () => { finish(); velocity = 0; });
+                document.addEventListener('visibilitychange', () => { if (document.hidden) { finish(); velocity=0; } });
             });
 
-            if (designPrev) designPrev.addEventListener('click', () => showDesign(activeDesign - 1));
-            if (designNext) designNext.addEventListener('click', () => showDesign(activeDesign + 1));
-            showDesign(0);
-
-            const track = document.querySelector('.carousel-track');
-            if (track) {
-                const group1 = track.children[0];
-               
-                const clone = group1.cloneNode(true);
-                clone.setAttribute('aria-hidden', 'true');
-                track.appendChild(clone);
-
-                let isDown = false;
-                let startX;
-                let currentX = 0;
-                let initialX = 0;
-                let isHovered = false;
-               
-                let previousX = 0;
-                let velocity = 0;
-
-                let maxScroll = group1.getBoundingClientRect().width;
-                window.addEventListener('resize', () => {
-                    maxScroll = group1.getBoundingClientRect().width;
-                });
-
-                function loop() {
-                    if (isDown) {
-                        velocity = currentX - previousX;
-                        previousX = currentX;
-                    } else {
-                        velocity *= 0.95;
-                        if (velocity > -0.5 && velocity < 0.5) {
-                            velocity = isHovered ? 0 : -0.5;
-                        }
-                        currentX += velocity;
-                        previousX = currentX;
-                    }
-                   
-                    if (currentX <= -maxScroll) {
-                        currentX += maxScroll;
-                        previousX += maxScroll;
-                    } else if (currentX > 0) {
-                        currentX -= maxScroll;
-                        previousX -= maxScroll;
-                    }
-                   
-                    track.style.transform = `translateX(${currentX}px)`;
-                    requestAnimationFrame(loop);
-                }
-                requestAnimationFrame(loop);
-
-                track.addEventListener('mousedown', (e) => {
-                    isDown = true;
-                    track.classList.remove('cursor-grab');
-                    track.classList.add('cursor-grabbing');
-                    startX = e.pageX;
-                    initialX = currentX;
-                });
-
-                window.addEventListener('mouseup', () => {
-                    if(isDown) {
-                        isDown = false;
-                        track.classList.remove('cursor-grabbing');
-                        track.classList.add('cursor-grab');
-                    }
-                });
-
-                window.addEventListener('mousemove', (e) => {
-                    if (!isDown) return;
-                    e.preventDefault();
-                    const walk = (e.pageX - startX) * 1.5;
-                    currentX = initialX + walk;
-                });
-
-                track.addEventListener('mouseenter', () => { isHovered = true; });
-                track.addEventListener('mouseleave', () => {
-                    isHovered = false;
-                    if(isDown) {
-                        isDown = false;
-                        track.classList.remove('cursor-grabbing');
-                        track.classList.add('cursor-grab');
-                    }
-                });
-
-                track.addEventListener('touchstart', (e) => {
-                    isDown = true;
-                    startX = e.touches[0].pageX;
-                    initialX = currentX;
-                }, {passive: true});
-
-                window.addEventListener('touchend', () => {
-                    isDown = false;
-                });
-
-                window.addEventListener('touchmove', (e) => {
-                    if (!isDown) return;
-                    const walk = (e.touches[0].pageX - startX) * 1.5;
-                    currentX = initialX + walk;
-                }, {passive: true});
-            }
         });
-    </script>
+</script>
 </body>
 </html>
